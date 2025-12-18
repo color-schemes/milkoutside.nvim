@@ -36,7 +36,7 @@ function M.get(c, opts)
     LineNrBelow                 = { fg = c.fg_gutter },
     MatchParen                  = { fg = c.orange, bold = true }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg                     = { fg = c.fg_dark, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
-    MsgArea                     = { fg = c.red }, -- Area for messages and cmdline
+    MsgArea                     = { fg = c.red1 }, -- Area for messages and cmdline
     MoreMsg                     = { fg = c.blue }, -- |more-prompt|
     NonText                     = { fg = c.dark3 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal                      = { fg = c.fg, bg = opts.transparent and c.none or c.bg }, -- normal text
@@ -53,8 +53,8 @@ function M.get(c, opts)
     PmenuThumb                  = { bg = c.fg_gutter }, -- Popup menu: Thumb of the scrollbar.
     Question                    = { fg = c.blue }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine                = { bg = c.bg_visual, bold = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search                      = { bg = c.bg_search, fg = c.fg, underline = true, sp = c.red }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    IncSearch                   = { bg = c.orange, fg = c.black, underline = true, sp = c.red }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Search                      = { bg = c.bg_search, fg = c.fg, underline = true, sp = c.red1 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    IncSearch                   = { bg = c.orange, fg = c.black, underline = true, sp = c.red1 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch                   =  "IncSearch",
     SpecialKey                  = { fg = c.dark3 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad                    = { sp = c.error, undercurl = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.

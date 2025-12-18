@@ -49,7 +49,7 @@ function M.setup(opts)
   palette.info = palette.blue2
   palette.hint = palette.teal
   palette.border = palette.dark3
-  palette.border_highlight = palette.red
+  palette.border_highlight = palette.red1
   
   -- Add missing UI colors
   palette.bg_popup = palette.bg_dark
