@@ -51,7 +51,7 @@ local ret = {
 
   -- Red colors
   red = "#fda1a0", -- Light red
-  red1 = "#FDA2A1", -- Darker red
+  red1 = "#e45555", -- Darker red
 
   -- Teal
   teal = "#1abc9c", -- Teal color
