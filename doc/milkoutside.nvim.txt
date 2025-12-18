@@ -32,7 +32,7 @@ FEATURES                                *milkoutside.nvim-tokyo-night-features*
     0.9.0 <https://github.com/neovim/neovim/releases/tag/v0.9.0> features.
 - Terminal colors.
 - Supports all major plugins.
-- Provides TokyoNight <https://github.com/folke/milkoutside.nvim>
+- Provides TokyoNight <https://github.com/color-schemes/milkoutside.nvim>
     |milkoutside.nvim-extras| for numerous other applications.
 
 Supported Plugins ~
@@ -278,12 +278,12 @@ REQUIREMENTS                        *milkoutside.nvim-tokyo-night-requirements*
 
 INSTALLATION                        *milkoutside.nvim-tokyo-night-installation*
 
-Install the theme with your preferred package manager, such as folke/lazy.nvim
-<https://github.com/folke/lazy.nvim>:
+Install the theme with your preferred package manager, such as color-schemes/lazy.nvim
+<https://github.com/color-schemes/lazy.nvim>:
 
 >lua
     {
-      "folke/milkoutside.nvim",
+      "color-schemes/milkoutside.nvim",
       lazy = false,
       priority = 1000,
       opts = {},
@@ -357,7 +357,7 @@ The theme offers four styles: |milkoutside.nvim-storm|, |milkoutside.nvim-moon|,
 The |milkoutside.nvim-day| style is used when `{ style = "day" }` is passed to
 `setup(options)` or when `vim.o.background = "light"`.
 
-TokyoNight <https://github.com/folke/milkoutside.nvim> uses the default options,
+TokyoNight <https://github.com/color-schemes/milkoutside.nvim> uses the default options,
 unless `setup` is explicitly called.
 
 Default Options ~
@@ -409,7 +409,7 @@ Default Options ~
         auto = true,
         -- add any plugins here that you want to enable
         -- for all possible plugins, see:
-        --   * https://github.com/folke/milkoutside.nvim/tree/main/lua/milkoutside/groups
+        --   * https://github.com/color-schemes/milkoutside.nvim/tree/main/lua/milkoutside/groups
         -- telescope = true,
       },
     }

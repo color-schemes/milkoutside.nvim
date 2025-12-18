@@ -1,7 +1,7 @@
 assistant-output-color: "#c0caf5"
 
 # see the aider extra README for more information about setting the `code-theme`
-# https://github.com/folke/milkoutside.nvim/blob/extras/aider/README.md
+# https://github.com/color-schemes/milkoutside.nvim/blob/extras/aider/README.md
 # code-theme: milkoutside
 
 completion-menu-color: "#c0caf5"

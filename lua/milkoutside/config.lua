@@ -34,7 +34,7 @@ M.defaults = {
   ---@param colors ColorScheme
   on_highlights = function(highlights, colors) end,
 
-  cache = false, -- When set to true, the theme will be cached for better performance
+  cache = true, -- When set to true, the theme will be cached for better performance
 
   ---@type table<string, boolean|{enabled:boolean}>
   plugins = {
@@ -46,7 +46,7 @@ M.defaults = {
     auto = true,
     -- add any plugins here that you want to enable
     -- for all possible plugins, see:
-    --   * https://github.com/folke/milkoutside.nvim/tree/main/lua/milkoutside/groups
+    --   * https://github.com/color-schemes/milkoutside.nvim/tree/main/lua/milkoutside/groups
     -- telescope = true,
   },
 }

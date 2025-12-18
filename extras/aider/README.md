@@ -22,7 +22,7 @@ aider-install uses the [uv](https://astral.sh/uv) Python package and project man
 To install additional dependencies using `uv tool`, there is `--with` CLI option:
 
 ```bash
-uv tool install --force --python python3.12 aider-chat@latest --with git+https://github.com/folke/milkoutside.nvim.git@main#subdirectory=extras/pygments
+uv tool install --force --python python3.12 aider-chat@latest --with git+https://github.com/color-schemes/milkoutside.nvim.git@main#subdirectory=extras/pygments
 ```
 
 For more information about `uv tool`, see the [uv documentation](https://docs.astral.sh/uv/concepts/tools/).

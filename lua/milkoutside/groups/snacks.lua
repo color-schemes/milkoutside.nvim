@@ -2,7 +2,7 @@ local Util = require("milkoutside.util")
 
 local M = {}
 
-M.url = "https://github.com/folke/snacks.nvim"
+M.url = "https://github.com/color-schemes/snacks.nvim"
 
 ---@type milkoutside.HighlightsFn
 function M.get(c, opts)

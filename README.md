@@ -34,7 +34,7 @@ A dark [Neovim](https://github.com/neovim/neovim) theme written in
 | [copilot.lua](https://github.com/zbirenbaum/copilot.lua) | [`copilot`](lua/milkoutside/groups/copilot.lua) |
 | [nvim-dap](https://github.com/mfussenegger/nvim-dap) | [`dap`](lua/milkoutside/groups/dap.lua) |
 | [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) | [`dashboard`](lua/milkoutside/groups/dashboard.lua) |
-| [flash.nvim](https://github.com/folke/flash.nvim) | [`flash`](lua/milkoutside/groups/flash.lua) |
+| [flash.nvim](https://github.com/color-schemes/flash.nvim) | [`flash`](lua/milkoutside/groups/flash.lua) |
 | [fzf-lua](https://github.com/ibhagwan/fzf-lua) | [`fzf`](lua/milkoutside/groups/fzf.lua) |
 | [vim-gitgutter](https://github.com/airblade/vim-gitgutter) | [`gitgutter`](lua/milkoutside/groups/gitgutter.lua) |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | [`gitsigns`](lua/milkoutside/groups/gitsigns.lua) |
@@ -45,7 +45,7 @@ A dark [Neovim](https://github.com/neovim/neovim) theme written in
 | [vim-illuminate](https://github.com/RRethy/vim-illuminate) | [`illuminate`](lua/milkoutside/groups/illuminate.lua) |
 | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | [`indent-blankline`](lua/milkoutside/groups/indent-blankline.lua) |
 | [indentmini.nvim](https://github.com/nvimdev/indentmini.nvim) | [`indentmini`](lua/milkoutside/groups/indentmini.lua) |
-| [lazy.nvim](https://github.com/folke/lazy.nvim) | [`lazy`](lua/milkoutside/groups/lazy.lua) |
+| [lazy.nvim](https://github.com/color-schemes/lazy.nvim) | [`lazy`](lua/milkoutside/groups/lazy.lua) |
 | [leap.nvim](https://github.com/ggandor/leap.nvim) | [`leap`](lua/milkoutside/groups/leap.lua) |
 | [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) | [`lspsaga`](lua/milkoutside/groups/lspsaga.lua) |
 | [mini.animate](https://github.com/echasnovski/mini.animate) | [`mini_animate`](lua/milkoutside/groups/mini_animate.lua) |
@@ -73,22 +73,22 @@ A dark [Neovim](https://github.com/neovim/neovim) theme written in
 | [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) | [`neo-tree`](lua/milkoutside/groups/neo-tree.lua) |
 | [neogit](https://github.com/TimUntersberger/neogit) | [`neogit`](lua/milkoutside/groups/neogit.lua) |
 | [neotest](https://github.com/nvim-neotest/neotest) | [`neotest`](lua/milkoutside/groups/neotest.lua) |
-| [noice.nvim](https://github.com/folke/noice.nvim) | [`noice`](lua/milkoutside/groups/noice.lua) |
+| [noice.nvim](https://github.com/color-schemes/noice.nvim) | [`noice`](lua/milkoutside/groups/noice.lua) |
 | [nvim-notify](https://github.com/rcarriga/nvim-notify) | [`notify`](lua/milkoutside/groups/notify.lua) |
 | [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) | [`nvim-tree`](lua/milkoutside/groups/nvim-tree.lua) |
 | [octo.nvim](https://github.com/pwntester/octo.nvim) | [`octo`](lua/milkoutside/groups/octo.lua) |
 | [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim) | [`rainbow`](lua/milkoutside/groups/rainbow.lua) |
 | [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | [`render-markdown`](lua/milkoutside/groups/render-markdown.lua) |
 | [nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar) | [`scrollbar`](lua/milkoutside/groups/scrollbar.lua) |
-| [sidekick.nvim](https://github.com/folke/sidekick.nvim) | [`sidekick`](lua/milkoutside/groups/sidekick.lua) |
-| [snacks.nvim](https://github.com/folke/snacks.nvim) | [`snacks`](lua/milkoutside/groups/snacks.lua) |
+| [sidekick.nvim](https://github.com/color-schemes/sidekick.nvim) | [`sidekick`](lua/milkoutside/groups/sidekick.lua) |
+| [snacks.nvim](https://github.com/color-schemes/snacks.nvim) | [`snacks`](lua/milkoutside/groups/snacks.lua) |
 | [vim-sneak](https://github.com/justinmk/vim-sneak) | [`sneak`](lua/milkoutside/groups/sneak.lua) |
 | [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim) | [`supermaven`](lua/milkoutside/groups/supermaven.lua) |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | [`telescope`](lua/milkoutside/groups/telescope.lua) |
 | [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) | [`treesitter-context`](lua/milkoutside/groups/treesitter-context.lua) |
-| [trouble.nvim](https://github.com/folke/trouble.nvim) | [`trouble`](lua/milkoutside/groups/trouble.lua) |
+| [trouble.nvim](https://github.com/color-schemes/trouble.nvim) | [`trouble`](lua/milkoutside/groups/trouble.lua) |
 | [vimwiki](https://github.com/vimwiki/vimwiki) | [`vimwiki`](lua/milkoutside/groups/vimwiki.lua) |
-| [which-key.nvim](https://github.com/folke/which-key.nvim) | [`which-key`](lua/milkoutside/groups/which-key.lua) |
+| [which-key.nvim](https://github.com/color-schemes/which-key.nvim) | [`which-key`](lua/milkoutside/groups/which-key.lua) |
 | [yanky.nvim](https://github.com/gbprod/yanky.nvim) | [`yanky`](lua/milkoutside/groups/yanky.lua) |
 
 <!-- plugins:end -->
@@ -160,7 +160,7 @@ A dark [Neovim](https://github.com/neovim/neovim) theme written in
 ## 📦 Installation
 
 Install the theme with your preferred package manager, such as
-[folke/lazy.nvim](https://github.com/folke/lazy.nvim):
+[color-schemes/lazy.nvim](https://github.com/color-schemes/lazy.nvim):
 
 ```lua
 {

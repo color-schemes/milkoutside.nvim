@@ -55,7 +55,7 @@ function M.generate(colors)
    "simpleScrollbar": true,
    "transparencyTabBar": false,
    "transparencyTabs": false,
-   "url": "https://github.com/folke/milkoutside.nvim",
+   "url": "https://github.com/color-schemes/milkoutside.nvim",
    "version": 1
 }]],
     colors

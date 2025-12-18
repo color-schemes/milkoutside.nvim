@@ -1,6 +1,6 @@
 local M = {}
 
-M.url = "https://github.com/folke/flash.nvim"
+M.url = "https://github.com/color-schemes/flash.nvim"
 
 ---@type milkoutside.HighlightsFn
 function M.get(c, opts)

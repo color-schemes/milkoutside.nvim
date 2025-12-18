@@ -14,5 +14,5 @@ permissions:
 
 jobs:
   pr-title:
-    uses: folke/github/.github/workflows/pr.yml@main
+    uses: color-schemes/github/.github/workflows/pr.yml@main
     secrets: inherit

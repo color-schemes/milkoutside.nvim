@@ -3,7 +3,7 @@
 Clone the repo somewhere.
 
 ```sh
-git clone https://github.com/folke/milkoutside.nvim ~/projects/milkoutside.nvim
+git clone https://github.com/color-schemes/milkoutside.nvim ~/projects/milkoutside.nvim
 ```
 
 Add the below to your `~/.vimrc` file.

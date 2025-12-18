@@ -8,6 +8,6 @@ on:
 
 jobs:
   update:
-    if: contains(fromJSON('["folke", "LazyVim"]'), github.repository_owner)
-    uses: folke/github/.github/workflows/update.yml@main
+    if: contains(fromJSON('["color-schemes", "LazyVim"]'), github.repository_owner)
+    uses: color-schemes/github/.github/workflows/update.yml@main
     secrets: inherit

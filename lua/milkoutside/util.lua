@@ -3,7 +3,6 @@ local M = {}
 M.bg = "#000000"
 M.fg = "#ffffff"
 
-
 local uv = vim.uv or vim.loop
 
 ---@param c  string
@@ -15,6 +14,7 @@ end
 local me = debug.getinfo(1, "S").source:sub(2)
 me = vim.fn.fnamemodify(me, ":h:h")
 
+---@param modname string
 function M.mod(modname)
   if package.loaded[modname] then
     return package.loaded[modname]
@@ -40,99 +40,68 @@ function M.blend(foreground, alpha, background)
   return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
-function M.blend_bg(hex, amount, bg)
-  return M.blend(hex, amount, bg or M.bg)
+---@param hex string
+local function invert(hex)
+  local r = tonumber(hex:sub(2, 3), 16)
+  local g = tonumber(hex:sub(4, 5), 16)
+  local b = tonumber(hex:sub(6, 7), 16)
+  return string.format("#%02x%02x%02x", 255 - r, 255 - g, 255 - b)
 end
-M.darken = M.blend_bg
 
-function M.blend_fg(hex, amount, fg)
-  return M.blend(hex, amount, fg or M.fg)
-end
-M.lighten = M.blend_fg
-
----@param color string|Palette
 function M.invert(color)
-  if type(color) == "table" then
-    for key, value in pairs(color) do
-      color[key] = M.invert(value)
-    end
-  elseif type(color) == "string" then
-    local hsluv = require("milkoutside.hsluv")
-    if color ~= "NONE" then
-      local hsl = hsluv.hex_to_hsluv(color)
-      hsl[3] = 100 - hsl[3]
-      if hsl[3] < 40 then
-        hsl[3] = hsl[3] + (100 - hsl[3]) * 0.3
-      end
-      return hsluv.hsluv_to_hex(hsl)
-    end
+  return string.format("#%06x", tonumber(color, 16) ~ 0xffffff)
+end
+
+function M.brighten(color, amount)
+  color = string.sub(color, 2)
+  local hsl = require("milkoutside.hsluv").rgb_to_hsl(color)
+  hsl[3] = hsl[3] + amount
+  if hsl[3] > 1 then
+    hsl[3] = 1
   end
-  return color
+  return require("milkoutside.hsluv").hsl_to_rgb(hsl)
 end
 
----@param color string  -- The hex color string to be adjusted
----@param lightness_amount number? -- The amount to increase lightness by (optional, default: 0.1)
----@param saturation_amount number? -- The amount to increase saturation by (optional, default: 0.15)
-function M.brighten(color, lightness_amount, saturation_amount)
-  lightness_amount = lightness_amount or 0.05
-  saturation_amount = saturation_amount or 0.2
-  local hsluv = require("milkoutside.hsluv")
-
-  -- Convert the hex color to HSLuv
-  local hsl = hsluv.hex_to_hsluv(color)
-
-  -- Increase lightness slightly
-  hsl[3] = math.min(hsl[3] + (lightness_amount * 100), 100)
-
-  -- Increase saturation a bit more to make the color more vivid
-  hsl[2] = math.min(hsl[2] + (saturation_amount * 100), 100)
-
-  -- Convert the HSLuv back to hex and return
-  return hsluv.hsluv_to_hex(hsl)
+function M.darken(color, amount)
+  color = string.sub(color, 2)
+  local hsl = require("milkoutside.hsluv").rgb_to_hsl(color)
+  hsl[3] = hsl[3] - amount
+  if hsl[3] < 0 then
+    hsl[3] = 0
+  end
+  return require("milkoutside.hsluv").hsl_to_rgb(hsl)
 end
 
----@param groups milkoutside.Highlights
----@return table<string, vim.api.keyset.highlight>
+---@param groups table
 function M.resolve(groups)
-  for _, hl in pairs(groups) do
-    if type(hl.style) == "table" then
-      for k, v in pairs(hl.style) do
-        hl[k] = v
-      end
-      hl.style = nil
+  for name, hl in pairs(groups) do
+    for k, v in pairs(hl) do
+      hl[k] = type(v) == "string" and resolve(v) or v
     end
   end
   return groups
 end
 
--- Simple string interpolation.
---
--- Example template: "${name} is ${value}"
---
----@param str string template string
----@param table table key value pairs to replace in the string
-function M.template(str, table)
-  return (
-    str:gsub("($%b{})", function(w)
-      return vim.tbl_get(table, unpack(vim.split(w:sub(3, -2), ".", { plain = true }))) or w
-    end)
-  )
+---@param str string
+---@param tbl table
+function M.template(str, tbl)
+  return (str:gsub("($%b+)", function(k)
+    return tbl[k] or k
+  end))
 end
 
 ---@param file string
+---@param contents string
 function M.read(file)
   local fd = assert(io.open(file, "r"))
-  ---@type string
-  local data = fd:read("*a")
-  fd:close()
-  return data
+  return fd:read("*a")
 end
 
 ---@param file string
 ---@param contents string
 function M.write(file, contents)
   vim.fn.mkdir(vim.fn.fnamemodify(file, ":h"), "p")
-  local fd = assert(io.open(file, "w+"))
+  local fd = assert(io.open(file, "w"))
   fd:write(contents)
   fd:close()
 end
@@ -140,31 +109,34 @@ end
 M.cache = {}
 
 function M.cache.file(key)
-  return vim.fn.stdpath("cache") .. "/milkoutside-" .. key .. ".json"
+  return vim.fn.stdpath("cache") .. "/milkoutside.json"
 end
 
----@param key string
-function M.cache.read(key)
-  ---@type boolean, milkoutside.Cache
+function M.cache.read()
   local ok, ret = pcall(function()
-    return vim.json.decode(M.read(M.cache.file(key)), { luanil = {
+    return vim.json.decode(M.read(M.cache.file())), { luanil = {
       object = true,
       array = true,
-    } })
+    } }
   end)
   return ok and ret or nil
 end
 
----@param key string
----@param data milkoutside.Cache
-function M.cache.write(key, data)
-  pcall(M.write, M.cache.file(key), vim.json.encode(data))
+---@param data table
+function M.cache.write(data)
+  local cache_file = M.cache.file()
+  local ok, err = pcall(function()
+    return M.write(cache_file, vim.json.encode(data))
+  end)
+  if not ok then
+    vim.notify("Cache write failed: " .. err, vim.log.levels.WARN)
+  end
 end
 
 function M.cache.clear()
-  local cache_file = M.cache.file("")
+  local cache_file = M.cache.file()
   if vim.fn.filereadable(cache_file) then
-    uv.fs_unlink(cache_file)
+    os.remove(cache_file)
   end
 end
 

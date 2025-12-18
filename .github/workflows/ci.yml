@@ -7,8 +7,8 @@ on:
 
 jobs:
   ci:
-    uses: folke/github/.github/workflows/ci.yml@main
+    uses: color-schemes/github/.github/workflows/ci.yml@main
     secrets: inherit
     with:
       plugin: milkoutside.nvim
-      repo: folke/milkoutside.nvim
+      repo: color-schemes/milkoutside.nvim

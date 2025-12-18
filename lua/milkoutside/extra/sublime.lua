@@ -11,23 +11,7 @@ function M.generate(colors)
   return sublime
 end
 
--- vim.schedule(function()
---   local config = require("milkoutside.config")
---   config.setup({})
---   local colors = require("milkoutside.colors").setup()
---
---   local lookup = {}
---
---   local function process(cc, parent)
---     for k, v in pairs(cc) do
---       if type(v) == "string" then
---         if v:sub(1, 1) == "#" then
---           lookup[v] = (parent and (parent .. ".") or "") .. k
---         end
---       else
---         process(v, (parent and (parent .. ".") or "") .. k)
---       end
---     end
+
 --   end
 --   process(colors)
 --   for c, n in pairs(lookup) do
@@ -43,7 +27,7 @@ M.template = [[
 <plist version="1.0">
 <dict>
 	<key>author</key>
-	<string>Folke Lemaitre (http://github.com/folke)</string>
+	<string>Folke Lemaitre (http://github.com/color-schemes)</string>
 	<key>colorSpaceName</key>
 	<string>sRGB</string>
 	<key>name</key>
