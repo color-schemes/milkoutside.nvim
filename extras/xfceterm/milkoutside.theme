@@ -1,9 +1,9 @@
 [Scheme]
 Name="milkoutside"
-ColorBackground=#24283b
-ColorForeground=#c0caf5
+ColorBackground=#040607
+ColorForeground=#e8e8e8
 
-ColorSelectionBackground=#2e3c64
-ColorSelection=#c0caf5
+ColorSelectionBackground=#394b70
+ColorSelection=#e8e8e8
 
-ColorPalette=#1d202f;#f7768e;#9ece6a;#e0af68;#7aa2f7;#bb9af7;#7dcfff;#a9b1d6;#414868;#f7768e;#9ece6a;#e0af68;#7aa2f7;#bb9af7;#7dcfff;#c0caf5
+ColorPalette=#000000;#fda1a0;#92cf9c;#f8e063;#63c3dd;#e79cfb;#7dcfff;#e0e0e0;#303030;#fda1a0;#92cf9c;#ffad00;#62b9e8;#f93a82;#4fd1e0;#e8e8e8

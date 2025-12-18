@@ -1,19 +1,19 @@
-module.exports =  {
+module.exports = {
   plain: {
-    color: "#c0caf5",
-    backgroundColor: "#24283b",
+    color: "#e8e8e8",
+    backgroundColor: "#040607",
   },
   styles: [
     {
       types: ["prolog", "builtin"],
       style: {
-        color: "#f7768e",
+        color: "#fda1a0",
       },
     },
     {
       types: ["function"],
       style: {
-        color: "#7aa2f7",
+        color: "#63c3dd",
       },
     },
     {

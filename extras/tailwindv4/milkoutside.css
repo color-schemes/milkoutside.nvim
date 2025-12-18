@@ -14,10 +14,10 @@
   --color-milkoutside-storm-blue: oklch(from #63c3dd l c h);
   --color-milkoutside-storm-blue-bright: oklch(from #8db0ff l c h);
   --color-milkoutside-blue0: oklch(from #3d59a1 l c h);
-  --color-milkoutside-storm-blue1: oklch(from #2ac3de l c h);
-  --color-milkoutside-storm-blue2: oklch(from #0db9d7 l c h);
-  --color-milkoutside-storm-blue5: oklch(from #89ddff l c h);
-  --color-milkoutside-storm-blue6: oklch(from #b4f9f8 l c h);
+  --color-milkoutside-storm-blue1: oklch(from #4fd1e0 l c h);
+  --color-milkoutside-storm-blue2: oklch(from #62b9e8 l c h);
+  --color-milkoutside-storm-blue5: oklch(from #a7e3ff l c h);
+  --color-milkoutside-storm-blue6: oklch(from #daffff l c h);
   --color-milkoutside-storm-blue7: oklch(from #394b70 l c h);
   --color-milkoutside-storm-border: var(--color-milkoutside-storm-black);
   --color-milkoutside-storm-border-highlight: oklch(from #29a4bd l c h);

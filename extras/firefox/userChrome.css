@@ -1,0 +1,176 @@
+# Firefox userChrome.css theme for MilkOutside
+# Place this file in: ~/.mozilla/firefox/<profile>/chrome/userChrome.css
+# Make sure toolkit.legacyUserProfileCustomizations.stylesheets is set to true in about:config
+
+:root {
+  /* MilkOutside color palette */
+  --milkoutside-bg: #040607;
+  --milkoutside-bg-dark: #000000;
+  --milkoutside-bg-highlight: #0f0f15;
+  --milkoutside-fg: #e8e8e8;
+  --milkoutside-fg-dark: #e0e0e0;
+  --milkoutside-red: #fda1a0;
+  --milkoutside-red1: #e45555;
+  --milkoutside-green: #92cf9c;
+  --milkoutside-yellow: #f8e063;
+  --milkoutside-blue: #63c3dd;
+  --milkoutside-blue1: #4fd1e0;
+  --milkoutside-blue2: #62b9e8;
+  --milkoutside-magenta: #e79cfb;
+  --milkoutside-purple: #9d7cd8;
+  --milkoutside-cyan: #7dcfff;
+  --milkoutside-orange: #ffad00;
+  --milkoutside-border: #303030;
+  --milkoutside-border-highlight: #e45555;
+}
+
+/* Main browser interface */
+#nav-bar,
+#toolbar-menubar,
+#PersonalToolbar,
+#browser,
+#browser-bottombox,
+#tabbrowser-tabs {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Tabs */
+.tabbrowser-tab {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg-dark) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border-highlight) !important;
+}
+
+.tabbrowser-tab:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
+}
+
+/* URL bar */
+#urlbar,
+#searchbar {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+#urlbar[focused="true"],
+#searchbar[focused="true"] {
+  border-color: var(--milkoutside-border-highlight) !important;
+  box-shadow: 0 0 0 1px var(--milkoutside-border-highlight) !important;
+}
+
+/* Bookmarks and history */
+#bookmarksPanel,
+#historyPanel,
+#sidebar-box {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.tree-item[selected="true"] {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Context menu */
+menupopup,
+menu {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+menuitem:hover,
+menu[_moz-menuactive="true"] {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Buttons */
+toolbarbutton {
+  background-color: transparent !important;
+  color: var(--milkoutside-fg-dark) !important;
+  border-color: transparent !important;
+}
+
+toolbarbutton:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Download manager */
+#downloadsListBox {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.downloadButtonArea {
+  background-color: var(--milkoutside-bg-dark) !important;
+}
+
+/* Find bar */
+.findbar-container {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border-highlight) !important;
+}
+
+.findbar-textbox {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+/* Sidebar */
+sidebarheader {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* DevTools */
+.devtools-toolbar {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+/* Remove window controls */
+.titlebar-buttonbox {
+  display: none !important;
+}
+
+/* Remove hover effects */
+menubar > menu {
+  background-color: transparent !important;
+}
+
+menubar > menu[_moz-menuactive="true"] {
+  background-color: var(--milkoutside-bg-highlight) !important;
+}
+
+/* Scrollbar */
+scrollbar {
+  background-color: var(--milkoutside-bg) !important;
+}
+
+scrollbar thumb {
+  background-color: var(--milkoutside-border) !important;
+}
+
+scrollbar thumb:hover {
+  background-color: var(--milkoutside-border-highlight) !important;
+}
+
+/* Status bar */
+#statuspanel {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}

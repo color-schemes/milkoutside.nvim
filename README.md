@@ -379,9 +379,37 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::::%p1%{65536}%/%d::%p1%{256}%/%{
 Extra color configs for [Kitty](https://sw.kovidgoyal.net/kitty/conf.html),
 [Alacritty](https://github.com/alacritty/alacritty),
 [Fish](https://fishshell.com/docs/current/index.html), [WezTerm](https://wezfurlong.org/wezterm/config/files.html),
-[iTerm](https://iterm2.com/) and [foot](https://codeberg.org/dnkl/foot) can be
+[iTerm](https://iterm2.com/), [Firefox](https://www.mozilla.org/firefox/) and [foot](https://codeberg.org/dnkl/foot) can be
 found in [extras](extras/). To use them, refer to their respective
 documentation.
+
+### 🚀 One-Click Installation
+
+To install all extras to their respective config directories at once, run:
+
+```bash
+# Clone the repo first
+git clone https://github.com/your-username/milkoutside.nvim ~/.local/share/milkoutside.nvim
+cd ~/.local/share/milkoutside.nvim
+
+# Install all extras
+./extras/install.sh
+
+# Or install specific applications
+./extras/install.sh kitty alacritty fish wezterm firefox
+```
+
+**What this installs:**
+- **Kitty** → `~/.config/kitty/milkoutside.conf`
+- **Alacritty** → `~/.config/alacritty/milkoutside.toml`
+- **Fish** → `~/.config/fish/functions/_fish_prompt_milkoutside.fish` and theme
+- **WezTerm** → `~/.config/wezterm/milkoutside.toml`
+- **Firefox** → `~/.mozilla/firefox/*/chrome/userChrome.css` (requires enabling in `about:config`)
+- **Tmux** → `~/.config/tmux/milkoutside.tmux`
+- **Dunst** → `~/.config/dunst/dunstrc.d/99-milkoutside.conf`
+- **And many more...**
+
+> **Note**: The script will backup existing files with `.bak` extension and requires write permissions to your config directories.
 
 You can easily use the color palette for other plugins inside your
 [Neovim](https://github.com/neovim/neovim) configuration:
