@@ -88,7 +88,7 @@ function M.get(c, opts)
     Operator                    = { fg = c.blue5 }, -- "sizeof", "+", "*", etc.
     PreProc                     = { fg = c.cyan }, -- (preferred) generic Preprocessor
     Special                     = { fg = c.blue1 }, -- (preferred) any special symbol
-    Statement                   = { fg = c.red1 }, -- (preferred) any statement
+    Statement                   = { fg = c.magenta }, -- (preferred) any statement
     String                      = { fg = c.green }, --   a string constant: "this is a string"
     Todo                        = { bg = c.yellow, fg = c.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     Type                        = { fg = c.blue1 }, -- (preferred) int, long, char, etc.
