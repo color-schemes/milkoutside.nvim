@@ -2,7 +2,7 @@
 Color=36,40,59
 
 [BackgroundIntense]
-Color=57,75,112
+Color=46,60,100
 
 [Foreground]
 Color=192,202,245
@@ -12,46 +12,46 @@ Bold=true
 Color=192,202,245
 
 [Color0]
-Color=#414868
+Color=#1d202f
 
 [Color0Intense]
-Color=#545c7e
+Color=#414868
 
 [Color1]
 Color=#f7768e
 
 [Color1Intense]
-Color=#db4b4b
+Color=#ff899d
 
 [Color2]
 Color=#9ece6a
 
 [Color2Intense]
-Color=#73daca
+Color=#9fe044
 
 [Color3]
 Color=#e0af68
 
 [Color3Intense]
-Color=#ff9e64
+Color=#faba4a
 
 [Color4]
 Color=#7aa2f7
 
 [Color4Intense]
-Color=#2ac3de
+Color=#8db0ff
 
 [Color5]
 Color=#bb9af7
 
 [Color5Intense]
-Color=#ff007c
+Color=#c7a9ff
 
 [Color6]
 Color=#7dcfff
 
 [Color6Intense]
-Color=#0db9d7
+Color=#a4daff
 
 [Color7]
 Color=#a9b1d6
@@ -60,5 +60,5 @@ Color=#a9b1d6
 Color=#c0caf5
 
 [General]
-Description=Outside Milk Storm
+Description=Tokyo Night Storm
 Opacity=1

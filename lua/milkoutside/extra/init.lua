@@ -57,14 +57,6 @@ function M.setup()
   local milkoutside = require("milkoutside.theme")
   vim.o.background = "dark"
 
-  -- map of style to style name
-  local styles = {
-    storm = " Storm",
-    night = "",
-    day = " Day",
-    moon = " Moon",
-  }
-
   ---@type string[]
   local names = vim.tbl_keys(M.extras)
   table.sort(names)
@@ -73,23 +65,17 @@ function M.setup()
   for _, extra in ipairs(names) do
     local info = M.extras[extra]
     local plugin = require("milkoutside.extra." .. extra)
-    for style, style_name in pairs(styles) do
-      local colors, groups, opts = milkoutside.setup({ style = style, plugins = { all = true } })
-      local fname = extra
-        .. (info.subdir and "/" .. info.subdir .. "/" or "")
-        .. "/milkoutside"
-        .. (info.sep or "_")
-        .. style
-        .. "."
-        .. info.ext
-      fname = string.gsub(fname, "%.$", "") -- remove trailing dot when no extension
-      colors["_upstream_url"] = "https://github.com/folke/milkoutside.nvim/raw/main/extras/" .. fname
-      colors["_style_name"] = "Outside Milk" .. style_name
-      colors["_name"] = "milkoutside_" .. style
-      colors["_style"] = style
-      print("[write] " .. fname)
-      Util.write("extras/" .. fname, plugin.generate(colors, groups, opts))
-    end
+    local colors, groups, opts = milkoutside.setup({ plugins = { all = true } })
+    local fname = extra
+      .. (info.subdir and "/" .. info.subdir .. "/" or "")
+      .. "/milkoutside"
+      .. (info.sep or ".")
+      .. info.ext
+    colors["_upstream_url"] = "https://github.com/color-schemes/milkoutside.nvim/raw/main/extras/" .. fname
+    colors["_style_name"] = "MilkOutside"
+    colors["_name"] = "milkoutside"
+    print("[write] " .. fname)
+    Util.write("extras/" .. fname, plugin.generate(colors, groups, opts))
   end
 end
 M.setup()

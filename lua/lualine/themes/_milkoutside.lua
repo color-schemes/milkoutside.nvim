@@ -1,10 +1,7 @@
 local M = {}
 
----@param style? string
-function M.get(style)
-  local colors, config = require("milkoutside.colors").setup({
-    style = style,
-  })
+function M.get()
+  local colors, config = require("milkoutside.colors").setup({})
 
   local hl = {}
 

@@ -1,1 +1,1 @@
-return require("lualine.themes._milkoutside").get("storm")
+return require("lualine.themes._milkoutside").get()

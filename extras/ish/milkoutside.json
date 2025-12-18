@@ -1,28 +1,28 @@
 {
-  "name": "Outside Milk Storm",
+  "name": "Tokyo Night Storm",
   "version": 1,
   "shared": {
-    "backgroundColor": "#24283b",
+    "backgroundColor": "#040607",
     "colorPaletteOverrides": [
-      "#414868",
-      "#f7768e",
-      "#9ece6a",
-      "#e0af68",
-      "#7aa2f7",
-      "#bb9af7",
-      "#7dcfff",
-      "#a9b1d6",
-      "#545c7e",
-      "#db4b4b",
-      "#73daca",
-      "#ff9e64",
-      "#2ac3de",
-      "#ff007c",
-      "#0db9d7",
-      "#c0caf5",
+      "#000000",
+      "#fda1a0",
+      "#92cf9c",
+      "#ffad00",
+      "#63c3dd",
+      "#e79cfb",
+      "#63c3dd",
+      "#e0e0e0",
+      "#303030",
+      "#ff899d",
+      "#9fe044",
+      "#faba4a",
+      "#8db0ff",
+      "#c7a9ff",
+      "#a4daff",
+      "#e8e8e8",
     ],
-    "cursorColor": "#c0caf5",
-    "foregroundColor": "#c0caf5"
+    "cursorColor": "#e8e8e8",
+    "foregroundColor": "#e8e8e8"
   }
 }
 

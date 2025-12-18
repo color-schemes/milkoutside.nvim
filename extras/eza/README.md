@@ -1,10 +1,10 @@
 <h3 align="center">
-	Tokyonight for <a href="https://github.com/eza-community/eza">eza</a>
+	MilkOutside for <a href="https://github.com/eza-community/eza">eza</a>
 </h3>
 
 ### About
 
-The Tokyonight themes for `eza`, a modern replacement for `ls`.
+The MilkOutside theme for `eza`, a modern replacement for `ls`.
 
 ### Usage
 

@@ -1,39 +1,39 @@
-*tokyonight.nvim.txt*                                     tokyonight.nvim docs
+*milkoutside.nvim.txt*                                     milkoutside.nvim docs
 
 ==============================================================================
-Table of Contents                          *tokyonight.nvim-table-of-contents*
+Table of Contents                          *milkoutside.nvim-table-of-contents*
 
-1. Tokyo Night                                   |tokyonight.nvim-tokyo-night|
-  - Features                            |tokyonight.nvim-tokyo-night-features|
-  - Requirements                    |tokyonight.nvim-tokyo-night-requirements|
-  - Installation                    |tokyonight.nvim-tokyo-night-installation|
-  - Usage                                  |tokyonight.nvim-tokyo-night-usage|
-  - Configuration                  |tokyonight.nvim-tokyo-night-configuration|
-  - Overriding Colors & Highlight Groups|tokyonight.nvim-tokyo-night-overriding-colors-&-highlight-groups|
-  - Extras                                |tokyonight.nvim-tokyo-night-extras|
-  - Contributing                    |tokyonight.nvim-tokyo-night-contributing|
-2. Links                                               |tokyonight.nvim-links|
+1. Tokyo Night                                   |milkoutside.nvim-tokyo-night|
+  - Features                            |milkoutside.nvim-tokyo-night-features|
+  - Requirements                    |milkoutside.nvim-tokyo-night-requirements|
+  - Installation                    |milkoutside.nvim-tokyo-night-installation|
+  - Usage                                  |milkoutside.nvim-tokyo-night-usage|
+  - Configuration                  |milkoutside.nvim-tokyo-night-configuration|
+  - Overriding Colors & Highlight Groups|milkoutside.nvim-tokyo-night-overriding-colors-&-highlight-groups|
+  - Extras                                |milkoutside.nvim-tokyo-night-extras|
+  - Contributing                    |milkoutside.nvim-tokyo-night-contributing|
+2. Links                                               |milkoutside.nvim-links|
 
 ==============================================================================
-1. Tokyo Night                                   *tokyonight.nvim-tokyo-night*
+1. Tokyo Night                                   *milkoutside.nvim-tokyo-night*
 
 A dark and light Neovim <https://github.com/neovim/neovim> theme written in Lua
 <https://www.lua.org> ported from the Visual Studio Code TokyoNight
 <https://github.com/enkia/tokyo-night-vscode-theme> theme. Includes
-|tokyonight.nvim-extra| themes for Kitty
+|milkoutside.nvim-extra| themes for Kitty
 <https://sw.kovidgoyal.net/kitty/conf.html>, Alacritty
 <https://github.com/alacritty/alacritty>, iTerm <https://iterm2.com/> and Fish
 <https://fishshell.com/docs/current/index.html>.
 
 MoonStormNightDay
-FEATURES                                *tokyonight.nvim-tokyo-night-features*
+FEATURES                                *milkoutside.nvim-tokyo-night-features*
 
 - Supports the latest Neovim <https://github.com/neovim/neovim>
     0.9.0 <https://github.com/neovim/neovim/releases/tag/v0.9.0> features.
 - Terminal colors.
 - Supports all major plugins.
-- Provides TokyoNight <https://github.com/folke/tokyonight.nvim>
-    |tokyonight.nvim-extras| for numerous other applications.
+- Provides TokyoNight <https://github.com/folke/milkoutside.nvim>
+    |milkoutside.nvim-extras| for numerous other applications.
 
 Supported Plugins ~
 
@@ -270,20 +270,20 @@ Extras ~
   Zellij                              extras/zellij
   -----------------------------------------------------------------------
 
-REQUIREMENTS                        *tokyonight.nvim-tokyo-night-requirements*
+REQUIREMENTS                        *milkoutside.nvim-tokyo-night-requirements*
 
 - Neovim <https://github.com/neovim/neovim> >=
     0.8.0 <https://github.com/neovim/neovim/releases/tag/v0.8.0>
 
 
-INSTALLATION                        *tokyonight.nvim-tokyo-night-installation*
+INSTALLATION                        *milkoutside.nvim-tokyo-night-installation*
 
 Install the theme with your preferred package manager, such as folke/lazy.nvim
 <https://github.com/folke/lazy.nvim>:
 
 >lua
     {
-      "folke/tokyonight.nvim",
+      "folke/milkoutside.nvim",
       lazy = false,
       priority = 1000,
       opts = {},
@@ -291,20 +291,20 @@ Install the theme with your preferred package manager, such as folke/lazy.nvim
 <
 
 
-USAGE                                      *tokyonight.nvim-tokyo-night-usage*
+USAGE                                      *milkoutside.nvim-tokyo-night-usage*
 
 >lua
-    vim.cmd[[colorscheme tokyonight]]
+    vim.cmd[[colorscheme milkoutside]]
 <
 
 >vim
-    colorscheme tokyonight
+    colorscheme milkoutside
     
     " There are also colorschemes for the different styles.
-    colorscheme tokyonight-night
-    colorscheme tokyonight-storm
-    colorscheme tokyonight-day
-    colorscheme tokyonight-moon
+    colorscheme milkoutside-night
+    colorscheme milkoutside-storm
+    colorscheme milkoutside-day
+    colorscheme milkoutside-moon
 <
 
 Some plugins need extra configuration to work with **TokyoNight**.
@@ -318,7 +318,7 @@ BARBECUE ~
     -- Lua
     require('barbecue').setup {
       -- ... your barbecue config
-      theme = 'tokyonight',
+      theme = 'milkoutside',
       -- ... your barbecue config
     }
 <
@@ -331,7 +331,7 @@ LUALINE ~
     require('lualine').setup {
       options = {
         -- ... your lualine config
-        theme = 'tokyonight'
+        theme = 'milkoutside'
         -- ... your lualine config
       }
     }
@@ -342,30 +342,30 @@ LIGHTLINE ~
 
 >vim
     " Vim Script
-    let g:lightline = {'colorscheme': 'tokyonight'}
+    let g:lightline = {'colorscheme': 'milkoutside'}
 <
 
 
-CONFIGURATION                      *tokyonight.nvim-tokyo-night-configuration*
+CONFIGURATION                      *milkoutside.nvim-tokyo-night-configuration*
 
 
   [!IMPORTANT] Set the configuration **BEFORE** loading the color scheme with
-  `colorscheme tokyonight`.
-The theme offers four styles: |tokyonight.nvim-storm|, |tokyonight.nvim-moon|,
-|tokyonight.nvim-night|, and |tokyonight.nvim-day|.
+  `colorscheme milkoutside`.
+The theme offers four styles: |milkoutside.nvim-storm|, |milkoutside.nvim-moon|,
+|milkoutside.nvim-night|, and |milkoutside.nvim-day|.
 
-The |tokyonight.nvim-day| style is used when `{ style = "day" }` is passed to
+The |milkoutside.nvim-day| style is used when `{ style = "day" }` is passed to
 `setup(options)` or when `vim.o.background = "light"`.
 
-TokyoNight <https://github.com/folke/tokyonight.nvim> uses the default options,
+TokyoNight <https://github.com/folke/milkoutside.nvim> uses the default options,
 unless `setup` is explicitly called.
 
 Default Options ~
 
 >lua
-    ---@class tokyonight.Config
+    ---@class milkoutside.Config
     ---@field on_colors fun(colors: ColorScheme)
-    ---@field on_highlights fun(highlights: tokyonight.Highlights, colors: ColorScheme)
+    ---@field on_highlights fun(highlights: milkoutside.Highlights, colors: ColorScheme)
     M.defaults = {
       style = "moon", -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
       light_style = "day", -- The theme is used when the background is set to light
@@ -393,7 +393,7 @@ Default Options ~
     
       --- You can override specific highlights to use other groups or a hex color
       --- function will be called with a Highlights and ColorScheme table
-      ---@param highlights tokyonight.Highlights
+      ---@param highlights milkoutside.Highlights
       ---@param colors ColorScheme
       on_highlights = function(highlights, colors) end,
     
@@ -409,14 +409,14 @@ Default Options ~
         auto = true,
         -- add any plugins here that you want to enable
         -- for all possible plugins, see:
-        --   * https://github.com/folke/tokyonight.nvim/tree/main/lua/tokyonight/groups
+        --   * https://github.com/folke/milkoutside.nvim/tree/main/lua/milkoutside/groups
         -- telescope = true,
       },
     }
 <
 
 
-OVERRIDING COLORS & HIGHLIGHT GROUPS*tokyonight.nvim-tokyo-night-overriding-colors-&-highlight-groups*
+OVERRIDING COLORS & HIGHLIGHT GROUPS*milkoutside.nvim-tokyo-night-overriding-colors-&-highlight-groups*
 
 How the highlight groups are calculated:
 
@@ -427,14 +427,14 @@ override them using `config.on_colors(colors)`.
 groups.
 
 For default values of `colors` and `highlights`, please consult the storm
-<extras/lua/tokyonight_storm.lua>, moon <extras/lua/tokyonight_moon.lua>, night
-<extras/lua/tokyonight_night.lua>, and day <extras/lua/tokyonight_day.lua>
+<extras/lua/milkoutside.lua>, moon <extras/lua/milkoutside.lua>, night
+<extras/lua/milkoutside.lua>, and day <extras/lua/milkoutside.lua>
 themes.
 
 Settings & Changing Colors ~
 
 >lua
-    require("tokyonight").setup({
+    require("milkoutside").setup({
       -- use the night style
       style = "night",
       -- disable italic for functions
@@ -452,7 +452,7 @@ Settings & Changing Colors ~
 Borderless Telescope ~
 
 >lua
-    require("tokyonight").setup({
+    require("milkoutside").setup({
       on_highlights = function(hl, c)
         local prompt = "#2d3149"
         hl.TelescopeNormal = {
@@ -499,7 +499,7 @@ To have undercurls show up and in color, add the following to your Tmux
 <
 
 
-EXTRAS                                    *tokyonight.nvim-tokyo-night-extras*
+EXTRAS                                    *milkoutside.nvim-tokyo-night-extras*
 
 Extra color configs for Kitty <https://sw.kovidgoyal.net/kitty/conf.html>,
 Alacritty <https://github.com/alacritty/alacritty>, Fish
@@ -512,21 +512,21 @@ You can easily use the color palette for other plugins inside your Neovim
 <https://github.com/neovim/neovim> configuration:
 
 >lua
-    local colors = require("tokyonight.colors").setup() -- pass in any of the config options as explained above
-    local util = require("tokyonight.util")
+    local colors = require("milkoutside.colors").setup() -- pass in any of the config options as explained above
+    local util = require("milkoutside.util")
     
     aplugin.background = colors.bg_dark
     aplugin.my_error = util.lighten(colors.red1, 0.3) -- number between 0 and 1. 0 results in white, 1 results in red1
 <
 
 
-CONTRIBUTING                        *tokyonight.nvim-tokyo-night-contributing*
+CONTRIBUTING                        *milkoutside.nvim-tokyo-night-contributing*
 
 Pull requests are welcome! Please see CONTRIBUTING.md <CONTRIBUTING.md> for
 guidelines on adding new extras and general contribution guidelines.
 
 ==============================================================================
-2. Links                                               *tokyonight.nvim-links*
+2. Links                                               *milkoutside.nvim-links*
 
 1. *image*: https://user-images.githubusercontent.com/292349/115395546-d8d6f880-a198-11eb-98fb-a1194787701d.png
 

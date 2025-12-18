@@ -1,32 +1,43 @@
 # -----------------------------------------------------------------------------
-# TokyoNight Alacritty Colors
-# Theme: Outside Milk Storm
-# Upstream: https://github.com/folke/milkoutside.nvim/raw/main/extras/alacritty/milkoutside_storm.toml
+# MilkOutside Alacritty Colors
+# Theme: MilkOutside
+# Upstream: https://github.com/color-schemes/milkoutside.nvim/raw/main/extras/alacritty/milkoutside.toml
 # -----------------------------------------------------------------------------
 
 # Default colors
 [colors.primary]
-background = '#24283b'
-foreground = '#c0caf5'
+background = '#040607'
+foreground = '#e8e8e8'
 
 # Normal colors
 [colors.normal]
-black = '#414868'
-red = '#f7768e'
-green = '#9ece6a'
-yellow = '#e0af68'
-blue = '#7aa2f7'
-magenta = '#bb9af7'
-cyan = '#7dcfff'
-white = '#a9b1d6'
+black = '#000000'
+red = '#fda1a0'
+green = '#92cf9c'
+yellow = '#f8e063'
+blue = '#63c3dd'
+magenta = '#e79cfb'
+cyan = '#63c3dd'
+white = '#e0e0e0'
 
 # Bright colors
 [colors.bright]
-black = '#545c7e'
-red = '#db4b4b'
-green = '#73daca'
-yellow = '#ff9e64'
-blue = '#2ac3de'
+black = '#303030'
+red = '#ff9e64'
+green = '#5dd48c'
+yellow = '#ffad00'
+blue = '#4fd1e0'
 magenta = '#ff007c'
-cyan = '#0db9d7'
-white = '#c0caf5'
+cyan = '#62b9e8'
+white = '#e8e8e8'
+
+# Extended colors
+[colors.dim]
+black = '#000000'
+red = '#fda1a0'
+green = '#92cf9c'
+yellow = '#ffad00'
+blue = '#63c3dd'
+magenta = '#e79cfb'
+cyan = '#63c3dd'
+white = '#e0e0e0'

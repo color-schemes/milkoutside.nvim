@@ -13,7 +13,7 @@ end
 
 -- vim.schedule(function()
 --   local config = require("milkoutside.config")
---   config.setup({ style = "storm" })
+--   config.setup({})
 --   local colors = require("milkoutside.colors").setup()
 --
 --   local lookup = {}

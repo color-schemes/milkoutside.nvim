@@ -1,5 +1,5 @@
 [General]
-Description=Outside Milk Storm
+Description=Tokyo Night Storm
 
 [Background]
 Color=36,40,59
@@ -14,7 +14,7 @@ Color=192,202,245
 Color=192,202,245
 
 [Color0]
-Color=65,72,104
+Color=29,32,47
 
 [Color1]
 Color=247,118,142
@@ -38,25 +38,25 @@ Color=125,207,255
 Color=169,177,214
 
 [Color0Intense]
-Color=84,92,126
+Color=65,72,104
 
 [Color1Intense]
-Color=219,75,75
+Color=255,137,157
 
 [Color2Intense]
-Color=115,218,202
+Color=159,224,68
 
 [Color3Intense]
-Color=255,158,100
+Color=250,186,74
 
 [Color4Intense]
-Color=42,195,222
+Color=141,176,255
 
 [Color5Intense]
-Color=255,0,124
+Color=199,169,255
 
 [Color6Intense]
-Color=13,185,215
+Color=164,218,255
 
 [Color7Intense]
 Color=192,202,245

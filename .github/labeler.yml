@@ -1,28 +1,28 @@
 core:
   - all:
       - changed-files:
-          - any-glob-to-any-file: "lua/tokyonight/**"
+          - any-glob-to-any-file: "lua/milkoutside/**"
           - all-globs-to-all-files:
-              - "!lua/tokyonight/groups/**"
-              - "!lua/tokyonight/colors/**"
-              - "!lua/tokyonight/extra/**"
+              - "!lua/milkoutside/groups/**"
+              - "!lua/milkoutside/colors/**"
+              - "!lua/milkoutside/extra/**"
 
 extras:
   - changed-files:
-      - any-glob-to-any-file: "lua/tokyonight/extra/**"
+      - any-glob-to-any-file: "lua/milkoutside/extra/**"
 
 groups:
   - changed-files:
-      - any-glob-to-any-file: "lua/tokyonight/groups/**"
+      - any-glob-to-any-file: "lua/milkoutside/groups/**"
 
 base:
   - changed-files:
       - any-glob-to-any-file:
-          - "lua/tokyonight/groups/base.lua"
-          - "lua/tokyonight/groups/kinds.lua"
-          - "lua/tokyonight/groups/treesitter.lua"
-          - "lua/tokyonight/groups/semantic_tokens.lua"
+          - "lua/milkoutside/groups/base.lua"
+          - "lua/milkoutside/groups/kinds.lua"
+          - "lua/milkoutside/groups/treesitter.lua"
+          - "lua/milkoutside/groups/semantic_tokens.lua"
 
 colors:
   - changed-files:
-      - any-glob-to-any-file: "lua/tokyonight/colors/**"
+      - any-glob-to-any-file: "lua/milkoutside/colors/**"

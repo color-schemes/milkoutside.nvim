@@ -72,7 +72,7 @@ security_context:
   colon: { foreground: "#545c7e" }
   user: { foreground: "#737aa2" }
   role: { foreground: "#2ac3de" }
-  typ: { foreground: "#292e42" }
+  typ: { foreground: "#3d59a1" }
   range: { foreground: "#9d7cd8" }
 
 file_type:

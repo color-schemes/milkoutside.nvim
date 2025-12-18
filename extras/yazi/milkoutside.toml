@@ -10,7 +10,7 @@ preview_hovered = { bg = "#292e42" }
 
 # Find
 find_keyword  = { fg = "#1f2335", bg = "#ff9e64", bold = true }
-find_position = { fg = "#0db9d7", bg = "#011316", bold = true }
+find_position = { fg = "#0db9d7", bg = "#22374b", bold = true }
 
 # Marker
 marker_copied   = { fg = "#9ece6a", bg = "#9ece6a" }
@@ -25,21 +25,21 @@ count_selected = { fg = "#1f2335", bg = "#7aa2f7" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "${border_highlight}" }
+border_style  = { fg = "#29a4bd" }
 
 # Tab
 [tabs]
-active   = { fg = "${black}", bg = "#7aa2f7" }
+active   = { fg = "#1d202f", bg = "#7aa2f7" }
 inactive = { fg = "#7aa2f7", bg = "#3b4261" }
 
 [mode]
-normal_main = { fg = "${black}", bg = "#7aa2f7", bold = true }
+normal_main = { fg = "#1d202f", bg = "#7aa2f7", bold = true }
 normal_alt  = { fg = "#7aa2f7", bg = "#3b4261" }
 
-select_main = { fg = "${black}", bg = "#bb9af7", bold = true }
+select_main = { fg = "#1d202f", bg = "#bb9af7", bold = true }
 select_alt  = { fg = "#bb9af7", bg = "#3b4261" }
 
-unset_main  = { fg = "${black}", bg = "#9d7cd8", bold = true }
+unset_main  = { fg = "#1d202f", bg = "#9d7cd8", bold = true }
 unset_alt   = { fg = "#9d7cd8", bg = "#3b4261" }
 
 [status]
@@ -60,8 +60,8 @@ perm_exec  = { fg = "#9ece6a" }
 perm_sep   = { fg = "#414868" }
 
 [pick]
-border   = { fg = "${border_highlight}" }
-active   = { fg = "#c0caf5",  bg = "#394b70" }
+border   = { fg = "#29a4bd" }
+active   = { fg = "#c0caf5",  bg = "#2e3c64" }
 inactive = { fg = "#c0caf5" }
 
 # Input
@@ -69,12 +69,12 @@ inactive = { fg = "#c0caf5" }
 border   = { fg = "#0db9d7" }
 title    = { fg = "#0db9d7" }
 value    = { fg = "#9d7cd8" }
-selected = { bg = "#394b70" }
+selected = { bg = "#2e3c64" }
 
 # Completion
 [cmp]
 border   = { fg = "#0db9d7" }
-active   = { fg = "#c0caf5", bg = "#2f354e" }
+active   = { fg = "#c0caf5", bg = "#363d59" }
 inactive = { fg = "#c0caf5" }
 
 icon_file    = ""
@@ -83,9 +83,9 @@ icon_command = ""
 
 # Tasks
 [tasks]
-border  = { fg = "${border_highlight}" }
-title   = { fg = "${border_highlight}" }
-hovered = { fg = "#c0caf5", bg = "#394b70" }
+border  = { fg = "#29a4bd" }
+title   = { fg = "#29a4bd" }
+hovered = { fg = "#c0caf5", bg = "#2e3c64" }
 
 # Which
 [which]
@@ -100,17 +100,17 @@ separator_style = { fg = "#565f89" }
 # Confirm
 [confirm]
 border  = { fg = "#0db9d7" }
-title   = { fg = "${border_highlight}" }
+title   = { fg = "#29a4bd" }
 content = {}
 list    = {}
-btn_yes = { bg = "#394b70" }
+btn_yes = { bg = "#2e3c64" }
 btn_no  = {}
 btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 
 # Spot
 [spot]
-border  = { fg = "${border_highlight}" }
-title   = { fg = "${border_highlight}" }
+border  = { fg = "#29a4bd" }
+title   = { fg = "#29a4bd" }
 
 # Notify
 [notify]

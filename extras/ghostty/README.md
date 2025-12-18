@@ -5,7 +5,7 @@ Then in `~/.config/ghostty/config` chose the theme.
 Example:
 
 ```ini
-theme = "tokyonight_night"
+theme = "milkoutside"
 ```
 
 For full list of installed themes:

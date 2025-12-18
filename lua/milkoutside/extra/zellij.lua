@@ -6,7 +6,7 @@ local M = {}
 function M.generate(colors)
   local zellij = util.template(
     [=[
-// Tokyonight Zellij Colors
+// MilkOutside Zellij Colors
 // Add this file to your `CONFIG_DIR/themes` directory as described here:
 // https://zellij.dev/documentation/themes#getting-zellij-to-pick-up-the-theme
 
