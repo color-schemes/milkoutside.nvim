@@ -137,7 +137,8 @@ function M.setup(colors, opts)
   table.sort(names)
 
   local cache_key = opts.style
-  local cache = opts.cache and Util.cache.read(cache_key)
+  local cache_data = opts.cache and Util.cache.read()
+  local cache = cache_data and cache_data[cache_key]
 
   local inputs = {
     colors = colors,
@@ -146,7 +147,7 @@ function M.setup(colors, opts)
     opts = { transparent = opts.transparent, styles = opts.styles, dim_inactive = opts.dim_inactive },
   }
 
-  local ret = cache and vim.deep_equal(inputs, cache.inputs) and cache.groups
+  local ret = cache and type(cache) == "table" and cache.inputs and vim.deep_equal(inputs, cache.inputs) and cache.groups
 
   if not ret then
     ret = {}
@@ -158,7 +159,9 @@ function M.setup(colors, opts)
     end
     Util.resolve(ret)
     if opts.cache then
-      local ok, err = pcall(Util.cache.write, cache_key, { groups = ret, inputs = inputs })
+      local cache_data = cache_data or {}
+      cache_data[cache_key] = { groups = ret, inputs = inputs }
+      local ok, err = pcall(Util.cache.write, cache_data)
       if not ok then
         vim.notify("Cache write failed: " .. err, vim.log.levels.WARN)
       end
