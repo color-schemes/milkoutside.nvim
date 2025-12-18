@@ -52,6 +52,43 @@
   background-color: var(--milkoutside-bg-highlight) !important;
 }
 
+/* Tab close buttons */
+.tab-close-button {
+  background-color: transparent !important;
+  color: var(--milkoutside-fg-dark) !important;
+}
+
+.tab-close-button:hover {
+  background-color: var(--milkoutside-red1) !important;
+  color: var(--milkoutside-bg-dark) !important;
+}
+
+/* Content area close buttons */
+button[title="Close"],
+button[onclick="window.close()"] {
+  background-color: var(--milkoutside-red1) !important;
+  color: var(--milkoutside-fg) !important;
+  border: none !important;
+}
+
+button[title="Close"]:hover,
+button[onclick="window.close()"]:hover {
+  background-color: var(--milkoutside-red) !important;
+}
+
+/* Dialog close buttons */
+.dialogBox .close-icon,
+.subdialog .close-icon {
+  background-color: var(--milkoutside-red1) !important;
+  color: var(--milkoutside-fg) !important;
+  border: none !important;
+}
+
+.dialogBox .close-icon:hover,
+.subdialog .close-icon:hover {
+  background-color: var(--milkoutside-red) !important;
+}
+
 /* URL bar */
 #urlbar,
 #searchbar {
@@ -173,4 +210,31 @@ scrollbar thumb:hover {
   background-color: var(--milkoutside-bg-dark) !important;
   color: var(--milkoutside-fg) !important;
   border-color: var(--milkoutside-border) !important;
+}
+
+/* Close buttons */
+.titlebar-close,
+.close-icon,
+.notification-close {
+  background-color: var(--milkoutside-red1) !important;
+  color: var(--milkoutside-bg-dark) !important;
+  border: none !important;
+}
+
+.titlebar-close:hover,
+.close-icon:hover,
+.notification-close:hover {
+  background-color: var(--milkoutside-red) !important;
+}
+
+/* Window controls */
+.titlebar-min,
+.titlebar-max {
+  background-color: transparent !important;
+  color: var(--milkoutside-fg-dark) !important;
+}
+
+.titlebar-min:hover,
+.titlebar-max:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
 }
