@@ -40,6 +40,16 @@ function M.blend(foreground, alpha, background)
   return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
+function M.blend_bg(hex, amount, bg)
+  return M.blend(hex, amount, bg or M.bg)
+end
+M.darken = M.blend_bg
+
+function M.blend_fg(hex, amount, fg)
+  return M.blend(hex, amount, fg or M.fg)
+end
+M.lighten = M.blend_fg
+
 function M.invert(color)
   local num = tonumber(color, 16)
   return string.format("#%06x", 0xffffff - num)
