@@ -1,0 +1,459 @@
+/* MilkOutside Steam Theme - Based on milkoutside.nvim colorscheme */
+
+/* Root color variables */
+:root {
+  /* Background colors from cosmic-dark palette */
+  --steam-bg: #040607;
+  --steam-bg-dark: #000000;
+  --steam-bg-dark1: #1a1e2e;
+  --steam-bg-highlight: #0f0f15;
+  --steam-bg-popup: #040607;
+  --steam-bg-search: #292e42;
+  --steam-bg-sidebar: #040607;
+  --steam-bg-visual: #394b70;
+
+  /* Foreground colors */
+  --steam-fg: #e8e8e8;
+  --steam-fg-dark: #e0e0e0;
+  --steam-fg-gutter: #595959;
+  --steam-fg-sidebar: #e0e0e0;
+
+  /* Comment color */
+  --steam-comment: #595959;
+
+  /* Grays from neutral palette */
+  --steam-dark3: #303030;
+  --steam-dark5: #474747;
+
+  /* Blue colors */
+  --steam-blue: #63c3dd;
+  --steam-blue0: #48b5c7;
+  --steam-blue1: #4fd1e0;
+  --steam-blue2: #62b9e8;
+  --steam-blue5: #a7e3ff;
+  --steam-blue6: #daffff;
+  --steam-blue7: #394b70;
+
+  /* Cyan */
+  --steam-cyan: #7dcfff;
+
+  /* Green colors */
+  --steam-green: #92cf9c;
+  --steam-green1: #5dd48c;
+  --steam-green2: #3a9b6d;
+
+  /* Magenta/Purple colors */
+  --steam-magenta: #e79cfb;
+  --steam-magenta2: #f93a82;
+  --steam-purple: #9d7cd8;
+
+  /* Orange/Yellow colors */
+  --steam-orange: #ffad00;
+  --steam-yellow: #f8e063;
+
+  /* Red colors */
+  --steam-red: #fda1a0;
+  --steam-red1: #e45555;
+
+  /* Teal */
+  --steam-teal: #1abc9c;
+
+  /* Terminal black */
+  --steam-terminal-black: #1b1b1b;
+
+  /* Git colors */
+  --steam-git-add: #449dab;
+  --steam-git-change: #6183bb;
+  --steam-git-delete: #914c54;
+
+  /* Extended colors */
+  --steam-ext-warm-grey: #9b8e8a;
+  --steam-ext-orange: #ffad00;
+  --steam-ext-yellow: #fddc40;
+  --steam-ext-blue: #48b9c7;
+  --steam-ext-purple: #cf7dff;
+  --steam-ext-pink: #fa3a83;
+  --steam-ext-indigo: #3e88ff;
+}
+
+/* Global Steam client styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--steam-dark5) var(--steam-bg-highlight);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--steam-bg-highlight);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--steam-dark5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--steam-blue7);
+}
+
+/* Main background and text */
+body,
+.DesktopUI,
+.basic-ui,
+.SteamDesktop {
+  background-color: var(--steam-bg) !important;
+  color: var(--steam-fg) !important;
+}
+
+/* Header and navigation */
+.DesktopUI .titlebar,
+.basic-ui .titlebar,
+.SteamDesktop .titlebar {
+  background: var(--steam-bg-dark) !important;
+  border-bottom: 1px solid var(--steam-dark3) !important;
+}
+
+.DesktopUI .titlebar .titlebar_text,
+.basic-ui .titlebar .titlebar_text {
+  color: var(--steam-fg) !important;
+}
+
+/* Sidebar */
+.DesktopUI .sidebar,
+.basic-ui .sidebar {
+  background: var(--steam-bg-sidebar) !important;
+  border-right: 1px solid var(--steam-dark3) !important;
+}
+
+.DesktopUI .sidebar .nav_item,
+.basic-ui .sidebar .nav_item {
+  color: var(--steam-fg-dark) !important;
+}
+
+.DesktopUI .sidebar .nav_item:hover,
+.basic-ui .sidebar .nav_item:hover {
+  background: var(--steam-bg-highlight) !important;
+  color: var(--steam-blue) !important;
+}
+
+.DesktopUI .sidebar .nav_item.active,
+.basic-ui .sidebar .nav_item.active {
+  background: var(--steam-blue7) !important;
+  color: var(--steam-blue) !important;
+}
+
+/* Library */
+.DesktopUI .library,
+.basic-ui .library {
+  background: var(--steam-bg) !important;
+}
+
+.DesktopUI .library .game_row,
+.basic-ui .library .game_row {
+  background: var(--steam-bg-dark1) !important;
+  border-bottom: 1px solid var(--steam-dark3) !important;
+  color: var(--steam-fg) !important;
+}
+
+.DesktopUI .library .game_row:hover,
+.basic-ui .library .game_row:hover {
+  background: var(--steam-bg-highlight) !important;
+}
+
+.DesktopUI .library .game_row.selected,
+.basic-ui .library .game_row.selected {
+  background: var(--steam-blue7) !important;
+}
+
+/* Buttons */
+button,
+.DesktopUI button,
+.basic-ui button,
+.SteamDesktop button {
+  background: var(--steam-blue7) !important;
+  color: var(--steam-fg) !important;
+  border: 1px solid var(--steam-dark5) !important;
+}
+
+button:hover,
+.DesktopUI button:hover,
+.basic-ui button:hover,
+.SteamDesktop button:hover {
+  background: var(--steam-bg-visual) !important;
+  color: var(--steam-blue) !important;
+}
+
+button:active,
+.DesktopUI button:active,
+.basic-ui button:active,
+.SteamDesktop button:active {
+  background: var(--steam-blue7) !important;
+}
+
+/* Primary buttons */
+.DesktopUI .primary_button,
+.basic-ui .primary_button,
+.SteamDesktop .primary_button,
+button.primary {
+  background: var(--steam-blue) !important;
+  color: var(--steam-bg) !important;
+  border: 1px solid var(--steam-blue) !important;
+}
+
+.DesktopUI .primary_button:hover,
+.basic-ui .primary_button:hover,
+.SteamDesktop .primary_button:hover,
+button.primary:hover {
+  background: var(--steam-blue1) !important;
+}
+
+/* Input fields */
+input,
+textarea,
+.DesktopUI input,
+.basic-ui input,
+.SteamDesktop input,
+.DesktopUI textarea,
+.basic-ui textarea,
+.SteamDesktop textarea {
+  background: var(--steam-bg-dark1) !important;
+  color: var(--steam-fg) !important;
+  border: 1px solid var(--steam-dark5) !important;
+}
+
+input:focus,
+textarea:focus,
+.DesktopUI input:focus,
+.basic-ui input:focus,
+.SteamDesktop input:focus,
+.DesktopUI textarea:focus,
+.basic-ui textarea:focus,
+.SteamDesktop textarea:focus {
+  border-color: var(--steam-blue) !important;
+  outline: none !important;
+}
+
+/* Dialogs and modals */
+.DesktopUI .ModalDialog,
+.basic-ui .ModalDialog,
+.SteamDesktop .ModalDialog,
+.DesktopUI .ModalDialogPopup,
+.basic-ui .ModalDialogPopup,
+.SteamDesktop .ModalDialogPopup {
+  background: var(--steam-bg-dark1) !important;
+  color: var(--steam-fg) !important;
+  border: 1px solid var(--steam-dark5) !important;
+}
+
+.DesktopUI .ModalDialog .title,
+.basic-ui .ModalDialog .title,
+.SteamDesktop .ModalDialog .title {
+  color: var(--steam-fg) !important;
+}
+
+/* Friends list */
+.friendsui-container {
+  background: var(--steam-bg) !important;
+  color: var(--steam-fg) !important;
+}
+
+.friendsui-container .friend_block {
+  background: var(--steam-bg-dark1) !important;
+  border-bottom: 1px solid var(--steam-dark3) !important;
+}
+
+.friendsui-container .friend_block:hover {
+  background: var(--steam-bg-highlight) !important;
+}
+
+.friendsui-container .friend_block .friend_name {
+  color: var(--steam-fg) !important;
+}
+
+.friendsui-container .friend_block .friend_status {
+  color: var(--steam-comment) !important;
+}
+
+/* Store and web pages */
+.webkit {
+  background: var(--steam-bg) !important;
+}
+
+.webkit body {
+  background: var(--steam-bg) !important;
+  color: var(--steam-fg) !important;
+}
+
+/* Links */
+a,
+.DesktopUI a,
+.basic-ui a,
+.SteamDesktop a {
+  color: var(--steam-blue) !important;
+}
+
+a:hover,
+.DesktopUI a:hover,
+.basic-ui a:hover,
+.SteamDesktop a:hover {
+  color: var(--steam-blue1) !important;
+}
+
+/* Status indicators */
+.online {
+  color: var(--steam-green) !important;
+}
+
+.offline {
+  color: var(--steam-comment) !important;
+}
+
+.away {
+  color: var(--steam-yellow) !important;
+}
+
+.busy {
+  color: var(--steam-red) !important;
+}
+
+/* Notifications */
+.notificationtoasts {
+  background: var(--steam-bg-dark1) !important;
+  color: var(--steam-fg) !important;
+  border: 1px solid var(--steam-dark5) !important;
+}
+
+/* Downloads */
+.DownloadProgressBar {
+  background: var(--steam-blue7) !important;
+}
+
+.DownloadProgressBar .progress_fill {
+  background: var(--steam-green) !important;
+}
+
+/* Error messages */
+.error,
+.DesktopUI .error,
+.basic-ui .error,
+.SteamDesktop .error {
+  color: var(--steam-red) !important;
+}
+
+/* Success messages */
+.success,
+.DesktopUI .success,
+.basic-ui .success,
+.SteamDesktop .success {
+  color: var(--steam-green) !important;
+}
+
+/* Warning messages */
+.warning,
+.DesktopUI .warning,
+.basic-ui .warning,
+.SteamDesktop .warning {
+  color: var(--steam-yellow) !important;
+}
+
+/* Game details */
+.DesktopUI .game_details,
+.basic-ui .game_details {
+  background: var(--steam-bg-dark1) !important;
+  color: var(--steam-fg) !important;
+}
+
+.DesktopUI .game_details .game_title,
+.basic-ui .game_details .game_title {
+  color: var(--steam-fg) !important;
+}
+
+.DesktopUI .game_details .game_description,
+.basic-ui .game_details .game_description {
+  color: var(--steam-fg-dark) !important;
+}
+
+/* Achievements */
+.AchievementProgress {
+  background: var(--steam-bg-highlight) !important;
+}
+
+.AchievementProgress .progress_bar {
+  background: var(--steam-blue7) !important;
+}
+
+.AchievementProgress .progress_fill {
+  background: var(--steam-green) !important;
+}
+
+/* Big Picture Mode */
+.BigPictureMode {
+  background: var(--steam-bg) !important;
+  color: var(--steam-fg) !important;
+}
+
+/* Login screen */
+.LoginDialog {
+  background: var(--steam-bg-dark1) !important;
+  color: var(--steam-fg) !important;
+}
+
+.LoginDialog .title {
+  color: var(--steam-fg) !important;
+}
+
+/* Loading screens */
+.LoadingScreen {
+  background: var(--steam-bg-dark) !important;
+  color: var(--steam-fg) !important;
+}
+
+/* Context menus */
+.context_menu {
+  background: var(--steam-bg-dark1) !important;
+  color: var(--steam-fg) !important;
+  border: 1px solid var(--steam-dark5) !important;
+}
+
+.context_menu .menu_item {
+  color: var(--steam-fg-dark) !important;
+}
+
+.context_menu .menu_item:hover {
+  background: var(--steam-bg-highlight) !important;
+  color: var(--steam-blue) !important;
+}
+
+/* Tooltips */
+.tooltip {
+  background: var(--steam-bg-dark) !important;
+  color: var(--steam-fg) !important;
+  border: 1px solid var(--steam-dark5) !important;
+}
+
+/* Headers and titles */
+h1, h2, h3, h4, h5, h6,
+.DesktopUI h1, .DesktopUI h2, .DesktopUI h3, .DesktopUI h4, .DesktopUI h5, .DesktopUI h6,
+.basic-ui h1, .basic-ui h2, .basic-ui h3, .basic-ui h4, .basic-ui h5, .basic-ui h6,
+.SteamDesktop h1, .SteamDesktop h2, .SteamDesktop h3, .SteamDesktop h4, .SteamDesktop h5, .SteamDesktop h6 {
+  color: var(--steam-fg) !important;
+}
+
+/* Special emphasis for important UI elements */
+.important_text,
+.highlight_text {
+  color: var(--steam-blue) !important;
+}
+
+.secondary_text {
+  color: var(--steam-fg-dark) !important;
+}
+
+.muted_text {
+  color: var(--steam-comment) !important;
+}

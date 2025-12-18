@@ -1,0 +1,99 @@
+{
+  "Patches": [
+    {
+      "MatchRegexString": "Steam Games List",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "https://.*.steampowered.com",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "https://steamcommunity.com",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "^Steam$",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "^OverlayBrowser_Browser$",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "^SP Overlay:",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "Supernav$",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "^notificationtoasts_",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "^SteamBrowser_Find$",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "^OverlayTab\\d+_Find$",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "^Steam Big Picture Mode$",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "^QuickAccess_",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "^MainMenu_",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": ".friendsui-container",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "Menu$",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": ".ModalDialogPopup",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": ".FullModalOverlay",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "broadcaststatus",
+      "TargetCss": "milkoutside.css"
+    },
+    {
+      "MatchRegexString": "Steam(?!.*Big Picture)(?!.*Find)(?!.*Games List)",
+      "TargetCss": "milkoutside.css"
+    }
+  ],
+  "UseDefaultPatches": false,
+  "Steam-WebKit": "milkoutside.css",
+  "name": "milkoutside",
+  "author": "milkoutside.nvim",
+  "description": "A dark Steam theme based on the milkoutside.nvim colorscheme with cosmic-inspired colors",
+  "source": "https://github.com/tiagovla/milkoutside.nvim",
+  "github": {
+    "owner": "tiagovla",
+    "repo_name": "milkoutside.nvim"
+  },
+  "version": "1.0.0",
+  "tags": [
+    "Dark",
+    "Cosmic",
+    "Minimal",
+    "Neovim"
+  ],
+  "header_image": "https://raw.githubusercontent.com/tiagovla/milkoutside.nvim/main/screenshots/screenshot.png",
+  "splash_image": "https://raw.githubusercontent.com/tiagovla/milkoutside.nvim/main/screenshots/screenshot.png"
+}
