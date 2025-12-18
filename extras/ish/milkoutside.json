@@ -1,0 +1,28 @@
+{
+  "name": "Outside Milk Storm",
+  "version": 1,
+  "shared": {
+    "backgroundColor": "#24283b",
+    "colorPaletteOverrides": [
+      "#414868",
+      "#f7768e",
+      "#9ece6a",
+      "#e0af68",
+      "#7aa2f7",
+      "#bb9af7",
+      "#7dcfff",
+      "#a9b1d6",
+      "#545c7e",
+      "#db4b4b",
+      "#73daca",
+      "#ff9e64",
+      "#2ac3de",
+      "#ff007c",
+      "#0db9d7",
+      "#c0caf5",
+    ],
+    "cursorColor": "#c0caf5",
+    "foregroundColor": "#c0caf5"
+  }
+}
+

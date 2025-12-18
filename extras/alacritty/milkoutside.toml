@@ -1,0 +1,32 @@
+# -----------------------------------------------------------------------------
+# TokyoNight Alacritty Colors
+# Theme: Outside Milk Storm
+# Upstream: https://github.com/folke/milkoutside.nvim/raw/main/extras/alacritty/milkoutside_storm.toml
+# -----------------------------------------------------------------------------
+
+# Default colors
+[colors.primary]
+background = '#24283b'
+foreground = '#c0caf5'
+
+# Normal colors
+[colors.normal]
+black = '#414868'
+red = '#f7768e'
+green = '#9ece6a'
+yellow = '#e0af68'
+blue = '#7aa2f7'
+magenta = '#bb9af7'
+cyan = '#7dcfff'
+white = '#a9b1d6'
+
+# Bright colors
+[colors.bright]
+black = '#545c7e'
+red = '#db4b4b'
+green = '#73daca'
+yellow = '#ff9e64'
+blue = '#2ac3de'
+magenta = '#ff007c'
+cyan = '#0db9d7'
+white = '#c0caf5'
