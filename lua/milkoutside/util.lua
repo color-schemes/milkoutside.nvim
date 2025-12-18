@@ -40,16 +40,11 @@ function M.blend(foreground, alpha, background)
   return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
----@param hex string
-local function invert(hex)
-  local r = tonumber(hex:sub(2, 3), 16)
-  local g = tonumber(hex:sub(4, 5), 16)
-  local b = tonumber(hex:sub(6, 7), 16)
-  return string.format("#%02x%02x%02x", 255 - r, 255 - g, 255 - b)
-end
+
 
 function M.invert(color)
-  return string.format("#%06x", tonumber(color, 16) ~ 0xffffff)
+  local num = tonumber(color, 16)
+  return string.format("#%06x", 0xffffff - num)
 end
 
 function M.brighten(color, amount)
