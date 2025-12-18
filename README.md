@@ -7,6 +7,10 @@ A dark [Neovim](https://github.com/neovim/neovim) theme written in
 [iTerm](https://iterm2.com/) and
 [Fish](https://fishshell.com/docs/current/index.html).
 
+## 🖼️ Preview
+
+![MilkOutside Theme](screenshots/screenshot.png)
+
 ## ✨ Features
 
 - Supports the latest [Neovim](https://github.com/neovim/neovim)

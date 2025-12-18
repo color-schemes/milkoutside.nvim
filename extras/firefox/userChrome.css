@@ -178,9 +178,20 @@ sidebarheader {
   border-color: var(--milkoutside-border) !important;
 }
 
-/* Style window controls - don't hide them! */
+/* Keep titlebar controls as default - let window manager handle them */
 .titlebar-buttonbox {
-  background-color: var(--milkoutside-bg) !important;
+  /* No styling - use system defaults */
+}
+
+/* Tab close buttons */
+.tab-close-button {
+  background-color: transparent !important;
+  color: var(--milkoutside-fg-dark) !important;
+}
+
+.tab-close-button:hover {
+  background-color: var(--milkoutside-red1) !important;
+  color: var(--milkoutside-bg-dark) !important;
 }
 
 .titlebar-button {

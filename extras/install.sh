@@ -95,6 +95,7 @@ declare -A apps=(
     ["lazygit"]="LazyGit UI"
     ["nvimtree"]="NvimTree plugin"
     ["neotree"]="Neo-tree plugin"
+    ["opencode"]="OpenCode AI assistant"
     ["process_compose"]="Process Compose"
     ["prism"]="Prism syntax highlighter"
     ["qterminal"]="QTerminal"
@@ -196,14 +197,15 @@ install_app() {
         "lazygit")
             install_file "$REPO_ROOT/extras/lazygit/milkoutside.yml" "$HOME/.config/lazygit/config.yml"
             ;;
+        "opencode")
+            install_file "$REPO_ROOT/extras/opencode/milkoutside.json" "$HOME/.config/opencode/themes/milkoutside.json"
+            ;;
         "windows_terminal")
             echo -e "${YELLOW}Windows Terminal config must be added manually${NC}"
             echo -e "${BLUE}Copy the contents of extras/windows_terminal/milkoutside.json to your Windows Terminal schemes${NC}"
             ;;
         *)
-            echo -e "${RED}Unknown application: $app${NC}"
-            echo -e "${YELLOW}Run $0 --list to see available applications${NC}"
-            return 1
+            echo -e "${YELLOW}Unknown application: $app - skipping${NC}"
             ;;
     esac
 }
@@ -212,23 +214,39 @@ install_app() {
 install_all() {
     echo -e "${BLUE}Installing all MilkOutside extras...${NC}"
     
-    # Common apps that are safe to install
-    common_apps=("alacritty" "kitty" "fish" "wezterm" "tmux" "dunst" "yazi" "helix" "foot" "fuzzel" "fzf" "neovim" "vim" "lazygit")
+    # Get all available apps from the apps array
+    all_apps=("${!apps[@]}")
     
-    for app in "${common_apps[@]}"; do
-        if command -v "$app" &> /dev/null || [ -d "$HOME/.config/$app" ] || [ "$app" = "fish" ] || [ "$app" = "tmux" ]; then
-            install_app "$app"
-        else
-            echo -e "${YELLOW}Skipping $app (not detected)${NC}"
-        fi
-    done
-    
-    # Try Firefox if available
-    if command -v firefox &> /dev/null; then
-        install_app "firefox"
-    else
-        echo -e "${YELLOW}Skipping firefox (not detected)${NC}"
-    fi
+        for app in "${all_apps[@]}"; do
+            # Skip apps that need manual installation or special handling
+            if [ "$app" = "windows_terminal" ]; then
+                echo -e "${YELLOW}Skipping $app (requires manual installation)${NC}"
+                continue
+            fi
+            
+            # For special apps, check if they're available or if their config dirs exist
+            if [ "$app" = "firefox" ]; then
+                if command -v firefox &> /dev/null; then
+                    install_app "$app" || true
+                else
+                    echo -e "${YELLOW}Skipping $app (not detected)${NC}"
+                fi
+            elif [ "$app" = "nvimtree" ] || [ "$app" = "neotree" ] || [ "$app" = "snacks" ]; then
+                # These are neovim plugins, install if neovim config exists
+                if [ -d "$HOME/.config/nvim" ]; then
+                    install_app "$app" || true
+                else
+                    echo -e "${YELLOW}Skipping $app (neovim config not found)${NC}"
+                fi
+            else
+                # For regular apps, check if command exists or config directory exists
+                if command -v "$app" &> /dev/null || [ -d "$HOME/.config/$app" ] || [ "$app" = "fish" ] || [ "$app" = "tmux" ]; then
+                    install_app "$app" || true
+                else
+                    echo -e "${YELLOW}Skipping $app (not detected)${NC}"
+                fi
+            fi
+        done
 }
 
 # Main script logic
@@ -253,7 +271,7 @@ case "$1" in
     *)
         echo -e "${BLUE}Installing selected applications...${NC}"
         for app in "$@"; do
-            install_app "$app"
+            install_app "$app" || true  # Continue even if individual app fails
         done
         ;;
 esac
