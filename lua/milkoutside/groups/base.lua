@@ -82,13 +82,13 @@ function M.get(c, opts)
     Delimiter                   =  "Special", --  character that needs attention
     Error                       = { fg = c.error }, -- (preferred) any erroneous construct
     Function                    = { fg = c.blue, style = opts.styles.functions }, -- function name (also: methods for classes)
-    Identifier                  = { fg = c.red1, style = opts.styles.variables }, -- (preferred) any variable name
+    Identifier                  = { fg = c.magenta, style = opts.styles.variables }, -- (preferred) any variable name
     Italic                      = { italic = true, fg = c.fg }, -- (preferred) any italic text
     Keyword                     = { fg = c.cyan, style = opts.styles.keywords }, --  any other keyword
     Operator                    = { fg = c.blue5 }, -- "sizeof", "+", "*", etc.
     PreProc                     = { fg = c.cyan }, -- (preferred) generic Preprocessor
     Special                     = { fg = c.blue1 }, -- (preferred) any special symbol
-    Statement                   = { fg = c.magenta }, -- (preferred) any statement
+    Statement                   = { fg = c.red1 }, -- (preferred) any statement
     String                      = { fg = c.green }, --   a string constant: "this is a string"
     Todo                        = { bg = c.yellow, fg = c.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     Type                        = { fg = c.blue1 }, -- (preferred) int, long, char, etc.
