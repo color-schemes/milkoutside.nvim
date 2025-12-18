@@ -178,9 +178,34 @@ sidebarheader {
   border-color: var(--milkoutside-border) !important;
 }
 
-/* Remove window controls */
+/* Style window controls - don't hide them! */
 .titlebar-buttonbox {
-  display: none !important;
+  background-color: var(--milkoutside-bg) !important;
+}
+
+.titlebar-button {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.titlebar-close {
+  background-color: var(--milkoutside-red1) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.titlebar-close:hover {
+  background-color: var(--milkoutside-red) !important;
+}
+
+.titlebar-min,
+.titlebar-max {
+  background-color: transparent !important;
+  color: var(--milkoutside-fg-dark) !important;
+}
+
+.titlebar-min:hover,
+.titlebar-max:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
 }
 
 /* Remove hover effects */
