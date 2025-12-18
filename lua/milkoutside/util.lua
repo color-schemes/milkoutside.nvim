@@ -40,8 +40,6 @@ function M.blend(foreground, alpha, background)
   return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
-
-
 function M.invert(color)
   local num = tonumber(color, 16)
   return string.format("#%06x", 0xffffff - num)
@@ -67,11 +65,15 @@ function M.darken(color, amount)
   return require("milkoutside.hsluv").hsl_to_rgb(hsl)
 end
 
----@param groups table
+---@param groups milkoutside.Highlights
+---@return table<string, vim.api.keyset.highlight>
 function M.resolve(groups)
-  for name, hl in pairs(groups) do
-    for k, v in pairs(hl) do
-      hl[k] = type(v) == "string" and resolve(v) or v
+  for _, hl in pairs(groups) do
+    if type(hl.style) == "table" then
+      for k, v in pairs(hl.style) do
+        hl[k] = v
+      end
+      hl.style = nil
     end
   end
   return groups
@@ -86,7 +88,6 @@ function M.template(str, tbl)
 end
 
 ---@param file string
----@param contents string
 function M.read(file)
   local fd = assert(io.open(file, "r"))
   return fd:read("*a")
@@ -103,7 +104,7 @@ end
 
 M.cache = {}
 
-function M.cache.file(key)
+function M.cache.file()
   return vim.fn.stdpath("cache") .. "/milkoutside.json"
 end
 
@@ -131,7 +132,7 @@ end
 function M.cache.clear()
   local cache_file = M.cache.file()
   if vim.fn.filereadable(cache_file) then
-    os.remove(cache_file)
+    uv.fs_unlink(M.cache.file())
   end
 end
 
