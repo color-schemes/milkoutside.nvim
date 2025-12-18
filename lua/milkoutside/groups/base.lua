@@ -81,8 +81,8 @@ function M.get(c, opts)
     Debug                       = { fg = c.orange }, --    debugging statements
     Delimiter                   =  "Special", --  character that needs attention
     Error                       = { fg = c.error }, -- (preferred) any erroneous construct
-    Function                    = { fg = c.red1, style = opts.styles.functions }, -- function name (also: methods for classes)
-    Identifier                  = { fg = c.magenta, style = opts.styles.variables }, -- (preferred) any variable name
+    Function                    = { fg = c.blue, style = opts.styles.functions }, -- function name (also: methods for classes)
+    Identifier                  = { fg = c.red1, style = opts.styles.variables }, -- (preferred) any variable name
     Italic                      = { italic = true, fg = c.fg }, -- (preferred) any italic text
     Keyword                     = { fg = c.cyan, style = opts.styles.keywords }, --  any other keyword
     Operator                    = { fg = c.blue5 }, -- "sizeof", "+", "*", etc.
