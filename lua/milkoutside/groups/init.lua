@@ -158,7 +158,10 @@ function M.setup(colors, opts)
     end
     Util.resolve(ret)
     if opts.cache then
-      Util.cache.write(cache_key, { groups = ret, inputs = inputs })
+      local ok, err = pcall(Util.cache.write, cache_key, { groups = ret, inputs = inputs })
+      if not ok then
+        vim.notify("Cache write failed: " .. err, vim.log.levels.WARN)
+      end
     end
   end
   opts.on_highlights(ret, colors)

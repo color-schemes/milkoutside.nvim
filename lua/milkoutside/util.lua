@@ -162,7 +162,10 @@ function M.cache.write(key, data)
 end
 
 function M.cache.clear()
-  uv.fs_unlink(M.cache.file())
+  local cache_file = M.cache.file("")
+  if vim.fn.filereadable(cache_file) then
+    uv.fs_unlink(cache_file)
+  end
 end
 
 return M

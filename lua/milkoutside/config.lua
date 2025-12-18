@@ -34,7 +34,7 @@ M.defaults = {
   ---@param colors ColorScheme
   on_highlights = function(highlights, colors) end,
 
-  cache = true, -- When set to true, the theme will be cached for better performance
+  cache = false, -- When set to true, the theme will be cached for better performance
 
   ---@type table<string, boolean|{enabled:boolean}>
   plugins = {
