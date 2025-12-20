@@ -1,0 +1,552 @@
+/* Milkoutside Theme for Obsidian */
+/* Based on milkoutside.nvim colorscheme - A dark, cosmic-inspired theme */
+
+.theme-dark {
+	/* === MILKOUTSIDE COLOR PALETTE === */
+
+	/* Primary Colors */
+	--milkoutside-bg-primary: #000000;
+	--milkoutside-bg-secondary: #040607;
+	--milkoutside-bg-tertiary: #0f0f15;
+	--milkoutside-bg-tab-active: #1a1e2e;
+	--milkoutside-bg-tab-inactive: #040607;
+
+	/* Text Colors */
+	--milkoutside-text-primary: #e8e8e8;
+	--milkoutside-text-secondary: #e0e0e0;
+	--milkoutside-text-muted: #595959;
+	--milkoutside-text-accent: #fda1a0;
+	--milkoutside-text-bright: #ffffff;
+
+	/* Accent Colors */
+	--milkoutside-accent-red: #fda1a0;
+	--milkoutside-accent-red-dark: #e45555;
+	--milkoutside-accent-blue: #63c3dd;
+	--milkoutside-accent-blue-dark: #48b5c7;
+	--milkoutside-accent-cyan: #7dcfff;
+	--milkoutside-accent-green: #92cf9c;
+	--milkoutside-accent-green-dark: #5dd48c;
+	--milkoutside-accent-yellow: #f8e063;
+	--milkoutside-accent-orange: #ffad00;
+	--milkoutside-accent-purple: #e79cfb;
+	--milkoutside-accent-purple-dark: #9d7cd8;
+	--milkoutside-accent-teal: #1abc9c;
+
+	/* UI Element Colors */
+	--milkoutside-border: #303030;
+	--milkoutside-border-secondary: #474747;
+	--milkoutside-selection: rgba(253, 161, 160, 0.3);
+	--milkoutside-highlight: rgba(248, 224, 99, 0.2);
+	--milkoutside-button-bg: rgba(253, 161, 160, 0.8);
+	--milkoutside-button-hover: #fda1a0;
+
+	/* === OBSIDIAN CSS VARIABLES MAPPING === */
+
+	/* Base Colors */
+	--color-base-00: #000000;
+	--color-base-05: #040607;
+	--color-base-10: #0f0f15;
+	--color-base-20: #1a1e2e;
+	--color-base-25: rgba(253, 161, 160, 0.3);
+	--color-base-30: #303030;
+	--color-base-35: #595959;
+	--color-base-40: #595959;
+	--color-base-50: #595959;
+	--color-base-60: #e0e0e0;
+	--color-base-70: #e8e8e8;
+	--color-base-100: #ffffff;
+
+	/* Accent Colors */
+	--color-accent: #fda1a0;
+	--color-accent-1: #e79cfb;
+	--color-accent-2: #63c3dd;
+
+	/* Background Colors */
+	--background-primary: var(--milkoutside-bg-primary);
+	--background-primary-alt: var(--milkoutside-bg-secondary);
+	--background-secondary: var(--milkoutside-bg-tertiary);
+	--background-secondary-alt: var(--milkoutside-bg-tab-active);
+	--background-modifier-border: var(--milkoutside-border);
+	--background-modifier-border-hover: var(--milkoutside-border-secondary);
+	--background-modifier-border-focus: var(--milkoutside-accent-red-dark);
+	--background-modifier-error-rgb: 228, 85, 85;
+	--background-modifier-error: rgba(var(--background-modifier-error-rgb), 0.3);
+	--background-modifier-error-hover: rgba(var(--background-modifier-error-rgb), 0.4);
+	--background-modifier-success-rgb: 146, 207, 156;
+	--background-modifier-success: rgba(var(--background-modifier-success-rgb), 0.3);
+	--background-modifier-message: var(--milkoutside-bg-secondary);
+
+	/* Text Colors */
+	--text-normal: var(--milkoutside-text-primary);
+	--text-muted: var(--milkoutside-text-muted);
+	--text-faint: #474747;
+	--text-accent: var(--milkoutside-accent-red-dark);
+	--text-accent-hover: var(--milkoutside-accent-red);
+	--text-on-accent: var(--milkoutside-text-bright);
+	--text-error: var(--milkoutside-accent-red-dark);
+	--text-warning: var(--milkoutside-accent-yellow);
+	--text-success: var(--milkoutside-accent-green);
+
+	/* Interactive Colors */
+	--interactive-normal: var(--milkoutside-bg-secondary);
+	--interactive-hover: var(--milkoutside-bg-tab-active);
+	--interactive-accent: var(--milkoutside-accent-red-dark);
+	--interactive-accent-hover: var(--milkoutside-accent-red);
+	--interactive-success: var(--milkoutside-accent-green);
+
+	/* Scrollbar */
+	--scrollbar-active-thumb-bg: rgba(228, 85, 85, 0.5);
+	--scrollbar-bg: transparent;
+	--scrollbar-thumb-bg: rgba(228, 85, 85, 0.3);
+
+	/* Borders and Dividers */
+	--divider-color: var(--milkoutside-border);
+	--divider-color-hover: var(--milkoutside-border-secondary);
+
+	/* Tab Colors */
+	--tab-background-active: var(--milkoutside-bg-tab-active);
+	--tab-text-color-active: #e8e8e8;
+	--tab-text-color-inactive: var(--milkoutside-text-muted);
+	--tab-outline-color: var(--milkoutside-border-secondary);
+
+	/* Button Colors */
+	--button-default-bg: rgba(228, 85, 85, 0.8);
+	--button-default-color: var(--milkoutside-text-bright);
+	--button-default-border-color: transparent;
+	--button-hover-bg: var(--milkoutside-accent-red-dark);
+	--button-active-bg: var(--milkoutside-accent-red-dark);
+
+	/* Input Colors */
+	--input-bg: var(--milkoutside-bg-secondary);
+	--input-border-color: var(--milkoutside-border);
+	--input-text-color: var(--milkoutside-text-primary);
+	--input-placeholder-color: var(--milkoutside-text-muted);
+
+	/* Selection Colors */
+	--text-selection: var(--milkoutside-selection);
+	--text-highlight-bg: var(--milkoutside-highlight);
+
+	/* Code Colors */
+	--code-background: var(--milkoutside-bg-tertiary);
+	--code-normal: var(--milkoutside-text-primary);
+	--code-comment: #595959;
+	--code-function: var(--milkoutside-accent-blue);
+	--code-important: var(--milkoutside-accent-red);
+	--code-keyword: var(--milkoutside-accent-purple);
+	--code-operator: var(--milkoutside-accent-cyan);
+	--code-property: var(--milkoutside-accent-green);
+	--code-punctuation: var(--milkoutside-text-primary);
+	--code-string: var(--milkoutside-accent-yellow);
+	--code-tag: var(--milkoutside-accent-teal);
+	--code-value: var(--milkoutside-accent-orange);
+
+	/* Syntax Highlighting */
+	--syntax-highlighting-keyword: var(--milkoutside-accent-purple);
+	--syntax-highlighting-string: var(--milkoutside-accent-yellow);
+	--syntax-highlighting-function: var(--milkoutside-accent-blue);
+	--syntax-highlighting-comment: #595959;
+	--syntax-highlighting-number: var(--milkoutside-accent-orange);
+	--syntax-highlighting-operator: var(--milkoutside-accent-cyan);
+	--syntax-highlighting-variable: var(--milkoutside-accent-green);
+	--syntax-highlighting-class: var(--milkoutside-accent-cyan);
+	--syntax-highlighting-constant: var(--milkoutside-accent-blue);
+	--syntax-highlighting-tag: var(--milkoutside-accent-teal);
+	--syntax-highlighting-attribute: var(--milkoutside-accent-green);
+
+	/* Graph Colors */
+	--graph-line: var(--milkoutside-border);
+	--graph-node: var(--milkoutside-accent-red);
+	--graph-node-unresolved: var(--milkoutside-text-muted);
+	--graph-node-focused: var(--milkoutside-accent-blue);
+	--graph-node-tag: var(--milkoutside-accent-green);
+	--graph-node-attachment: var(--milkoutside-accent-orange);
+
+	/* Calendar Colors */
+	--calendar-hover: var(--milkoutside-bg-tab-active);
+	--calendar-background-hover: var(--milkoutside-bg-secondary);
+	--calendar-week: var(--milkoutside-text-muted);
+	--calendar-today: var(--milkoutside-accent-red);
+
+	/* Tag Colors */
+	--tag-background: var(--milkoutside-bg-secondary);
+	--tag-background-hover: var(--milkoutside-bg-tab-active);
+	--tag-border: var(--milkoutside-border);
+	--tag-color: var(--milkoutside-accent-blue);
+
+	/* Checkbox Colors */
+	--checkbox-color: var(--milkoutside-accent-red-dark);
+	--checkbox-color-hover: var(--milkoutside-accent-red);
+	--checkbox-border: var(--milkoutside-border);
+	--checkbox-border-hover: var(--milkoutside-accent-red-dark);
+
+	/* Progress Bar Colors */
+	--progress-bar-bg: var(--milkoutside-bg-secondary);
+	--progress-bar-fill: var(--milkoutside-accent-red-dark);
+
+	/* Modal Colors */
+	--modal-background: var(--milkoutside-bg-primary);
+	--modal-border: var(--milkoutside-border);
+	--modal-backdrop: rgba(4, 6, 7, 0.8);
+
+	/* Tooltip Colors */
+	--tooltip-bg: var(--milkoutside-bg-tertiary);
+	--tooltip-color: var(--milkoutside-text-primary);
+	--tooltip-border: var(--milkoutside-border);
+
+	/* Menu Colors */
+	--menu-background: var(--milkoutside-bg-primary);
+	--menu-border: var(--milkoutside-border);
+	--menu-item-background-hover: var(--milkoutside-bg-tab-active);
+	--menu-item-background-active: var(--milkoutside-selection);
+	--menu-item-color: var(--milkoutside-text-primary);
+	--menu-item-color-hover: var(--milkoutside-text-bright);
+
+	/* Sidebar Colors */
+	--nav-item-background-hover: var(--milkoutside-bg-tab-active);
+	--nav-item-background-active: var(--milkoutside-selection);
+	--nav-item-background-selected: var(--milkoutside-bg-tab-active);
+	--nav-item-color: var(--milkoutside-text-muted);
+	--nav-item-color-hover: var(--milkoutside-text-primary);
+	--nav-item-color-active: var(--milkoutside-text-bright);
+	--nav-item-color-selected: var(--milkoutside-text-bright);
+	--nav-item-weight-hover: normal;
+	--nav-item-weight-active: normal;
+	--nav-collapse-icon-color: var(--milkoutside-text-muted);
+	--nav-collapse-icon-color-collapsed: var(--milkoutside-text-muted);
+
+	/* Status Bar Colors */
+	--status-bar-background: var(--milkoutside-bg-primary);
+	--status-bar-border: var(--milkoutside-border-secondary);
+	--status-bar-text: var(--milkoutside-text-muted);
+
+	/* Title Bar Colors */
+	--titlebar-background: var(--milkoutside-bg-primary);
+	--titlebar-background-focused: var(--milkoutside-bg-primary);
+	--titlebar-border: var(--milkoutside-border-secondary);
+	--titlebar-text: #e8e8e8;
+	--titlebar-text-weight: normal;
+
+	/* Search Colors */
+	--search-result-background: var(--milkoutside-bg-secondary);
+	--search-clear-button-color: var(--milkoutside-text-muted);
+	--search-clear-button-color-hover: var(--milkoutside-text-primary);
+	--search-icon-color: var(--milkoutside-text-muted);
+	--search-icon-color-active: var(--milkoutside-accent-red);
+	--search-text-clear: var(--milkoutside-text-muted);
+
+	/* File Colors */
+	--file-header-font-weight: 600;
+	--file-line-width: 700px;
+	--file-folding-offset: 24px;
+	--file-margins: 44px;
+
+	/* Vault Colors */
+	--vault-name-font-size: var(--font-ui-small);
+	--vault-name-font-weight: 500;
+	--vault-name-color: var(--milkoutside-text-muted);
+
+	/* Workspace Colors */
+	--workspace-background-translucent: rgba(4, 6, 7, 0.85);
+
+	/* Ribbon Colors */
+	--ribbon-background: var(--milkoutside-bg-primary);
+	--ribbon-background-collapsed: var(--milkoutside-bg-primary);
+
+	/* Icon Colors */
+	--icon-color: var(--milkoutside-text-muted);
+	--icon-color-hover: var(--milkoutside-text-primary);
+	--icon-color-active: var(--milkoutside-accent-red-dark);
+	--icon-color-focused: var(--milkoutside-accent-red-dark);
+
+	/* Indentation Guide Colors */
+	--indentation-guide-color: rgba(228, 85, 85, 0.32);
+	--indentation-guide-color-active: #e45555;
+
+	/* Embed Colors */
+	--embed-background: var(--milkoutside-bg-secondary);
+	--embed-border-left: 2px solid var(--milkoutside-accent-red);
+	--embed-border-right: none;
+	--embed-border-top: none;
+	--embed-border-bottom: none;
+	--embed-padding: 0 0 0 20px;
+	--embed-font-style: italic;
+
+	/* Blockquote Colors */
+	--blockquote-border: 2px solid var(--milkoutside-accent-blue);
+	--blockquote-background-color: rgba(99, 195, 221, 0.1);
+	--blockquote-font-style: italic;
+	--blockquote-color: var(--milkoutside-text-primary);
+
+	/* Table Colors */
+	--table-background: var(--milkoutside-bg-primary);
+	--table-border-width: 1px;
+	--table-border-color: var(--milkoutside-border);
+	--table-header-background: var(--milkoutside-bg-secondary);
+	--table-header-background-hover: var(--milkoutside-bg-tab-active);
+	--table-header-border-width: 1px;
+	--table-header-border-color: var(--milkoutside-border);
+	--table-header-font: inherit;
+	--table-header-font-size: var(--font-smaller);
+	--table-header-font-weight: 600;
+	--table-header-color: var(--milkoutside-text-primary);
+	--table-text-color: var(--milkoutside-text-primary);
+	--table-row-background-hover: var(--milkoutside-bg-secondary);
+	--table-row-alt-background: rgba(89, 89, 89, 0.05);
+	--table-column-max-width: none;
+	--table-column-alt-background: rgba(89, 89, 89, 0.05);
+
+	/* List Colors */
+	--list-indent: 2em;
+	--list-spacing: 0.075em;
+	--list-marker-color: var(--milkoutside-accent-blue);
+	--list-marker-color-hover: var(--milkoutside-accent-red);
+	--list-marker-color-collapsed: var(--milkoutside-text-muted);
+
+	/* Heading Colors */
+	--h1-color: var(--milkoutside-accent-red);
+	--h2-color: var(--milkoutside-accent-blue);
+	--h3-color: var(--milkoutside-accent-purple);
+	--h4-color: var(--milkoutside-accent-green);
+	--h5-color: var(--milkoutside-accent-yellow);
+	--h6-color: var(--milkoutside-accent-orange);
+	--h1-font: inherit;
+	--h2-font: inherit;
+	--h3-font: inherit;
+	--h4-font: inherit;
+	--h5-font: inherit;
+	--h6-font: inherit;
+	--h1-line-height: 1.2;
+	--h2-line-height: 1.2;
+	--h3-line-height: 1.2;
+	--h4-line-height: 1.2;
+	--h5-line-height: 1.2;
+	--h6-line-height: 1.2;
+	--h1-size: 1.875em;
+	--h2-size: 1.5em;
+	--h3-size: 1.25em;
+	--h4-size: 1.125em;
+	--h5-size: 1em;
+	--h6-size: 1em;
+	--h1-style: normal;
+	--h2-style: normal;
+	--h3-style: normal;
+	--h4-style: normal;
+	--h5-style: normal;
+	--h6-style: normal;
+	--h1-variant: normal;
+	--h2-variant: normal;
+	--h3-variant: normal;
+	--h4-variant: normal;
+	--h5-variant: normal;
+	--h6-variant: normal;
+	--h1-weight: 600;
+	--h2-weight: 600;
+	--h3-weight: 600;
+	--h4-weight: 600;
+	--h5-weight: 600;
+	--h6-weight: 600;
+
+	/* Link Colors */
+	--link-color: var(--milkoutside-accent-blue);
+	--link-color-hover: var(--milkoutside-accent-red-dark);
+	--link-external-color: var(--milkoutside-accent-purple);
+	--link-external-color-hover: var(--milkoutside-accent-red-dark);
+	--link-unresolved-color: var(--milkoutside-text-muted);
+	--link-unresolved-opacity: 0.7;
+	--link-unresolved-filter: none;
+	--link-unresolved-decoration-color: var(--milkoutside-text-muted);
+
+	/* Bold and Italic */
+	--bold-color: var(--milkoutside-accent-green);
+	--bold-weight: 600;
+	--italic-color: var(--milkoutside-accent-purple);
+
+	/* Highlight Colors */
+	--highlight-mix-blend-mode: lighten;
+	--highlight-background: rgba(248, 224, 99, 0.4);
+	--highlight-background-hover: rgba(248, 224, 99, 0.6);
+
+	/* Inline Code */
+	--code-size: 0.875em;
+	--code-white-space: pre-wrap;
+
+	/* HR (Horizontal Rule) */
+	--hr-color: var(--milkoutside-border);
+	--hr-thickness: 2px;
+
+	/* Radius Variables (keeping original minimal style) */
+	--radius-s: 0px;
+	--radius-m: 0px;
+	--radius-l: 0px;
+	--input-radius: 0px;
+	--tab-radius-active: 0px;
+	--checkbox-radius: 0px;
+	--toggle-radius: 0px;
+	--toggle-thumb-radius: 0px;
+	--slider-thumb-radius: 0px;
+}
+
+/* === COMPONENT-SPECIFIC STYLING === */
+
+/* Workspace Tabs */
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
+	display: none;
+}
+
+.workspace-tab-header.is-active {
+	background-color: var(--milkoutside-bg-tab-active);
+	color: var(--milkoutside-text-primary);
+	border-color: var(--milkoutside-border-secondary);
+}
+
+.workspace-tab-header {
+	background-color: var(--milkoutside-bg-tab-inactive);
+	color: var(--milkoutside-text-muted);
+	border-color: var(--milkoutside-border-secondary);
+}
+
+/* SVG Icons */
+svg * {
+	stroke-linecap: square;
+	stroke-linejoin: miter;
+	rx: 0;
+	ry: 0;
+}
+
+/* Menu Styling */
+.menu {
+	padding: var(--size-2-1);
+	background-color: var(--milkoutside-bg-primary);
+	border: 1px solid var(--milkoutside-border);
+}
+
+.menu-item {
+	padding: var(--size-4-1) var(--size-4-2);
+	color: var(--milkoutside-text-primary);
+}
+
+.menu-item:hover {
+	background-color: var(--milkoutside-bg-tab-active);
+	color: var(--milkoutside-text-bright);
+}
+
+.menu-separator {
+	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
+	border-color: var(--milkoutside-border);
+}
+
+/* Syntax Highlighting for Code Blocks */
+.cm-s-obsidian span.cm-comment {
+	color: #595959;
+	font-style: italic;
+}
+
+.cm-s-obsidian span.cm-string {
+	color: var(--milkoutside-accent-yellow);
+}
+
+.cm-s-obsidian span.cm-number {
+	color: var(--milkoutside-accent-orange);
+}
+
+.cm-s-obsidian span.cm-keyword {
+	color: var(--milkoutside-accent-purple);
+	font-style: italic;
+}
+
+.cm-s-obsidian span.cm-operator {
+	color: var(--milkoutside-accent-cyan);
+}
+
+.cm-s-obsidian span.cm-variable {
+	color: var(--milkoutside-accent-green);
+}
+
+.cm-s-obsidian span.cm-variable-2 {
+	color: var(--milkoutside-accent-blue);
+}
+
+.cm-s-obsidian span.cm-def {
+	color: var(--milkoutside-accent-blue);
+	font-style: italic;
+}
+
+.cm-s-obsidian span.cm-bracket {
+	color: var(--milkoutside-text-primary);
+}
+
+.cm-s-obsidian span.cm-tag {
+	color: var(--milkoutside-accent-teal);
+}
+
+.cm-s-obsidian span.cm-attribute {
+	color: var(--milkoutside-accent-green);
+	font-style: italic;
+}
+
+.cm-s-obsidian span.cm-atom {
+	color: var(--milkoutside-accent-blue);
+}
+
+.cm-s-obsidian span.cm-quote {
+	color: #595959;
+	font-style: italic;
+}
+
+/* Editor Cursor */
+.cm-cursor {
+	border-left-color: var(--milkoutside-accent-red-dark);
+}
+
+/* Selection */
+.cm-s-obsidian .CodeMirror-selected {
+	background: var(--milkoutside-selection);
+}
+
+.cm-s-obsidian .CodeMirror-selectedtext {
+	background: transparent;
+}
+
+/* Line Numbers */
+.cm-s-obsidian .CodeMirror-linenumber {
+	color: var(--milkoutside-text-muted);
+}
+
+.cm-s-obsidian .CodeMirror-activeline .CodeMirror-linenumber {
+	color: var(--milkoutside-accent-red);
+}
+
+/* Active Line */
+.cm-s-obsidian .CodeMirror-activeline-background {
+	background: rgba(228, 85, 85, 0.16);
+}
+
+/* Search Highlighting */
+.cm-s-obsidian .cm-searching {
+	background-color: var(--milkoutside-highlight);
+}
+
+/* Fold Markers */
+.cm-s-obsidian .CodeMirror-foldmarker {
+	color: var(--milkoutside-accent-red-dark);
+	background-color: var(--milkoutside-bg-secondary);
+	border: 1px solid var(--milkoutside-border);
+}
+
+/* Gutters */
+.cm-s-obsidian .CodeMirror-gutters {
+	background-color: var(--milkoutside-bg-primary);
+	border-right: 1px solid var(--milkoutside-border);
+}
+
+/* Matching Brackets */
+.cm-s-obsidian .CodeMirror-matchingbracket {
+	background-color: rgba(99, 195, 221, 0.3);
+	color: var(--milkoutside-text-bright) !important;
+}
+
+.cm-s-obsidian .CodeMirror-nonmatchingbracket {
+	background-color: rgba(228, 85, 85, 0.3);
+	color: var(--milkoutside-text-bright) !important;
+}

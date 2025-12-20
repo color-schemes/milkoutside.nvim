@@ -95,6 +95,7 @@ declare -A apps=(
     ["lazygit"]="LazyGit UI"
     ["nvimtree"]="NvimTree plugin"
     ["neotree"]="Neo-tree plugin"
+    ["obsidian"]="Obsidian note-taking app"
     ["opencode"]="OpenCode AI assistant"
     ["process_compose"]="Process Compose"
     ["prism"]="Prism syntax highlighter"
@@ -197,8 +198,16 @@ install_app() {
         "lazygit")
             install_file "$REPO_ROOT/extras/lazygit/milkoutside.yml" "$HOME/.config/lazygit/config.yml"
             ;;
+        "obsidian")
+            install_dir "$REPO_ROOT/extras/obsidian" "$HOME/Notes/.obsidian/themes/milkoutside"
+            echo -e "${YELLOW}Note: Make sure you have a Notes directory and Obsidian is configured to use it${NC}"
+            ;;
         "opencode")
             install_file "$REPO_ROOT/extras/opencode/milkoutside.json" "$HOME/.config/opencode/themes/milkoutside.json"
+            ;;
+        "discord")
+            install_file "$REPO_ROOT/extras/discord/milkoutside.theme.css" "$HOME/.config/BetterDiscord/themes/milkoutside.theme.css"
+            echo -e "${YELLOW}Note: Make sure BetterDiscord is installed and enabled${NC}"
             ;;
         "windows_terminal")
             echo -e "${YELLOW}Windows Terminal config must be added manually${NC}"

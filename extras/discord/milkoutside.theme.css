@@ -1,0 +1,157 @@
+/**
+ * @name Milkoutside
+ * @description A dark, cosmic-inspired discord theme based on the milkoutside.nvim colorscheme
+ * @author milkoutside.nvim
+ * @version 1.0.0
+ * @invite nz87hXyvcy
+ * @website https://github.com/milkoutside/milkoutside.nvim
+ * @source https://github.com/milkoutside/milkoutside.nvim/blob/master/extras/discord/milkoutside.theme.css
+ * @authorId 508863359777505290
+ * @authorLink https://github.com/milkoutside/milkoutside.nvim
+*/
+
+/* import theme modules */
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+
+body {
+    /* font options */
+    --font: ''; /* use default discord font */
+    --code-font: ''; /* use default discord font */
+    font-weight: 400; /* normal text font weight */
+
+    /* sizes */
+    --gap: 12px; /* spacing between panels */
+    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+    --border-thickness: 1px; /* thickness of borders around main panels */
+
+    /* animation/transition options */
+    --animations: on; /* enable animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+    --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+    /* top bar options */
+    --top-bar-height: var(--gap); /* height of the top bar */
+    --top-bar-button-position: titlebar; /* move inbox button to channel titlebar */
+    --top-bar-title-position: off; /* default centered position */
+    --subtle-top-bar-title: off; /* default title styling */
+
+    /* window controls */
+    --custom-window-controls: on; /* custom window controls */
+    --window-control-size: 14px; /* size of custom window controls */
+
+    /* dms button options */
+    --custom-dms-icon: custom; /* use custom icon */
+    --dms-icon-svg-url: url('https://refact0r.github.io/midnight-discord/assets/Font_Awesome_5_solid_moon.svg'); /* moon icon */
+    --dms-icon-svg-size: 90%; /* size of the svg */
+    --dms-icon-color-before: var(--icon-secondary); /* normal icon color */
+    --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
+    --custom-dms-background: off; /* disable custom background */
+
+    /* background image options */
+    --background-image: off; /* no background image */
+
+    /* transparency/blur options */
+    --transparency-tweaks: off; /* no transparency tweaks */
+    --remove-bg-layer: off; /* keep base background layer */
+    --panel-blur: off; /* no panel blur */
+    --bg-floating: var(--bg-3); /* floating panel background */
+
+    /* chatbar options */
+    --custom-chatbar: off; /* default chatbar */
+    --chatbar-height: 47px; /* height of the chatbar */
+
+    /* other options */
+    --small-user-panel: on; /* smaller user panel */
+}
+
+/* color options */
+:root {
+    --colors: on; /* enable midnight custom colors */
+
+    /* text colors - using milkoutside palette */
+    --text-0: var(--bg-4); /* text on colored elements */
+    --text-1: hsl(220, 10%, 93%); /* other normally white text - close to #e8e8e8 */
+    --text-2: hsl(220, 15%, 85%); /* headings and important text - close to #e0e0e0 */
+    --text-3: hsl(220, 20%, 75%); /* normal text */
+    --text-4: hsl(220, 15%, 35%); /* icon buttons and channels - close to #595959 */
+    --text-5: hsl(220, 15%, 20%); /* muted channels/chats and timestamps */
+
+    /* background and dark colors - matching opencode theme with pure black */
+    --bg-1: hsla(0, 0%, 15%, 1); /* dark buttons when clicked - #262626 */
+    --bg-2: hsla(220, 15%, 8%, 1); /* dark buttons - close to #0f0f15 */
+    --bg-3: hsla(220, 15%, 4%, 1); /* spacing, secondary elements - close to #040607 */
+    --bg-4: hsla(0, 0%, 0%, 1); /* main background color - pure black #000000 */
+    --hover: hsla(0, 65%, 50%, 0.15); /* channels and buttons when hovered - using milkoutside red */
+    --active: hsla(0, 65%, 50%, 0.25); /* channels and buttons when clicked or selected */
+    --active-2: hsla(0, 65%, 50%, 0.35); /* extra state for transparent buttons */
+    --message-hover: hsla(0, 0%, 0%, 0.1); /* messages when hovered */
+
+    /* accent colors - using milkoutside red palette with proper hierarchy */
+    --accent-1: #fda1a0; /* links and other accent text - bright milkoutside red */
+    --accent-2: #e45555; /* small accent elements - darker milkoutside red */
+    --accent-3: #e45555; /* accent buttons - darker red */
+    --accent-4: #fda1a0; /* accent buttons when hovered - bright red */
+    --accent-5: #e45555; /* accent buttons when clicked - darker red */
+    --accent-new: #e45555; /* stuff that's normally red like mute/deafen buttons */
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent); /* background of messages that mention you */
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
+
+    /* status indicator colors - using milkoutside palette with red dominance */
+    --online: #fda1a0; /* online status - bright milkoutside red */
+    --dnd: #e45555; /* do not disturb - darker milkoutside red */
+    --idle: var(--yellow-2); /* idle - using milkoutside yellow */
+    --streaming: var(--purple-2); /* streaming - using milkoutside purple */
+    --offline: var(--text-4); /* offline - using muted text color */
+
+    /* border colors */
+    --border-light: var(--hover); /* general light border color */
+    --border: var(--active); /* general normal border color */
+    --border-hover: var(--active); /* border color of panels when hovered */
+    --button-border: hsl(220, 0%, 100%, 0.1); /* neutral border color of buttons */
+
+    /* base colors - exact milkoutside palette values */
+    --red-1: #fda1a0; /* bright milkoutside red */
+    --red-2: #e45555; /* darker milkoutside red */
+    --red-3: #db4b4b; /* dark red */
+    --red-4: oklch(60% 0.12 0); /* darker red */
+    --red-5: oklch(55% 0.12 0); /* darkest red */
+
+    --green-1: oklch(75% 0.11 170); /* light green - close to #92cf9c */
+    --green-2: oklch(70% 0.11 170); /* medium green - close to #5dd48c */
+    --green-3: oklch(65% 0.11 170); /* dark green - close to #3a9b6d */
+    --green-4: oklch(60% 0.11 170); /* darker green */
+    --green-5: oklch(55% 0.11 160); /* darkest green */
+
+    --blue-1: oklch(75% 0.1 215); /* light blue - close to #a7e3ff */
+    --blue-2: oklch(70% 0.1 215); /* medium blue - close to #63c3dd */
+    --blue-3: oklch(65% 0.1 215); /* dark blue - close to #48b5c7 */
+    --blue-4: oklch(60% 0.1 215); /* darker blue - close to #4fd1e0 */
+    --blue-5: oklch(55% 0.1 215); /* darkest blue - close to #62b9e8 */
+
+    --yellow-1: oklch(80% 0.11 90); /* light yellow - close to #fddc40 */
+    --yellow-2: oklch(75% 0.11 90); /* medium yellow - close to #f8e063 */
+    --yellow-3: oklch(70% 0.11 90); /* dark yellow - close to #ffad00 */
+    --yellow-4: oklch(65% 0.11 90); /* darker yellow */
+    --yellow-5: oklch(60% 0.11 90); /* darkest yellow */
+
+    --purple-1: oklch(75% 0.11 310); /* light purple - close to #e79cfb */
+    --purple-2: oklch(70% 0.11 310); /* medium purple - close to #9d7cd8 */
+    --purple-3: oklch(65% 0.11 310); /* dark purple */
+    --purple-4: oklch(60% 0.11 310); /* darker purple */
+    --purple-5: oklch(55% 0.11 310); /* darkest purple */
+
+    --cyan-1: oklch(75% 0.1 200); /* light cyan - close to #daffff */
+    --cyan-2: oklch(70% 0.1 200); /* medium cyan - close to #7dcfff */
+    --cyan-3: oklch(65% 0.1 200); /* dark cyan - close to #63c3dd */
+    --cyan-4: oklch(60% 0.1 200); /* darker cyan */
+    --cyan-5: oklch(55% 0.1 200); /* darkest cyan */
+
+    --orange-1: oklch(75% 0.12 60); /* light orange - close to #ffad00 */
+    --orange-2: oklch(70% 0.12 60); /* medium orange */
+    --orange-3: oklch(65% 0.12 60); /* dark orange */
+    --orange-4: oklch(60% 0.12 60); /* darker orange */
+    --orange-5: oklch(55% 0.12 60); /* darkest orange */
+}

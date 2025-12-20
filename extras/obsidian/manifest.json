@@ -1,0 +1,8 @@
+{
+	"name": "Milkoutside",
+	"version": "1.0.0",
+	"minAppVersion": "1.0.0",
+	"author": "milkoutside.nvim",
+	"authorUrl": "https://github.com/milkoutside/milkoutside.nvim",
+	"description": "A dark, cosmic-inspired theme for Obsidian based on the milkoutside.nvim colorscheme"
+}

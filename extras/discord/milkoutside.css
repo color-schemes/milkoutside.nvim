@@ -1,97 +1,155 @@
-.theme-light,
-.theme-dark {
-  --header-primary: #e8e8e8;
-  --header-secondary: #e0e0e0;
-  --text-normal: #e8e8e8;
-  --text-muted: #595959;
-  --text-link: #e45555;
-  --text-link-low-saturation: #ff6b6b;
-  --text-positive: #92cf9c;
-  --text-warning: #f8e063;
-  --text-danger: #e45555;
-  --text-brand: #e45555;
-  --background-primary: #040607;
-  --bg-base-primary: #040607;
-  --background-secondary: #1a1e2e;
-  --background-secondary-alt: #1a1e2e;
-  --background-tertiary: #000000;
-  --background-accent: #394b70;
-  --background-floating: #1a1e2e;
-  --background-nested-floating: #1a1e2e;
-  --background-mobile-primary: #040607;
-  --background-mobile-secondary: #1a1e2e;
-  --background-mobile-secondary-alt: #1a1e2e;
-  --background-mobile-tertiary: #000000;
-  --background-mobile-accent: #394b70;
-  --background-mobile-floating: #1a1e2e;
-  --background-mobile-nested-floating: #1a1e2e;
-  --background-raised: #1a1e2e;
-  --background-modifier-hover: #394b70;
-  --background-modifier-active: #e45555;
-  --background-modifier-selected: #e45555;
-  --background-modifier-border: #394b70;
-  --background-modifier-border-active: #e45555;
-  --background-modifier-border-selected: #e45555;
-  --background-alt: #1a1e2e;
-  --background-info: #394b70;
-  --background-warning: #394b70;
-  --background-success: #394b70;
-  --background-danger: #394b70;
-  --background-brand: #e45555;
-  --background-server-online: #92cf9c;
-  --background-server-offline: #595959;
-  --background-server-selected: #394b70;
-  --background-progress: #394b70;
-  --scrollbar-thumb: #63c3dd;
-  --scrollbar-track: #1a1e2e;
-  --radiobutton-checked: #e45555;
-  --background-input: #1a1e2e;
-  --background-input-alt: #000000;
-  --chat-background: #040607;
-  --chat-sent: #394b70;
-  --status-positive: #92cf9c;
-  --status-warning: #f8e063;
-  --status-danger: #e45555;
-  --status-info: #63c3dd;
-  --status-offline: #595959;
-  --header-button: #394b70;
-  --background-code-inline: #1a1e2e;
-  --interactive-normal: #394b70;
-  --interactive-hover: #e45555;
-  --interactive-active: #e45555;
-  --interactive-muted: #1a1e2e;
-  --background-token-response: #1a1e2e;
-  --background-search: #1a1e2e;
-  --color-mention-message: #e45555;
-  --color-reply-message: #394b70;
-  --color-link-message: #e45555;
-  --background-spotify: #191414;
-  --background-twitch: #18191b;
-  --background-youtube: #0f0f0f;
-  --background-custom: #191414;
-  --channel-icon: #e45555;
-  --channel-text: #e8e8e8;
-  --channel-button-background: #394b70;
-  --channel-button-hover: #e45555;
-  --channel-button-active: #e45555;
-  --voice-channel-icon: #92cf9c;
-  --voice-channel-text: #e8e8e8;
-  --voice-channel-button-background: #394b70;
-  --voice-channel-button-hover: #e45555;
---voice-channel-button-active: #e45555;
-  --stage-background: #1a1e2e;
-  --stage-button: #394b70;
-  --stage-button-hover: #e45555;
-  --stage-button-active: #e45555;
-  --control-button: #394b70;
-  --control-button-hover: #e45555;
-  --control-button-active: #e45555;
-  --control-button-active-background: #e45555;
-  --expand-button: #394b70;
-  --expand-button-hover: #e45555;
-  --filter-chip: #394b70;
-  --filter-chip-hover: #e45555;
-  --filter-chip-active: #e45555;
-  --progress-bar: #394b70;
-  --progress-bar-fill: #e45555;
+/**
+ * @name Milkoutside
+ * @author milkoutside.nvim
+ * @description A dark, cosmic-inspired theme for Discord based on the milkoutside.nvim colorscheme
+ * @version 1.0.0
+ * @source https://github.com/milkoutside/milkoutside.nvim
+ * @website https://github.com/milkoutside/milkoutside.nvim
+ */
+
+:root {
+    /* Background colors matching opencode theme */
+    --background-primary: #040607;
+    --background-secondary: #1a1e2e;
+    --background-secondary-alt: #0f0f15;
+    --background-tertiary: #000000;
+    --background-accent: #0f0f15;
+    --background-floating: #000000;
+    --background-nested-floating: #1a1e2e;
+    --background-mobile-primary: #040607;
+    --background-mobile-secondary: #1a1e2e;
+    --background-mobile-secondary-alt: #0f0f15;
+    --background-mobile-tertiary: #000000;
+    --background-mobile-accent: #0f0f15;
+    --background-mobile-floating: #000000;
+    --background-mobile-nested-floating: #1a1e2e;
+    --background-raised: #1a1e2e;
+    --background-modifier-hover: #0f0f15;
+    --background-modifier-active: #394b70;
+    --background-modifier-selected: #394b70;
+    --background-modifier-border: #303030;
+    --background-modifier-border-active: #394b70;
+    --background-modifier-border-selected: #394b70;
+    --background-alt: #1a1e2e;
+    --background-info: #0f0f15;
+    --background-warning: #0f0f15;
+    --background-success: #0f0f15;
+    --background-danger: #0f0f15;
+    --background-brand: #394b70;
+    --background-server-online: #92cf9c;
+    --background-server-offline: #595959;
+    --background-server-selected: #0f0f15;
+    --background-progress: #303030;
+    --scrollbar-thumb: #63c3dd;
+    --scrollbar-track: #000000;
+    --background-input: #0f0f15;
+    --background-input-alt: #000000;
+    --chat-background: #040607;
+    --chat-sent: #0f0f15;
+
+    /* RGB color values from milkoutside palette */
+    --primary: 4, 6, 7;           /* bg - Main background */
+    --secondary: 26, 30, 46;      /* bg_dark1 - Secondary background */
+    --tertiary: 15, 15, 21;        /* bg_highlight - Highlight background */
+    --floating: 0, 0, 0;           /* bg_dark - Pure black for popups */
+    --accent: 99, 195, 221;        /* blue - Primary accent */
+    --accent-hover: 72, 181, 199;  /* blue0 - Darker blue */
+    --green: 146, 207, 156;        /* green - Success/green */
+    --red: 253, 161, 160;          /* red - Danger/error red */
+    --yellow: 248, 224, 99;        /* yellow - Warning yellow */
+    --purple: 231, 156, 251;        /* magenta - Purple accent */
+    --orange: 255, 173, 0;         /* orange - Orange accent */
+    --teal: 26, 188, 156;          /* teal - Teal accent */
+    --cyan: 125, 255, 255;         /* cyan - Cyan accent */
+    --dark-gray: 48, 48, 48;       /* dark3 - Dark gray */
+    --mid-gray: 71, 71, 71;        /* dark5 - Mid gray */
+    --text-normal: 232, 232, 232;  /* fg - Normal text */
+    --text-muted: 89, 89, 89;      /* comment - Muted text */
+    --text-dark: 224, 224, 224;    /* fg_dark - Darker text */
+
+    /* Text colors */
+    --header-primary: #e8e8e8;
+    --header-secondary: #e0e0e0;
+    --text-normal: #e8e8e8;
+    --text-muted: #595959;
+    --text-link: #63c3dd;
+    --text-link-low-saturation: #48b5c7;
+    --text-positive: #92cf9c;
+    --text-warning: #f8e063;
+    --text-danger: #fda1a0;
+    --text-brand: #63c3dd;
+
+    /* Interactive elements */
+    --interactive-normal: #63c3dd;
+    --interactive-hover: #48b5c7;
+    --interactive-active: #63c3dd;
+    --interactive-muted: #595959;
+
+    /* Additional UI elements */
+    --background-token-response: #0f0f15;
+    --background-search: #0f0f15;
+    --color-mention-message: #63c3dd;
+    --color-reply-message: #0f0f15;
+    --color-link-message: #63c3dd;
+    
+    /* Channel styling */
+    --channel-icon: #63c3dd;
+    --channel-text: #e8e8e8;
+    --channel-button-background: #0f0f15;
+    --channel-button-hover: #394b70;
+    --channel-button-active: #63c3dd;
+    
+    /* Voice channel styling */
+    --voice-channel-icon: #92cf9c;
+    --voice-channel-text: #e8e8e8;
+    --voice-channel-button-background: #0f0f15;
+    --voice-channel-button-hover: #394b70;
+    --voice-channel-button-active: #63c3dd;
+    
+    /* Stage styling */
+    --stage-background: #000000;
+    --stage-button: #0f0f15;
+    --stage-button-hover: #394b70;
+    --stage-button-active: #63c3dd;
+    
+    /* Control buttons */
+    --control-button: #0f0f15;
+    --control-button-hover: #394b70;
+    --control-button-active: #63c3dd;
+    --control-button-active-background: #394b70;
+    
+    /* Expand buttons */
+    --expand-button: #0f0f15;
+    --expand-button-hover: #394b70;
+    
+    /* Filter chips */
+    --filter-chip: #0f0f15;
+    --filter-chip-hover: #394b70;
+    --filter-chip-active: #63c3dd;
+    
+    /* Progress bars */
+    --progress-bar: #303030;
+    --progress-bar-fill: #63c3dd;
+
+    /* Status colors */
+    --status-positive: #92cf9c;
+    --status-warning: #f8e063;
+    --status-danger: #fda1a0;
+    --status-info: #63c3dd;
+    --status-offline: #595959;
+
+    /* Header button */
+    --header-button: #0f0f15;
+
+    /* Code styling */
+    --background-code-inline: #1a1e2e;
+
+    /* External app backgrounds */
+    --background-spotify: #191414;
+    --background-twitch: #18191b;
+    --background-youtube: #0f0f0f;
+    --background-custom: #191414;
+
+    /* Radio button */
+    --radiobutton-checked: #63c3dd;
 }
