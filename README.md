@@ -167,18 +167,21 @@ Install the theme with your preferred package manager, such as
 [color-schemes/lazy.nvim](https://github.com/color-schemes/lazy.nvim):
 
 ```lua
-{
-  "color-schemes/milkoutside.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
+return {
+  {
+    "color-schemes/milkoutside.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  }
 }
+
 ```
 
 ## 🚀 Usage
 
 ```lua
-vim.cmd[[colorscheme milkoutside]]
+vim.cmd("colorscheme milkoutside")
 ```
 
 ```vim
