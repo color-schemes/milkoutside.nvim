@@ -1,24 +1,20 @@
 #!/bin/bash
 
-# MilkOutside Extras Installer
-# Installs all extra themes to their respective config directories
+# MilkOutside Extras Installer - Enhanced Version
+# Automatically installs and configures MilkOutside themes across all applications
 
 set -e
 
-# Colors for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
-
-# Get script directory
+# Source common utilities
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(dirname "$SCRIPT_DIR")"
+INSTALL_D_DIR="$SCRIPT_DIR/install.d"
 
-# Create backup directory
-BACKUP_DIR="$HOME/.config/milkoutside-backup-$(date +%Y%m%d-%H%M%S)"
-mkdir -p "$BACKUP_DIR"
+if [ ! -f "$INSTALL_D_DIR/common.sh" ]; then
+    echo "Error: Common utilities not found at $INSTALL_D_DIR/common.sh"
+    exit 1
+fi
+
+source "$INSTALL_D_DIR/common.sh"
 
 # Function to create backup and install file
 install_file() {
@@ -184,6 +180,31 @@ apps=(
     "safari"
     "opera"
     "macos"
+    "gnome_terminal"
+)
+
+# Application categories
+terminal_apps=(
+    "alacritty" "kitty" "foot" "ghostty" "iterm" "konsole" "qterminal"
+    "terminator" "tilix" "termux" "st" "xfceterm" "wezterm" "windows_terminal"
+)
+
+browser_apps=(
+    "firefox" "chrome" "safari" "opera" "vivaldi" "vimium"
+)
+
+editor_apps=(
+    "vim" "helix" "sublime" "nvimtree" "neotree" "snacks"
+)
+
+tool_apps=(
+    "fish" "tmux" "fzf" "lazygit" "gitui" "yazi" "zellij" "dunst" "fuzzel"
+    "btop" "eza" "delta" "xresources" "zathura"
+)
+
+other_apps=(
+    "discord" "slack" "obsidian" "aider" "process_compose" "prism"
+    "opencode" "ish" "aerc" "spotify_player" "tailwindv4" "macos" "gnome_terminal"
 )
 
 # Function to list available apps
@@ -199,222 +220,259 @@ list_apps() {
     echo -e "${GREEN}       $0 --list${NC} (show available)"
 }
 
-# Install specific app
+# Install specific app using modular approach
 install_app() {
     local app="$1"
+    local install_script="$INSTALL_D_DIR/${app}.sh"
     
-    case "$app" in
-        "alacritty")
-            install_file "$REPO_ROOT/extras/alacritty/milkoutside.toml" "$HOME/.config/alacritty/milkoutside.toml"
-            ;;
-        "kitty")
-            install_file "$REPO_ROOT/extras/kitty/milkoutside.conf" "$HOME/.config/kitty/milkoutside.conf"
-            ;;
-        "fish")
-            install_file "$REPO_ROOT/extras/fish/milkoutside.fish" "$HOME/.config/fish/functions/_fish_prompt_milkoutside.fish"
-            mkdir -p "$HOME/.config/fish/themes"
-            install_file "$REPO_ROOT/extras/fish_themes/milkoutside.theme" "$HOME/.config/fish/themes/MilkOutside.theme"
-            ;;
-        "wezterm")
-            install_file "$REPO_ROOT/extras/wezterm/milkoutside.toml" "$HOME/.config/wezterm/milkoutside.toml"
-            ;;
-        "firefox")
-            local firefox_profile=$(get_firefox_profile)
-            if [ -n "$firefox_profile" ]; then
-                local chrome_dir="$firefox_profile/chrome"
-                mkdir -p "$chrome_dir"
-                install_file "$REPO_ROOT/extras/firefox/userChrome.css" "$chrome_dir/userChrome.css"
-                echo -e "${YELLOW}Note: Enable toolkit.legacyUserProfileCustomizations.stylesheets in about:config${NC}"
-            else
-                echo -e "${RED}Firefox profile not found. Make sure Firefox is installed and has been run at least once.${NC}"
-            fi
-            ;;
-        "chrome")
-            if [[ "$OSTYPE" == "darwin"* ]]; then
-                echo -e "${YELLOW}Chrome theme must be installed manually${NC}"
-                echo -e "${BLUE}1. Open Chrome and go to chrome://extensions/${NC}"
-                echo -e "${BLUE}2. Enable 'Developer mode' (toggle in top right)${NC}"
-                echo -e "${BLUE}3. Click 'Load unpacked' and select the extras/chrome directory${NC}"
-                echo -e "${BLUE}4. The theme will be available in Chrome's appearance settings${NC}"
-            else
-                echo -e "${YELLOW}Chrome theme must be installed manually${NC}"
-                echo -e "${BLUE}1. Open Chrome and go to chrome://extensions/${NC}"
-                echo -e "${BLUE}2. Enable 'Developer mode' (toggle in top right)${NC}"
-                echo -e "${BLUE}3. Click 'Load unpacked' and select the extras/chrome directory${NC}"
-                echo -e "${BLUE}4. The theme will be available in Chrome's appearance settings${NC}"
-            fi
-            ;;
-        "opera")
-            echo -e "${YELLOW}Opera theme must be installed manually${NC}"
-            echo -e "${BLUE}1. Open Opera and go to opera://extensions/${NC}"
-            echo -e "${BLUE}2. Enable 'Developer mode' (toggle in top left)${NC}"
-            echo -e "${BLUE}3. Click 'Load unpacked' and select the extras/opera directory${NC}"
-            echo -e "${BLUE}4. The theme will be available in Opera's appearance settings${NC}"
-            ;;
-        "tmux")
-            install_file "$REPO_ROOT/extras/tmux/milkoutside.tmux" "$HOME/.config/tmux/milkoutside.tmux"
-            ;;
-        "dunst")
-            mkdir -p "$HOME/.config/dunst/dunstrc.d"
-            install_file "$REPO_ROOT/extras/dunst/milkoutside.dunstrc" "$HOME/.config/dunst/dunstrc.d/99-milkoutside.conf"
-            ;;
-        "yazi")
-            install_file "$REPO_ROOT/extras/yazi/milkoutside.toml" "$HOME/.config/yazi/theme.toml"
-            ;;
-        "helix")
-            install_file "$REPO_ROOT/extras/helix/milkoutside.toml" "$HOME/.config/helix/themes/milkoutside.toml"
-            ;;
-        "foot")
-            install_file "$REPO_ROOT/extras/foot/milkoutside.ini" "$HOME/.config/foot/milkoutside.ini"
-            ;;
-        "fuzzel")
-            install_file "$REPO_ROOT/extras/fuzzel/milkoutside.ini" "$HOME/.config/fuzzel/milkoutside.ini"
-            ;;
-        "fzf")
-            install_file "$REPO_ROOT/extras/fzf/milkoutside.sh" "$HOME/.config/fzf/milkoutside.sh"
-            ;;
-        "neovim"|"nvim")
-            install_dir "$REPO_ROOT/extras/vim/colors" "$HOME/.config/nvim/colors"
-            install_file "$REPO_ROOT/extras/lua/milkoutside.lua" "$HOME/.config/nvim/colors/milkoutside.lua"
-            ;;
-        "vim")
-            install_dir "$REPO_ROOT/extras/vim/colors" "$HOME/.vim/colors"
-            ;;
-        "lazygit")
-            install_file "$REPO_ROOT/extras/lazygit/milkoutside.yml" "$HOME/.config/lazygit/config.yml"
-            ;;
-        "obsidian")
-            install_dir "$REPO_ROOT/extras/obsidian" "$HOME/Notes/.obsidian/themes/milkoutside"
-            echo -e "${YELLOW}Note: Make sure you have a Notes directory and Obsidian is configured to use it${NC}"
-            ;;
-        "opencode")
-            install_file "$REPO_ROOT/extras/opencode/milkoutside.json" "$HOME/.config/opencode/themes/milkoutside.json"
-            ;;
-        "discord")
-            install_file "$REPO_ROOT/extras/discord/milkoutside.theme.css" "$HOME/.config/BetterDiscord/themes/milkoutside.theme.css"
-            echo -e "${YELLOW}Note: Make sure BetterDiscord is installed and enabled${NC}"
-            ;;
-        "windows_terminal")
-            echo -e "${YELLOW}Windows Terminal config must be added manually${NC}"
-            echo -e "${BLUE}Copy the contents of extras/windows_terminal/milkoutside.json to your Windows Terminal schemes${NC}"
-            ;;
-        "chrome")
-            if [[ "$OSTYPE" == "darwin"* ]]; then
-                echo -e "${YELLOW}Chrome theme must be installed manually${NC}"
-                echo -e "${BLUE}1. Open Chrome and go to chrome://extensions/${NC}"
-                echo -e "${BLUE}2. Enable 'Developer mode' (toggle in top right)${NC}"
-                echo -e "${BLUE}3. Click 'Load unpacked' and select the extras/chrome directory${NC}"
-                echo -e "${BLUE}4. The theme will be available in Chrome's appearance settings${NC}"
-            else
-                echo -e "${YELLOW}Chrome theme must be installed manually${NC}"
-                echo -e "${BLUE}1. Open Chrome and go to chrome://extensions/${NC}"
-                echo -e "${BLUE}2. Enable 'Developer mode' (toggle in top right)${NC}"
-                echo -e "${BLUE}3. Click 'Load unpacked' and select the extras/chrome directory${NC}"
-                echo -e "${BLUE}4. The theme will be available in Chrome's appearance settings${NC}"
-            fi
-            ;;
-        "safari")
-            if [[ "$OSTYPE" == "darwin"* ]]; then
-                echo -e "${YELLOW}Safari theme requires Safari Web Extension development${NC}"
-                echo -e "${BLUE}1. Enable 'Develop menu' in Safari > Preferences > Advanced${NC}"
-                echo -e "${BLUE}2. Open Safari > Develop > Allow Unsigned Extensions${NC}"
-                echo -e "${BLUE}3. Run: open -a Safari '$REPO_ROOT/extras/safari/'${NC}"
-                echo -e "${BLUE}4. The extension will be available in Safari's extensions preferences${NC}"
-            else
-                echo -e "${RED}Safari is only available on macOS${NC}"
-            fi
-            ;;
-        "opera")
-            echo -e "${YELLOW}Opera theme must be installed manually${NC}"
-            echo -e "${BLUE}1. Open Opera and go to opera://extensions/${NC}"
-            echo -e "${BLUE}2. Enable 'Developer mode' (toggle in top left)${NC}"
-            echo -e "${BLUE}3. Click 'Load unpacked' and select the extras/opera directory${NC}"
-            echo -e "${BLUE}4. The theme will be available in Opera's appearance settings${NC}"
-            ;;
-        "macos")
-            if [[ "$OSTYPE" == "darwin"* ]]; then
-                chmod +x "$REPO_ROOT/extras/macos/install.sh"
-                "$REPO_ROOT/extras/macos/install.sh"
-            else
-                echo -e "${RED}macOS theme can only be applied on macOS${NC}"
-            fi
-            ;;
-        *)
-            echo -e "${YELLOW}Unknown application: $app - skipping${NC}"
-            ;;
-    esac
+    # Check if modular install script exists
+    if [ -f "$install_script" ]; then
+        log "INFO" "Installing $app using modular script"
+        if bash "$install_script"; then
+            log "INFO" "Successfully installed $app"
+            return 0
+        else
+            log "ERROR" "Failed to install $app"
+            return 1
+        fi
+    else
+        log "WARN" "No install script found for $app, trying built-in installation"
+        
+        # Fallback to built-in installation for backward compatibility
+        case "$app" in
+            "neovim"|"nvim")
+                install_dir "$REPO_ROOT/extras/vim/colors" "$HOME/.config/nvim/colors"
+                install_file "$REPO_ROOT/extras/lua/milkoutside.lua" "$HOME/.config/nvim/colors/milkoutside.lua"
+                ;;
+            *)
+                log "WARN" "Unknown application: $app - skipping"
+                return 1
+                ;;
+        esac
+    fi
 }
 
 # Install all applications
 install_all() {
-    echo -e "${BLUE}Installing all MilkOutside extras...${NC}"
+    log "INFO" "Installing all MilkOutside extras..."
+    setup_backup
     
-        for app in "${apps[@]}"; do
-            # Skip apps that need manual installation or special handling
-            if [ "$app" = "windows_terminal" ]; then
-                echo -e "${YELLOW}Skipping $app (requires manual installation)${NC}"
-                continue
-            fi
-            
-            # For special apps, check if they're available or if their config dirs exist
-            if [ "$app" = "firefox" ]; then
-                if command -v firefox &> /dev/null; then
-                    install_app "$app" || true
-                else
-                    echo -e "${YELLOW}Skipping $app (not detected)${NC}"
-                fi
-            elif [ "$app" = "nvimtree" ] || [ "$app" = "neotree" ] || [ "$app" = "snacks" ]; then
-                # These are neovim plugins, install if neovim config exists
-                if [ -d "$HOME/.config/nvim" ]; then
-                    install_app "$app" || true
-                else
-                    echo -e "${YELLOW}Skipping $app (neovim config not found)${NC}"
-                fi
-            elif [ "$app" = "macos" ]; then
-                # Only install on macOS
-                if [[ "$OSTYPE" == "darwin"* ]]; then
-                    install_app "$app" || true
-                else
-                    echo -e "${YELLOW}Skipping $app (not on macOS)${NC}"
-                fi
-            else
-                # For regular apps, check if command exists or config directory exists
-                if command -v "$app" &> /dev/null || [ -d "$HOME/.config/$app" ] || [ "$app" = "fish" ] || [ "$app" = "tmux" ]; then
-                    install_app "$app" || true
-                else
-                    echo -e "${YELLOW}Skipping $app (not detected)${NC}"
-                fi
-            fi
-        done
+    local total=${#apps[@]}
+    local current=0
+    
+    for app in "${apps[@]}"; do
+        current=$((current + 1))
+        progress $current $total "$app"
+        
+        if should_install_app "$app"; then
+            install_app "$app" || log "WARN" "Failed to install $app (continuing)"
+        else
+            log "INFO" "Skipping $app (not detected)"
+        fi
+    done
+}
+
+# Install apps by category
+install_category() {
+    local category="$1"
+    local category_apps=()
+    
+    case "$category" in
+        "terminal") category_apps=("${terminal_apps[@]}") ;;
+        "browser") category_apps=("${browser_apps[@]}") ;;
+        "editor") category_apps=("${editor_apps[@]}") ;;
+        "tools") category_apps=("${tool_apps[@]}") ;;
+        "other") category_apps=("${other_apps[@]}") ;;
+        *) 
+            log "ERROR" "Unknown category: $category"
+            return 1
+            ;;
+    esac
+    
+    log "INFO" "Installing $category applications..."
+    setup_backup
+    
+    local total=${#category_apps[@]}
+    local current=0
+    
+    for app in "${category_apps[@]}"; do
+        current=$((current + 1))
+        progress $current $total "$app"
+        
+        if should_install_app "$app"; then
+            install_app "$app" || log "WARN" "Failed to install $app (continuing)"
+        else
+            log "INFO" "Skipping $app (not detected)"
+        fi
+    done
+}
+
+# Enhanced usage information
+show_help() {
+    echo -e "${BLUE}MilkOutside Extras Installer - Enhanced Version${NC}"
+    echo
+    echo -e "${GREEN}Usage:${NC}"
+    echo "  $0 [options] [applications...]"
+    echo
+    echo -e "${GREEN}Options:${NC}"
+    echo "  -h, --help              Show this help message"
+    echo "  -l, --list              List all available applications"
+    echo "  -a, --all               Install all detected applications"
+    echo "  -c, --category CAT      Install by category (terminal|browser|editor|tools|other)"
+    echo "  -i, --interactive       Interactive selection mode"
+    echo "  -f, --force             Force install even if app not detected"
+    echo "  --rollback              Rollback to previous configuration"
+    echo "  --deps                  Install dependencies only"
+    echo "  -d, --debug             Enable debug output"
+    echo "  --keep-backup           Don't delete backup after successful installation"
+    echo
+    echo -e "${GREEN}Categories:${NC}"
+    echo "  terminal  - Terminal emulators (alacritty, kitty, wezterm, etc.)"
+    echo "  browser   - Web browsers (firefox, chrome, safari, etc.)"
+    echo "  editor    - Text editors (vim, helix, sublime, etc.)"
+    echo "  tools     - CLI tools and utilities (fish, tmux, fzf, etc.)"
+    echo "  other     - Other applications (discord, obsidian, etc.)"
+    echo
+    echo -e "${GREEN}Examples:${NC}"
+    echo "  $0 --all                           # Install all detected apps"
+    echo "  $0 --category terminal             # Install all terminal emulators"
+    echo "  $0 alacritty kitty fish            # Install specific apps"
+    echo "  $0 --interactive                    # Select apps interactively"
+    echo "  $0 --force firefox                  # Force install firefox theme"
+    echo
 }
 
 # Main script logic
 if [ $# -eq 0 ]; then
-    echo -e "${RED}No arguments provided.${NC}"
-    list_apps
+    log "ERROR" "No arguments provided."
+    show_help
     exit 1
 fi
 
-case "$1" in
-    "--list"|"-l")
-        list_apps
-        ;;
-    "--all"|"-a")
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        -l|--list)
+            echo -e "${BLUE}Available applications:${NC}"
+            echo
+            for category in terminal browser editor tools other; do
+                echo -e "${CYAN}$category apps:${NC}"
+                case $category in
+                    terminal) apps_list=("${terminal_apps[@]}") ;;
+                    browser) apps_list=("${browser_apps[@]}") ;;
+                    editor) apps_list=("${editor_apps[@]}") ;;
+                    tools) apps_list=("${tool_apps[@]}") ;;
+                    other) apps_list=("${other_apps[@]}") ;;
+                esac
+                for app in "${apps_list[@]}"; do
+                    printf "  ${YELLOW}%-15s${NC} %s\n" "$app" "$(get_app_description "$app")"
+                done
+                echo
+            done
+            exit 0
+            ;;
+        -a|--all)
+            ACTION="install_all"
+            shift
+            ;;
+        -c|--category)
+            ACTION="install_category"
+            CATEGORY="$2"
+            shift 2
+            ;;
+        -i|--interactive)
+            ACTION="interactive"
+            shift
+            ;;
+        -f|--force)
+            export FORCE_INSTALL=1
+            shift
+            ;;
+        --rollback)
+            ACTION="rollback"
+            shift
+            ;;
+        --deps)
+            ACTION="install_deps"
+            shift
+            ;;
+        -d|--debug)
+            export DEBUG=1
+            shift
+            ;;
+        --keep-backup)
+            export KEEP_BACKUP=1
+            shift
+            ;;
+        -*)
+            log "ERROR" "Unknown option: $1"
+            show_help
+            exit 1
+            ;;
+        *)
+            # It's an application name
+            APPS_TO_INSTALL+=("$1")
+            shift
+            ;;
+    esac
+done
+
+# Execute action
+case "${ACTION:-install_apps}" in
+    "install_all")
+        install_dependencies || exit 1
         install_all
         ;;
-    "--help"|"-h")
-        echo -e "${BLUE}MilkOutside Extras Installer${NC}"
-        echo
-        list_apps
+    "install_category")
+        install_dependencies || exit 1
+        install_category "$CATEGORY"
+        ;;
+    "install_apps")
+        if [ ${#APPS_TO_INSTALL[@]} -eq 0 ]; then
+            log "ERROR" "No applications specified."
+            show_help
+            exit 1
+        fi
+        install_dependencies || exit 1
+        setup_backup
+        for app in "${APPS_TO_INSTALL[@]}"; do
+            install_app "$app" || log "WARN" "Failed to install $app (continuing)"
+        done
+        ;;
+    "interactive")
+        install_dependencies || exit 1
+        selected=($(interactive_select "${apps[@]}"))
+        if [ ${#selected[@]} -gt 0 ]; then
+            setup_backup
+            total=${#selected[@]}
+            current=0
+            for app in "${selected[@]}"; do
+                current=$((current + 1))
+                progress $current $total "$app"
+                install_app "$app" || log "WARN" "Failed to install $app (continuing)"
+            done
+        else
+            log "INFO" "No applications selected."
+        fi
+        ;;
+    "rollback")
+        rollback
+        ;;
+    "install_deps")
+        install_dependencies
         ;;
     *)
-        echo -e "${BLUE}Installing selected applications...${NC}"
-        for app in "$@"; do
-            install_app "$app" || true  # Continue even if individual app fails
-        done
+        log "ERROR" "Unknown action: ${ACTION:-install_apps}"
+        show_help
+        exit 1
         ;;
 esac
 
-echo -e "${GREEN}Installation complete!${NC}"
-echo -e "${YELLOW}Backups saved to: $BACKUP_DIR${NC}"
-echo -e "${BLUE}You may need to restart applications or reload their configs.${NC}"
+log "INFO" "Installation complete!"
+log "INFO" "Backups saved to: $BACKUP_DIR"
+log "INFO" "Log file: $LOG_FILE"
+log "INFO" "You may need to restart applications or reload their configurations."
