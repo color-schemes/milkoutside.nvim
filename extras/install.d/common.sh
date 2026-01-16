@@ -93,6 +93,7 @@ install_file() {
     # Backup existing file if it exists
     if [ -f "$dest" ] || [ -L "$dest" ]; then
         local backup_path="$BACKUP_DIR/$(basename "$dest")-$(date +%H%M%S)"
+        mkdir -p "$(dirname "$backup_path")"
         cp -r "$dest" "$backup_path" && log "INFO" "Backed up existing file: $dest"
     fi
     
@@ -117,6 +118,7 @@ install_dir() {
     # Backup existing directory if it exists
     if [ -d "$dest" ]; then
         local backup_path="$BACKUP_DIR/$(basename "$dest")-$(date +%H%M%S)"
+        mkdir -p "$(dirname "$backup_path")"
         cp -r "$dest" "$backup_path" && log "INFO" "Backed up existing directory: $dest"
     fi
     
@@ -233,6 +235,9 @@ should_install_app() {
             ;;
         "windows_terminal")
             [[ "$OS" == "windows" ]]
+            ;;
+        "fish")
+            command_exists "fish"
             ;;
         "nvimtree" | "neotree" | "snacks")
             [ -d "$HOME/.config/nvim" ]

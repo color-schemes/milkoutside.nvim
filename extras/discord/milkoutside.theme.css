@@ -77,10 +77,10 @@ body {
     --text-4: hsl(220, 15%, 35%); /* icon buttons and channels - close to #595959 */
     --text-5: hsl(220, 15%, 20%); /* muted channels/chats and timestamps */
 
-    /* background and dark colors - matching opencode theme with pure black */
-    --bg-1: hsla(0, 0%, 15%, 1); /* dark buttons when clicked - #262626 */
-    --bg-2: hsla(220, 15%, 8%, 1); /* dark buttons - close to #0f0f15 */
-    --bg-3: hsla(220, 15%, 4%, 1); /* spacing, secondary elements - close to #040607 */
+    /* background and dark colors - completely black background */
+    --bg-1: hsla(0, 0%, 10%, 1); /* dark buttons when clicked - #1a1a1a */
+    --bg-2: hsla(0, 0%, 5%, 1); /* dark buttons - #0d0d0d */
+    --bg-3: hsla(0, 0%, 2%, 1); /* spacing, secondary elements - #050505 */
     --bg-4: hsla(0, 0%, 0%, 1); /* main background color - pure black #000000 */
     --hover: hsla(0, 65%, 50%, 0.15); /* channels and buttons when hovered - using milkoutside red */
     --active: hsla(0, 65%, 50%, 0.25); /* channels and buttons when clicked or selected */
@@ -154,4 +154,38 @@ body {
     --orange-3: oklch(65% 0.12 60); /* dark orange */
     --orange-4: oklch(60% 0.12 60); /* darker orange */
     --orange-5: oklch(55% 0.12 60); /* darkest orange */
+}
+
+/* Force completely black background for all elements */
+.appMount-3VJmYg,
+.app-2rEoOp,
+.bg-1QIAus,
+.layer-3I538p,
+.custom-scroller-1Jex45,
+.chat-3bRXXu,
+.sidebar-2K8pFh,
+.content-1jQy2l,
+.container-3YCHwV,
+.panels-j1Uci_,
+.wrapper-3vR61M,
+.mainContent-2h-10V {
+    background-color: #000000 !important;
+}
+
+/* Ensure all panel backgrounds are black */
+.panels-3wFtMD,
+.chat-3bRXXu,
+.sidebar-2K8pFh,
+.channelList-1btIiO,
+.container-3baos1,
+.members-1998pB,
+.members-3WRCxl {
+    background-color: #000000 !important;
+}
+
+/* Remove any remaining background images or gradients */
+[class*="background"],
+[class*="bg"] {
+    background-image: none !important;
+    background: #000000 !important;
 }

@@ -87,27 +87,15 @@ apply_accessibility() {
   fi
 }
 
-# Function to apply custom highlight color via AppleScript
+# Function to apply custom highlight color via defaults
 apply_custom_highlight() {
   echo -e "${BLUE}Setting custom highlight color...${NC}"
 
-  # Use AppleScript to set a custom highlight color that matches our theme
-  osascript <<EOF
-tell application "System Events"
-    -- Create a color from our MilkOutside accent light red (#fda1a0)
-    set highlightColor to {0.992157, 0.631373, 0.627451} -- RGB values for #fda1a0
-    
-    -- Set the highlight color
-    tell appearance preferences
-        set highlight color to highlightColor
-    end tell
-end tell
-EOF
-
-  if [ $? -eq 0 ]; then
-    echo -e "${GREEN}Custom highlight color applied!${NC}"
+  # Use defaults command to set highlight color (more reliable than AppleScript)
+  if defaults write NSGlobalDomain AppleHighlightColor -string "0.992157 0.631373 0.627451 MilkOutside"; then
+    echo -e "${GREEN}✓ Custom highlight color set successfully${NC}"
   else
-    echo -e "${YELLOW}Note: Custom highlight color may require manual adjustment in System Preferences${NC}"
+    echo -e "${YELLOW}⚠ Custom highlight color may require manual adjustment in System Preferences${NC}"
   fi
 }
 

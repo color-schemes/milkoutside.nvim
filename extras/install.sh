@@ -98,7 +98,7 @@ get_app_description() {
         "prism") echo "Prism syntax highlighter" ;;
         "qterminal") echo "QTerminal" ;;
         "slack") echo "Slack client" ;;
-        "snacks") echo "Snacks.nvim plugin" ;;
+     echo "Snacks.nvim plugin" ;;
         "spotify_player") echo "Spotify player" ;;
         "st") echo "Suckless Simple Terminal" ;;
         "sublime") echo "Sublime Text" ;;
@@ -148,8 +148,7 @@ apps=(
     "kitty"
     "konsole"
     "lazygit"
-    "nvimtree"
-    "neotree"
+
     "obsidian"
     "opencode"
     "process_compose"
