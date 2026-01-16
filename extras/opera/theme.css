@@ -7,7 +7,7 @@
   --milkoutside-bg-highlight: rgb(15, 15, 21);
   --milkoutside-fg: rgb(232, 232, 232);
   --milkoutside-fg-dark: rgb(224, 224, 224);
-  --milkoutside-red: rgb(253, 161, 160);
+  --milkoutside-red: rgb(249, 58, 130);
   --milkoutside-red1: rgb(228, 85, 85);
   --milkoutside-green: rgb(146, 207, 156);
   --milkoutside-yellow: rgb(248, 224, 99);
@@ -195,7 +195,7 @@ html {
 .button,
 .ui-button,
 .btn {
-  background-color: var(--milkoutside-button-bg) !important;
+  background-color: var(--milkoutside-bg-highlight) !important;
   color: var(--milkoutside-fg) !important;
   border-color: var(--milkoutside-border) !important;
 }
