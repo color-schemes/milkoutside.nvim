@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "MilkOutside Theme",
+  "version": "1.0",
+  "description": "MilkOutside dark theme for Safari",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["milkoutside.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "MilkOutside Theme",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    "milkoutside.css"
+  ],
+  "developer": {
+    "name": "MilkOutside Theme",
+    "url": "https://github.com/milkoutside/milkoutside.nvim"
+  }
+}

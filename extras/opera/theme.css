@@ -1,0 +1,266 @@
+/* Opera theme CSS for MilkOutside */
+
+:root {
+  /* MilkOutside color palette */
+  --milkoutside-bg: rgb(4, 6, 7);
+  --milkoutside-bg-dark: rgb(0, 0, 0);
+  --milkoutside-bg-highlight: rgb(15, 15, 21);
+  --milkoutside-fg: rgb(232, 232, 232);
+  --milkoutside-fg-dark: rgb(224, 224, 224);
+  --milkoutside-red: rgb(253, 161, 160);
+  --milkoutside-red1: rgb(228, 85, 85);
+  --milkoutside-green: rgb(146, 207, 156);
+  --milkoutside-yellow: rgb(248, 224, 99);
+  --milkoutside-blue: rgb(99, 195, 221);
+  --milkoutside-blue1: rgb(79, 209, 224);
+  --milkoutside-blue2: rgb(98, 185, 232);
+  --milkoutside-magenta: rgb(231, 156, 251);
+  --milkoutside-purple: rgb(157, 124, 216);
+  --milkoutside-cyan: rgb(125, 207, 255);
+  --milkoutside-orange: rgb(255, 173, 0);
+  --milkoutside-border: rgb(48, 48, 48);
+  --milkoutside-border-highlight: rgb(228, 85, 85);
+}
+
+/* Opera browser interface */
+body,
+html {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Opera toolbar */
+.toolbar,
+#navigation-bar,
+#bookmark-bar {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+/* Opera tabs */
+.tab,
+.tab-item {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg-dark) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.tab.active,
+.tab-item.active {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border-highlight) !important;
+}
+
+.tab:hover,
+.tab-item:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
+}
+
+/* Opera URL bar */
+.url-bar,
+.address-field,
+.search-field {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.url-bar:focus,
+.address-field:focus,
+.search-field:focus {
+  border-color: var(--milkoutside-border-highlight) !important;
+  box-shadow: 0 0 0 1px var(--milkoutside-border-highlight) !important;
+}
+
+/* Opera sidebar */
+.sidebar,
+#panels,
+.bookmarks-sidebar {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Opera buttons */
+.toolbar-button,
+.ui-button,
+.nav-button {
+  background-color: transparent !important;
+  color: var(--milkoutside-fg-dark) !important;
+  border-color: transparent !important;
+}
+
+.toolbar-button:hover,
+.ui-button:hover,
+.nav-button:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Opera context menu */
+.context-menu,
+.popup-menu {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.context-menu-item:hover,
+.popup-menu-item:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Opera speed dial */
+.speed-dial,
+.start-page {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.speed-dial-item,
+.dial-item {
+  background-color: var(--milkoutside-bg-dark) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.speed-dial-item:hover,
+.dial-item:hover {
+  border-color: var(--milkoutside-border-highlight) !important;
+  box-shadow: 0 0 0 1px var(--milkoutside-border-highlight) !important;
+}
+
+/* Opera download manager */
+.download-manager,
+.downloads-panel {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.download-item {
+  background-color: var(--milkoutside-bg-dark) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+/* Opera find bar */
+.find-bar {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border-highlight) !important;
+}
+
+.find-bar input {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+/* Opera settings page */
+.settings-page,
+.preferences-page {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.settings-section,
+.preference-section {
+  background-color: var(--milkoutside-bg-dark) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.settings-header,
+.preference-header {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  border-bottom-color: var(--milkoutside-border) !important;
+}
+
+/* Opera modal dialogs */
+.modal,
+.dialog {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.modal-header,
+.dialog-header {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  border-bottom-color: var(--milkoutside-border) !important;
+}
+
+/* Opera buttons */
+.button,
+.ui-button,
+.btn {
+  background-color: var(--milkoutside-button-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.button:hover,
+.ui-button:hover,
+.btn:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.button:active,
+.ui-button:active,
+.btn:active {
+  background-color: var(--milkoutside-border-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Opera close buttons */
+.close-button {
+  background-color: var(--milkoutside-red1) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.close-button:hover {
+  background-color: var(--milkoutside-red) !important;
+}
+
+/* Opera scrollbar */
+::-webkit-scrollbar {
+  background-color: var(--milkoutside-bg) !important;
+  width: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--milkoutside-bg) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--milkoutside-border) !important;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--milkoutside-border-highlight) !important;
+}
+
+/* Opera selection */
+::selection {
+  background-color: var(--milkoutside-blue) !important;
+  color: var(--milkoutside-bg-dark) !important;
+}
+
+/* Opera input fields */
+input,
+textarea,
+select {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--milkoutside-border-highlight) !important;
+  box-shadow: 0 0 0 1px var(--milkoutside-border-highlight) !important;
+}

@@ -1,0 +1,229 @@
+/* Safari extension for MilkOutside theme */
+
+:root {
+  /* MilkOutside color palette */
+  --milkoutside-bg: rgb(4, 6, 7);
+  --milkoutside-bg-dark: rgb(0, 0, 0);
+  --milkoutside-bg-highlight: rgb(15, 15, 21);
+  --milkoutside-fg: rgb(232, 232, 232);
+  --milkoutside-fg-dark: rgb(224, 224, 224);
+  --milkoutside-red: rgb(253, 161, 160);
+  --milkoutside-red1: rgb(228, 85, 85);
+  --milkoutside-green: rgb(146, 207, 156);
+  --milkoutside-yellow: rgb(248, 224, 99);
+  --milkoutside-blue: rgb(99, 195, 221);
+  --milkoutside-blue1: rgb(79, 209, 224);
+  --milkoutside-blue2: rgb(98, 185, 232);
+  --milkoutside-magenta: rgb(231, 156, 251);
+  --milkoutside-purple: rgb(157, 124, 216);
+  --milkoutside-cyan: rgb(125, 207, 255);
+  --milkoutside-orange: rgb(255, 173, 0);
+  --milkoutside-border: rgb(48, 48, 48);
+  --milkoutside-border-highlight: rgb(228, 85, 85);
+}
+
+/* Safari Web Extension */
+body,
+html {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Safari toolbar and navigation */
+.toolbar,
+.navigation-bar,
+.bookmarks-bar {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+/* Safari tabs */
+.tab,
+.tab-item {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg-dark) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.tab.active,
+.tab-item.active {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border-highlight) !important;
+}
+
+.tab:hover,
+.tab-item:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
+}
+
+/* Safari URL bar */
+.url-bar,
+.search-bar {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.url-bar:focus,
+.search-bar:focus {
+  border-color: var(--milkoutside-border-highlight) !important;
+  box-shadow: 0 0 0 1px var(--milkoutside-border-highlight) !important;
+}
+
+/* Safari sidebar */
+.sidebar,
+.bookmarks-sidebar {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Safari buttons */
+.toolbar-button,
+.nav-button {
+  background-color: transparent !important;
+  color: var(--milkoutside-fg-dark) !important;
+}
+
+.toolbar-button:hover,
+.nav-button:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Safari context menu */
+.context-menu {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.context-menu-item:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Safari status bar */
+.status-bar {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+/* Safari download manager */
+.download-manager {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.download-item {
+  background-color: var(--milkoutside-bg-dark) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+/* Safari find bar */
+.find-bar {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border-highlight) !important;
+}
+
+.find-bar input {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+/* Safari developer tools */
+.devtools {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+/* Safari modal dialogs */
+.modal,
+.dialog {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.modal-header,
+.dialog-header {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  border-bottom-color: var(--milkoutside-border) !important;
+}
+
+/* Safari buttons */
+.button,
+.btn {
+  background-color: var(--milkoutside-button-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+.button:hover,
+.btn:hover {
+  background-color: var(--milkoutside-bg-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.button:active,
+.btn:active {
+  background-color: var(--milkoutside-border-highlight) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+/* Safari close buttons */
+.close-button {
+  background-color: var(--milkoutside-red1) !important;
+  color: var(--milkoutside-fg) !important;
+}
+
+.close-button:hover {
+  background-color: var(--milkoutside-red) !important;
+}
+
+/* Safari scrollbar */
+::-webkit-scrollbar {
+  background-color: var(--milkoutside-bg) !important;
+  width: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--milkoutside-bg) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--milkoutside-border) !important;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--milkoutside-border-highlight) !important;
+}
+
+/* Safari selection */
+::selection {
+  background-color: var(--milkoutside-blue) !important;
+  color: var(--milkoutside-bg-dark) !important;
+}
+
+/* Safari input fields */
+input,
+textarea,
+select {
+  background-color: var(--milkoutside-bg-dark) !important;
+  color: var(--milkoutside-fg) !important;
+  border-color: var(--milkoutside-border) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--milkoutside-border-highlight) !important;
+  box-shadow: 0 0 0 1px var(--milkoutside-border-highlight) !important;
+}

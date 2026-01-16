@@ -23,6 +23,34 @@ end
 local M = {}
 
 function M.generate(colors)
+  -- Map the colors to iTerm color names
+  local color_map = {
+    black = colors.terminal_black,
+    red = colors.red,
+    green = colors.green,
+    yellow = colors.yellow,
+    blue = colors.blue,
+    magenta = colors.magenta,
+    cyan = colors.cyan,
+    white = colors.fg,
+    bright_black = colors.terminal_black,
+    bright_red = colors.red1,
+    bright_green = colors.green1,
+    bright_yellow = colors.ext_yellow,
+    bright_blue = colors.blue0,
+    bright_magenta = colors.magenta2,
+    bright_cyan = colors.cyan,
+    bright_white = colors.fg,
+    
+    -- UI colors
+    bg = colors.bg,
+    fg = colors.fg,
+    fg_dark = colors.fg_dark,
+    bg_visual = colors.bg_visual,
+    teal = colors.teal,
+    green1 = colors.green1,
+  }
+  
   local iterm = template(
     [[
 <?xml version="1.0" encoding="UTF-8"?>
@@ -369,7 +397,7 @@ function M.generate(colors)
 	</dict>
 </dict>
 </plist>]],
-    colors
+    color_map
   )
   return iterm
 end
