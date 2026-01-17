@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=MilkOutside
+Comment=A dark, cosmic-inspired GTK theme based on the milkoutside.nvim colorscheme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=MilkOutside
+MetacityTheme=MilkOutside
+IconTheme=Adwaita
+CursorTheme=Adwaita
+ButtonLayout=close,minimize,maximize:

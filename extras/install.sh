@@ -98,7 +98,7 @@ get_app_description() {
         "prism") echo "Prism syntax highlighter" ;;
         "qterminal") echo "QTerminal" ;;
         "slack") echo "Slack client" ;;
-     echo "Snacks.nvim plugin" ;;
+        "snacks") echo "Snacks.nvim plugin" ;;
         "spotify_player") echo "Spotify player" ;;
         "st") echo "Suckless Simple Terminal" ;;
         "sublime") echo "Sublime Text" ;;

@@ -1,0 +1,452 @@
+# MilkOutside GTK Theme CSS
+
+/* Define MilkOutside color palette */
+@define-color bg_color #000000;                        /* Pure black background */
+@define-color fg_color #e8e8e8;                        /* Light gray text */
+@define-color text_color #e0e0e0;                      /* Heading text */
+@define-color selected_bg_color #e45555;              /* MilkOutside red */
+@define-color selected_fg_color #000000;               /* Black on red */
+@define-color tooltip_bg_color #262626;                /* Dark gray */
+@define-color tooltip_fg_color #e8e8e8;                  /* Light gray */
+@define-color view_bg_color #000000;                   /* Pure black view background */
+@define-color view_fg_color #e8e8e8;                   /* Light gray view text */
+@define-color accent_color #fda1a0;                    /* Light MilkOutside red */
+@define-color accent_bg_color #e45555;                /* Darker MilkOutside red */
+@define-color headerbar_bg_color #0d0d0d;              /* Very dark header */
+@define-color headerbar_fg_color #e8e8e8;             /* Light gray header text */
+@define-color headerbar_border_color #1a1a1a;          /* Dark border */
+@define-color menu_bg_color #0a0a0a;                  /* Extremely dark menu */
+@define-color menu_fg_color #e8e8e8;                  /* Light gray menu text */
+@define-color panel_bg_color #050505;                  /* Very dark panel */
+@define-color panel_fg_color #e8e8e8;                  /* Light gray panel text */
+@define-color borders #1a1a1a;                        /* Dark borders */
+@define-color separator_color #262626;                 /* Separator lines */
+@define-color unfocused_bg_color #000000;              /* Unfocused background */
+@define-color unfocused_fg_color #999999;              /* Unfocused text */
+@define-color unfocused_borders #1a1a1a;               /* Unfocused borders */
+@define-color warning_color #fddc40;                  /* MilkOutside yellow */
+@define-color error_color #e45555;                    /* MilkOutside red */
+@define-color success_color #5dd48c;                  /* MilkOutside green */
+@define-color info_color #63c3dd;                     /* MilkOutside blue */
+
+/* Base styles */
+* {
+    -GtkDialog-button-spacing: 4;
+    -GtkDialog-content-area-border: 6;
+    -GtkScrolledWindow-scrollbar-spacing: 0;
+    -GtkTextView-error-underline-color: @error_color;
+    -GtkCheckButton-indicator-size: 16;
+    -GtkRadioButton-indicator-size: 16;
+    -GtkLinkButton-visited-link-color: @accent_color;
+    -GtkPaned-handle-size: 1;
+    -GtkTextView-cursor-aspect-ratio: 0.04;
+    -GtkWidget-text-handle-width: 20;
+    -GtkWidget-text-handle-height: 20;
+    -GtkWindow-resize-grip-default: false;
+    -GtkWindow-resize-grip-height: 26;
+    -GtkWindow-resize-grip-width: 26;
+    -GtkLinkButton-link-color: @accent_color;
+    
+    background-color: @bg_color;
+    color: @fg_color;
+}
+
+/* Window decorations */
+window {
+    background-color: @bg_color;
+    color: @fg_color;
+    border: 1px solid @borders;
+}
+
+/* Header bars and title bars */
+headerbar,
+.titlebar {
+    background: @headerbar_bg_color;
+    border-bottom: 1px solid @headerbar_border_color;
+    border-radius: 0;
+    min-height: 46px;
+    padding: 0 6px;
+    color: @headerbar_fg_color;
+}
+
+headerbar .title,
+.titlebar .title {
+    font-weight: bold;
+    color: @headerbar_fg_color;
+}
+
+headerbar .titlebutton,
+.titlebar .titlebutton {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 24px;
+    min-height: 24px;
+    color: @headerbar_fg_color;
+}
+
+headerbar .titlebutton:hover,
+.titlebar .titlebutton:hover {
+    background: alpha(@accent_color, 0.2);
+    color: @accent_color;
+}
+
+headerbar .titlebutton:active,
+.titlebar .titlebutton:active {
+    background: alpha(@accent_color, 0.3);
+    color: @accent_color;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(to bottom, @bg_color, @tooltip_bg_color);
+    border: 1px solid @borders;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: @fg_color;
+    font-weight: 500;
+    box-shadow: none;
+    outline: none;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, lighten(@bg_color, 5%), lighten(@tooltip_bg_color, 5%));
+    border-color: @accent_color;
+    color: @accent_color;
+}
+
+button:active {
+    background: linear-gradient(to bottom, darken(@bg_color, 5%), darken(@tooltip_bg_color, 5%));
+    border-color: @accent_bg_color;
+    color: @accent_bg_color;
+}
+
+button.suggested-action {
+    background: linear-gradient(to bottom, @accent_color, @accent_bg_color);
+    border-color: @accent_bg_color;
+    color: @selected_fg_color;
+}
+
+button.suggested-action:hover {
+    background: linear-gradient(to bottom, lighten(@accent_color, 5%), lighten(@accent_bg_color, 5%));
+}
+
+button.destructive-action {
+    background: linear-gradient(to bottom, @error_color, darken(@error_color, 10%));
+    border-color: darken(@error_color, 15%);
+    color: #ffffff;
+}
+
+/* Entry boxes */
+entry {
+    background: @tooltip_bg_color;
+    border: 1px solid @borders;
+    border-radius: 4px;
+    padding: 6px 8px;
+    color: @fg_color;
+    box-shadow: inset 0 1px 2px alpha(#000000, 0.1);
+}
+
+entry:focus {
+    border-color: @accent_color;
+    box-shadow: inset 0 1px 2px alpha(#000000, 0.1), 0 0 0 2px alpha(@accent_color, 0.3);
+    outline: none;
+}
+
+/* Menu styling */
+menu,
+menubar,
+.context-menu {
+    background: @menu_bg_color;
+    border: 1px solid @borders;
+    color: @menu_fg_color;
+}
+
+menubar {
+    background: @headerbar_bg_color;
+    border-bottom: 1px solid @headerbar_border_color;
+    padding: 0;
+}
+
+menubar > menuitem {
+    padding: 6px 12px;
+    color: @headerbar_fg_color;
+}
+
+menubar > menuitem:hover {
+    background: alpha(@accent_color, 0.2);
+    color: @accent_color;
+}
+
+menu menuitem {
+    padding: 8px 12px;
+    min-height: 28px;
+}
+
+menu menuitem:hover {
+    background: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+menu separator {
+    background: @separator_color;
+    margin: 4px 0;
+    height: 1px;
+}
+
+/* Scrollbars */
+scrollbar {
+    background: @panel_bg_color;
+    border: none;
+}
+
+scrollbar slider {
+    background: @unfocused_fg_color;
+    border: none;
+    border-radius: 8px;
+    margin: 2px;
+    min-width: 8px;
+    min-height: 8px;
+}
+
+scrollbar slider:hover {
+    background: @fg_color;
+}
+
+scrollbar slider:active {
+    background: @accent_color;
+}
+
+/* Progress bars */
+progressbar {
+    background: @panel_bg_color;
+    border: 1px solid @borders;
+    border-radius: 4px;
+    padding: 1px;
+}
+
+progressbar progress {
+    background: linear-gradient(to right, @accent_color, @accent_bg_color);
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+/* Scale widgets */
+scale {
+    background: @panel_bg_color;
+    border: 1px solid @borders;
+    border-radius: 4px;
+    min-height: 6px;
+    margin: 8px 0;
+}
+
+scale trough {
+    background: @panel_bg_color;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+}
+
+scale trough highlight {
+    background: linear-gradient(to right, @accent_color, @accent_bg_color);
+    border-radius: 3px;
+    outline: none;
+}
+
+scale slider {
+    background: @accent_color;
+    border: 1px solid @accent_bg_color;
+    border-radius: 10px;
+    min-width: 16px;
+    min-height: 16px;
+    margin: -7px 0;
+    box-shadow: 0 2px 4px alpha(#000000, 0.3);
+}
+
+scale slider:hover {
+    background: lighten(@accent_color, 5%);
+}
+
+/* Checkboxes and Radio buttons */
+checkbutton check,
+radiobutton radio {
+    background: @panel_bg_color;
+    border: 2px solid @borders;
+    border-radius: 4px;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+checkbutton:checked check,
+radiobutton:checked radio {
+    background: @accent_color;
+    border-color: @accent_bg_color;
+    background-image: none;
+}
+
+checkbutton:checked check {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6L4.5 8.5L10 3' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+radiobutton radio {
+    border-radius: 50%;
+}
+
+radiobutton:checked radio {
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='black' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='4' cy='4' r='3'/%3E%3C/svg%3E");
+}
+
+/* Switches */
+switch {
+    background: @panel_bg_color;
+    border: 1px solid @borders;
+    border-radius: 10px;
+    min-width: 44px;
+    min-height: 24px;
+}
+
+switch slider {
+    background: @unfocused_fg_color;
+    border-radius: 8px;
+    min-width: 16px;
+    min-height: 16px;
+    margin: 3px;
+}
+
+switch:checked {
+    background: @accent_bg_color;
+    border-color: @accent_bg_color;
+}
+
+switch:checked slider {
+    background: @accent_color;
+    transform: translateX(20px);
+}
+
+/* Tree views and lists */
+treeview.view,
+list {
+    background: @view_bg_color;
+    color: @view_fg_color;
+    border: 1px solid @borders;
+}
+
+treeview.view:selected,
+list row:selected {
+    background: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+treeview.view:hover,
+list row:hover {
+    background: alpha(@accent_color, 0.1);
+}
+
+/* Notebooks tabs */
+notebook {
+    background: @bg_color;
+    border: 1px solid @borders;
+}
+
+notebook header {
+    background: @headerbar_bg_color;
+    border-bottom: 1px solid @borders;
+}
+
+notebook tab {
+    background: @tooltip_bg_color;
+    border: 1px solid @borders;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 8px 16px;
+    margin: 2px;
+    color: @fg_color;
+}
+
+notebook tab:hover {
+    background: lighten(@tooltip_bg_color, 5%);
+    color: @accent_color;
+}
+
+notebook tab:active,
+notebook tab:checked {
+    background: @bg_color;
+    border-bottom: 1px solid @bg_color;
+    color: @accent_color;
+}
+
+/* Toolbars */
+toolbar {
+    background: @headerbar_bg_color;
+    border: 1px solid @borders;
+    padding: 4px;
+}
+
+toolbar button {
+    background: none;
+    border: 1px solid transparent;
+    padding: 6px;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+toolbar button:hover {
+    border-color: @accent_color;
+    background: alpha(@accent_color, 0.1);
+    color: @accent_color;
+}
+
+/* Popovers and tooltips */
+popover {
+    background: @tooltip_bg_color;
+    border: 1px solid @borders;
+    border-radius: 8px;
+    padding: 8px;
+    color: @tooltip_fg_color;
+    box-shadow: 0 4px 12px alpha(#000000, 0.3);
+}
+
+tooltip {
+    background: @tooltip_bg_color;
+    border: 1px solid @borders;
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: @tooltip_fg_color;
+}
+
+/* Status bars */
+statusbar {
+    background: @panel_bg_color;
+    border-top: 1px solid @borders;
+    color: @panel_fg_color;
+    padding: 4px;
+}
+
+/* Message dialog types */
+.message-dialog .dialog-action-area button {
+    padding: 8px 16px;
+}
+
+.message-dialog.warning {
+    border-left: 4px solid @warning_color;
+}
+
+.message-dialog.error {
+    border-left: 4px solid @error_color;
+}
+
+.message-dialog.info {
+    border-left: 4px solid @info_color;
+}
+
+/* Dark overrides for any remaining light elements */
+.background {
+    background: @bg_color;
+    color: @fg_color;
+}
+
+.view {
+    background: @view_bg_color;
+    color: @view_fg_color;
+}
