@@ -45,7 +45,10 @@ get_firefox_profiles() {
 
 # Get Firefox profile directory (for backward compatibility)
 get_firefox_profile() {
-    local profiles=($(get_firefox_profiles))
+    local profiles=()
+while IFS= read -r line; do
+    profiles+=("$line")
+done < <(get_firefox_profiles)
     if [ ${#profiles[@]} -gt 0 ]; then
         echo "${profiles[0]}"
     else
@@ -66,10 +69,7 @@ install_firefox() {
 while IFS= read -r line; do
     firefox_profiles+=("$line")
 done < <(get_firefox_profiles)
-    echo "DEBUG: firefox_profiles count: ${#firefox_profiles[@]}"
-    for i in "${!firefox_profiles[@]}"; do
-        echo "DEBUG: profile $i: '${firefox_profiles[i]}'"
-    done
+    
     
     if [ ${#firefox_profiles[@]} -eq 0 ]; then
         log "ERROR" "Firefox profiles not found. Make sure Firefox is installed and has been run at least once."

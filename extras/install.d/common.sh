@@ -218,7 +218,8 @@ should_install_app() {
             ;;
         "chrome" | "chromium")
             command_exists "google-chrome" || command_exists "chromium" || command_exists "chrome" || \
-            [ -d "$HOME/.config/google-chrome" ] || [ -d "$HOME/.config/chromium" ]
+            [ -d "$HOME/.config/google-chrome" ] || [ -d "$HOME/.config/chromium" ] || \
+            [ -d "$HOME/Library/Application Support/Google/Chrome" ] || [ -d "$HOME/Library/Application Support/Chromium" ]
             ;;
         "safari")
             [[ "$OS" == "macos" ]] && command_exists "safari"
