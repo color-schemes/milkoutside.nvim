@@ -1,0 +1,111 @@
+/* MilkOutside Opera Theme - Custom CSS */
+
+/* Opera browser UI elements */
+.o-browser-toolbar {
+    background-color: #0d0d0d !important;
+}
+
+.o-address-field {
+    background-color: #000000 !important;
+    color: #e8e8e8 !important;
+    border: 1px solid #262626 !important;
+}
+
+.o-tab {
+    background-color: #000000 !important;
+    color: #e8e8e8 !important;
+}
+
+.o-tab.is-active {
+    background-color: #0d0d0d !important;
+    color: #fda1a0 !important;
+}
+
+.o-tab:hover {
+    background-color: #262626 !important;
+}
+
+.o-bookmark-bar {
+    background-color: #0d0d0d !important;
+}
+
+.o-sidebar {
+    background-color: #0d0d0d !important;
+    color: #e8e8e8 !important;
+}
+
+/* Speed Dial */
+.speeddial {
+    background-color: #000000 !important;
+}
+
+.speeddial-item {
+    background-color: #0d0d0d !important;
+    border: 1px solid #262626 !important;
+    color: #e8e8e8 !important;
+}
+
+.speeddial-item:hover {
+    border-color: #fda1a0 !important;
+}
+
+/* Settings pages */
+.settings-content {
+    background-color: #000000 !important;
+    color: #e8e8e8 !important;
+}
+
+.settings-form {
+    background-color: #000000 !important;
+}
+
+.form-input {
+    background-color: #0d0d0d !important;
+    color: #e8e8e8 !important;
+    border: 1px solid #262626 !important;
+}
+
+.form-input:focus {
+    border-color: #fda1a0 !important;
+}
+
+/* Buttons */
+.button-primary {
+    background-color: #e45555 !important;
+    color: #000000 !important;
+    border: none !important;
+}
+
+.button-secondary {
+    background-color: #262626 !important;
+    color: #e8e8e8 !important;
+    border: 1px solid #404040 !important;
+}
+
+/* Extensions page */
+.extensions-grid {
+    background-color: #000000 !important;
+}
+
+.extension-card {
+    background-color: #0d0d0d !important;
+    border: 1px solid #262626 !important;
+    color: #e8e8e8 !important;
+}
+
+/* Context menus */
+.context-menu {
+    background-color: #0d0d0d !important;
+    border: 1px solid #262626 !important;
+    color: #e8e8e8 !important;
+}
+
+.context-menu-item {
+    background-color: transparent !important;
+    color: #e8e8e8 !important;
+}
+
+.context-menu-item:hover {
+    background-color: #e45555 !important;
+    color: #000000 !important;
+}

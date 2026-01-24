@@ -87,11 +87,35 @@ install_opera() {
     log "INFO" "Found Opera installation: $opera_dir"
     log "INFO" "Found Opera profile: $opera_profile"
     
-    # Install user CSS for Opera
+    # Install Opera UI theme (new theming engine)
+    install_opera_ui_theme
+    
+    # Install user CSS for web content
     install_opera_css_theme
     
-    # Create Opera extension for better theming
+    # Create Opera extension for web content theming
     create_opera_extension
+}
+
+# Install Opera UI theme
+install_opera_ui_theme() {
+    local opera_profile=$(get_opera_profile)
+    local theme_dir="$opera_profile/Themes"
+    
+    if [ ! -d "$theme_dir" ]; then
+        mkdir -p "$theme_dir"
+    fi
+    
+    # Install theme file
+    local theme_file="$theme_dir/MilkOutside.theme"
+    if install_file "$REPO_ROOT/extras/opera/milkoutside.theme" "$theme_file" "Opera UI theme"; then
+        log "INFO" "Opera UI theme installed"
+        log "INFO" "To activate the browser UI theme:"
+        log "INFO" "1. Open Opera"
+        log "INFO" "2. Go to opera://settings/appearance"
+        log "INFO" "3. Click 'Add theme' or select 'MilkOutside' from themes"
+        log "INFO" "4. Apply the theme"
+    fi
 }
 
 # Install Opera CSS theme
@@ -122,70 +146,52 @@ create_opera_extension() {
     
     log "INFO" "Creating Opera extension..."
     
-    # Create manifest.json
+    # Copy existing opera extension files
+    if [ -d "$REPO_ROOT/extras/opera" ]; then
+        cp -r "$REPO_ROOT/extras/opera"/* "$ext_dir/"
+    fi
+    
+    # Update manifest to remove unsupported theme API for Opera
     cat > "$ext_dir/manifest.json" << 'EOF'
 {
   "manifest_version": 3,
-  "name": "MilkOutside Opera Theme",
-  "version": "1.0.0",
-  "description": "Dark, cosmic-inspired theme based on milkoutside.nvim colorscheme",
-  "author": "milkoutside.nvim",
-  "homepage_url": "https://github.com/milkoutside/milkoutside.nvim",
+  "name": "MilkOutside Theme",
+  "version": "2.0",
+  "description": "MilkOutside dark theme for Opera - Updated for new theming engine",
   "permissions": [
-    "activeTab",
+    "tabs",
     "storage",
-    "theme"
+    "activeTab"
   ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
+    "default_popup": "popup.html",
     "default_title": "MilkOutside Theme"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["styles.css"],
-      "run_at": "document_start"
+      "css": ["theme.css"],
+      "run_at": "document_start",
+      "all_frames": true
     }
   ],
-  "background": {
-    "service_worker": "background.js"
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
-  "theme": {
-    "colors": {
-      "frame": [0, 0, 0],
-      "frame_inactive": [0, 0, 0],
-      "frame_incognito": [0, 0, 0],
-      "frame_incognito_inactive": [0, 0, 0],
-      "toolbar": [13, 13, 13],
-      "tab_text": [232, 232, 232],
-      "tab_background_text": [232, 232, 232],
-      "bookmark_text": [232, 232, 232],
-      "ntp_background": [0, 0, 0],
-      "ntp_text": [232, 232, 232],
-      "ntp_link": [253, 161, 160],
-      "button_background": [38, 38, 38],
-      "toolbar_button_icon": [232, 232, 232],
-      "address_bar": [15, 15, 15],
-      "address_bar_text": [232, 232, 232],
-      "popup": [13, 13, 13],
-      "popup_text": [232, 232, 232],
-      "popup_border": [38, 38, 38],
-      "sidebar": [13, 13, 13],
-      "sidebar_text": [232, 232, 232],
-      "sidebar_border": [38, 38, 38]
-    },
-    "tints": {
-      "buttons": [0, 0, 0],
-      "frame": [0, 0, 0],
-      "frame_inactive": [0, 0, 0],
-      "frame_incognito": [0, 0, 0],
-      "frame_incognito_inactive": [0, 0, 0]
-    },
-    "properties": {
-      "ntp_background_alignment": "center",
-      "ntp_background_repeat": "no-repeat",
-      "ntp_logo_alternate": 1
+  "web_accessible_resources": [
+    {
+      "resources": ["theme.css"],
+      "matches": ["<all_urls>"]
     }
-  }
+  ]
 }
 EOF
     

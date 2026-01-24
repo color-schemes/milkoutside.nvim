@@ -1,57 +1,49 @@
-// Background script for Opera theme
+// Background script for MilkOutside Opera Theme
+// Opera doesn't support theme API, so we rely on CSS content scripts
+
+// Toggle theme on/off
 chrome.action.onClicked.addListener((tab) => {
-  // Toggle theme on/off
   chrome.storage.sync.get(['themeEnabled'], (result) => {
-    const enabled = result.themeEnabled || false;
+    const enabled = result.themeEnabled !== false; // Default to enabled
     
     if (enabled) {
       // Disable theme
-      chrome.theme.reset();
       chrome.storage.sync.set({ themeEnabled: false });
-      chrome.action.setIcon({ path: 'icons/icon48.png' });
+      chrome.tabs.sendMessage(tab.id, { action: 'disableTheme' }).catch(() => {});
     } else {
       // Enable theme
-      chrome.theme.update({
-        colors: {
-          frame: [4, 6, 7],
-          frame_inactive: [4, 6, 7],
-          toolbar: [0, 0, 0],
-          tab_text: [232, 232, 232],
-          tab_background_text: [224, 224, 224],
-          bookmark_text: [232, 232, 232],
-          ntp_background: [4, 6, 7],
-          ntp_text: [232, 232, 232],
-          ntp_link: [99, 195, 221],
-          ntp_header: [232, 232, 232],
-          ntp_section: [15, 15, 21],
-          ntp_section_text: [232, 232, 232],
-          ntp_section_link: [99, 195, 221],
-          button_background: [48, 48, 48],
-          button_background_hover: [99, 195, 221],
-          button_background_active: [99, 195, 221],
-          omnibox_background: [0, 0, 0],
-          omnibox_text: [232, 232, 232],
-          omnibox_selection_background: [99, 195, 221],
-          omnibox_selection_text: [4, 6, 7],
-          tab_background_text_inactive: [224, 224, 224],
-          background_tab: [0, 0, 0],
-          background_tab_inactive: [0, 0, 0]
-        },
-        tints: {
-          buttons: [0.39, 0.77, 0.86],
-          frame: [-1, -1, -1],
-          frame_inactive: [-1, -1, -1],
-          background_tab: [-1, -1, -1],
-          background_tab_inactive: [-1, -1, -1]
-        }
-      });
       chrome.storage.sync.set({ themeEnabled: true });
-      chrome.action.setIcon({ path: 'icons/icon48-active.png' });
+      chrome.tabs.sendMessage(tab.id, { action: 'enableTheme' }).catch(() => {});
     }
+    
+    // Notify all tabs to update theming
+    chrome.tabs.query({}, (tabs) => {
+      tabs.forEach(tab => {
+        chrome.tabs.sendMessage(tab.id, { 
+          action: enabled ? 'disableTheme' : 'enableTheme' 
+        }).catch(() => {
+          // Ignore errors for tabs that don't have content script
+        });
+      });
+    });
   });
 });
 
 // Initialize theme on startup
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.set({ themeEnabled: false });
+  chrome.storage.sync.set({ themeEnabled: true });
+});
+
+// Handle tab updates to ensure content script is active
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.status === 'complete' && tab.url) {
+    chrome.storage.sync.get(['themeEnabled'], (result) => {
+      const enabled = result.themeEnabled !== false;
+      if (enabled) {
+        chrome.tabs.sendMessage(tabId, { action: 'enableTheme' }).catch(() => {
+          // Content script not ready, will be injected automatically
+        });
+      }
+    });
+  }
 });

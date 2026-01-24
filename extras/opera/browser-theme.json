@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "MilkOutside Browser Theme",
+  "version": "2.0",
+  "description": "MilkOutside theme for Opera browser UI",
+  "theme": {
+    "colors": {
+      "frame": [4, 6, 7],
+      "frame_inactive": [4, 6, 7],
+      "toolbar": [0, 0, 0],
+      "tab_text": [232, 232, 232],
+      "tab_background_text": [224, 224, 224],
+      "bookmark_text": [232, 232, 232],
+      "ntp_background": [4, 6, 7],
+      "ntp_text": [232, 232, 232],
+      "ntp_link": [253, 161, 160],
+      "ntp_header": [232, 232, 232],
+      "ntp_section": [15, 15, 21],
+      "ntp_section_text": [232, 232, 232],
+      "ntp_section_link": [253, 161, 160],
+      "button_background": [48, 48, 48],
+      "button_background_hover": [253, 161, 160],
+      "button_background_active": [228, 85, 85],
+      "omnibox_background": [15, 15, 15],
+      "omnibox_text": [232, 232, 232],
+      "omnibox_selection_background": [253, 161, 160],
+      "omnibox_selection_text": [4, 6, 7],
+      "tab_background_text_inactive": [224, 224, 224],
+      "background_tab": [0, 0, 0],
+      "background_tab_inactive": [0, 0, 0],
+      "sidebar": [13, 13, 13],
+      "sidebar_text": [232, 232, 232],
+      "sidebar_border": [38, 38, 38],
+      "popup": [13, 13, 13],
+      "popup_text": [232, 232, 232],
+      "popup_border": [38, 38, 38],
+      "address_bar": [15, 15, 15],
+      "address_bar_text": [232, 232, 232],
+      "toolbar_button_icon": [232, 232, 232]
+    },
+    "tints": {
+      "buttons": [0.99, 0.63, 0.63],
+      "frame": [-1, -1, -1],
+      "frame_inactive": [-1, -1, -1]
+    },
+    "properties": {
+      "ntp_background_alignment": "bottom",
+      "ntp_background_repeat": "no-repeat",
+      "ntp_logo_alternate": 1
+    }
+  }
+}

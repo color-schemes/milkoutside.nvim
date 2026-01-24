@@ -1,0 +1,58 @@
+# MilkOutside Theme for Opera Browser UI
+# Place this file in Opera's themes directory
+
+[Info]
+Name=MilkOutside
+Author=milkoutside.nvim
+Version=2.0
+
+[Colors]
+# Background colors
+Frame=4,6,7
+FrameInactive=4,6,7
+Toolbar=0,0,0
+NtpBackground=4,6,7
+TabBackground=0,0,0
+TabBackgroundInactive=0,0,0
+ButtonBackground=48,48,48
+AddressBar=15,15,15
+Sidebar=13,13,13
+Popup=13,13,13
+
+# Text colors
+TabText=232,232,232
+TabBackgroundText=224,224,224
+BookmarkText=232,232,232
+NtpText=232,232,232
+NtpLink=253,161,160
+ButtonForeground=232,232,232
+AddressBarText=232,232,232
+SidebarText=232,232,232
+PopupText=232,232,232
+ToolbarButtonIcon=232,232,232
+
+# Accent colors
+NtpHeader=232,232,232
+NtpSection=15,15,21
+NtpSectionText=232,232,232
+NtpSectionLink=253,161,160
+ButtonHover=253,161,160
+ButtonActive=228,85,85
+AddressBarSelection=253,161,160
+AddressBarSelectionText=4,6,7
+ToolbarButtonHover=253,161,160
+
+# Border colors
+SidebarBorder=38,38,38
+PopupBorder=38,38,38
+ButtonBorder=48,48,48
+
+[Tints]
+Buttons=0.99,0.63,0.63
+Frame=-1,-1,-1
+FrameInactive=-1,-1,-1
+
+[Properties]
+NtpBackgroundAlignment=bottom
+NtpBackgroundRepeat=no-repeat
+NtpLogoAlternate=1

@@ -1,14 +1,15 @@
-/* Opera theme CSS for MilkOutside */
+/* MilkOutside Opera Theme - Updated for new Opera theming engine */
 
 :root {
   /* MilkOutside color palette */
   --milkoutside-bg: rgb(4, 6, 7);
   --milkoutside-bg-dark: rgb(0, 0, 0);
   --milkoutside-bg-highlight: rgb(15, 15, 21);
+  --milkoutside-bg-medium: rgb(13, 13, 13);
   --milkoutside-fg: rgb(232, 232, 232);
   --milkoutside-fg-dark: rgb(224, 224, 224);
-  --milkoutside-red: rgb(249, 58, 130);
-  --milkoutside-red1: rgb(228, 85, 85);
+  --milkoutside-accent: rgb(253, 161, 160);
+  --milkoutside-accent-bright: rgb(228, 85, 85);
   --milkoutside-green: rgb(146, 207, 156);
   --milkoutside-yellow: rgb(248, 224, 99);
   --milkoutside-blue: rgb(99, 195, 221);
@@ -20,6 +21,13 @@
   --milkoutside-orange: rgb(255, 173, 0);
   --milkoutside-border: rgb(48, 48, 48);
   --milkoutside-border-highlight: rgb(228, 85, 85);
+}
+
+/* Force dark mode for all websites */
+html, body {
+  background-color: var(--milkoutside-bg) !important;
+  color: var(--milkoutside-fg) !important;
+  color-scheme: dark !important;
 }
 
 /* Opera browser interface */
