@@ -1,0 +1,44 @@
+#!/bin/bash
+# milkoutside - macOS window borders
+#
+# Install:
+#   brew tap FelixKratz/formulae
+#   brew install borders
+#   mkdir -p ~/.config/borders && cp bordersrc ~/.config/borders/bordersrc
+#   brew services start borders
+#
+# Colour format is 0xAARRGGBB - the same order as Windows' ColorizationColor,
+# but NOT the same as AccentColor (ABGR) or DWMWA_BORDER_COLOR (COLORREF,
+# 0x00BBGGRR). Four byte orders across three platforms; check before editing.
+#
+#   #CC0000 -> 0xffcc0000
+#   #404040 -> 0xff404040
+#
+# Needs no SIP changes. yabai's scripting addition does; AeroSpace does not.
+
+options=(
+  style=round
+  width=4.0
+  hidpi=on
+  active_color=0xffcc0000
+  inactive_color=0xff404040
+)
+
+borders "${options[@]}"
+
+# What macOS will NOT give you:
+#
+#   - Pure black surfaces. Dark mode sits around #1E1E1E and SIP blocks the
+#     framework patching older tools like cDock relied on.
+#   - An arbitrary accent colour. System Settings > Appearance offers eight
+#     fixed swatches; red is one, but it is Apple's red.
+#
+# What it will:
+#
+#   - Highlight colour takes any value. Appearance > Highlight colour > Other,
+#     then #CC0000. This is the analogue of Hilight in the Windows theme.
+#   - Reduce transparency (Accessibility > Display) flattens vibrancy, which is
+#     the closest thing to what the contrast theme does on Windows.
+#   - SketchyBar (same author as JankyBorders) replaces the menu bar entirely
+#     and is the only route to a black and red one.
+

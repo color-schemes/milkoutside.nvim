@@ -1,0 +1,47 @@
+/**
+ * milkoutside - Discord
+ *
+ * Paste into Vencord or BetterDiscord custom CSS.
+ *
+ * Under forced-colors, Discord's own stylesheet paints a focus ring on
+ * body::before and hardcodes it:
+ *
+ *   .enable-forced-colors:not(.platform-web).theme-dark.app-focused body:before {
+ *     border-color: gold;
+ *   }
+ *
+ * It derives from no system colour, which is why no Windows theme value moves
+ * it. The unfocused variant is white. Both selectors below are needed: Discord
+ * ships an html-prefixed and a bare form, and matching only one leaves the
+ * other winning on specificity.
+ *
+ * .theme-dark and .app-focused are deliberately omitted so this catches every
+ * state rather than only the focused dark one.
+ */
+
+html.enable-forced-colors:not(.platform-web) body::before,
+.enable-forced-colors:not(.platform-web) body::before {
+  /* content: none would remove the pseudo-element entirely. Kept as border
+     removal so anything else Discord hangs off it still works. */
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/**
+ * Alternative: keep the ring, recolour it to match the DWM border.
+ * Comment out the block above and uncomment this.
+ */
+
+/*
+html.enable-forced-colors:not(.platform-web) body::before,
+.enable-forced-colors:not(.platform-web) body::before {
+  border-color: #660000 !important;
+}
+
+html.enable-forced-colors:not(.platform-web).app-focused body::before,
+.enable-forced-colors:not(.platform-web).app-focused body::before {
+  border-color: #CC0000 !important;
+}
+*/
+
